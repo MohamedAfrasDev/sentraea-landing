@@ -19,7 +19,7 @@ const Hero = () => {
             {/* Dotted pattern overlay */}
 
 
-            <div className='absolute -right-10 top-1/3 scale-200 bottom-0'>
+            <div className='absolute -right-10 top-1/8 md:top-1/3 scale-125 md:scale-200 bottom-0'>
                 <HeroAbstract />
             </div>
             <div className='px-3 md:px-5 flex flex-col items-center justify-center min-h-[85vh] w-full py-16'>
