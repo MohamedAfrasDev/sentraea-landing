@@ -5,24 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 type ChamberKey = 'clarify' | 'teach' | 'solve' | 'build';
 
-const CHAMBER_CONTENT: Record<ChamberKey, { title: string; description: string }> = {
-    clarify: {
-        title: 'Clarify',
-        description: 'Distill complexity into precise understanding. Surface the question beneath the question.',
-    },
-    teach: {
-        title: 'Teach',
-        description: 'Transfer knowledge with structure. Build mental models that compound over time.',
-    },
-    solve: {
-        title: 'Solve',
-        description: 'Reason from first principles. Decompose problems until each step is obvious.',
-    },
-    build: {
-        title: 'Build',
-        description: 'Translate thought into artifact. Ship working systems grounded in rigor.',
-    },
-};
+
 
 // Chamber bounding boxes — corrected to match the visual layout
 // Upper row: Clarify (left of T-divider), Teach (right of T-divider)
@@ -43,7 +26,7 @@ const CHAMBER_BOUNDS: Record<ChamberKey, ChamberBound> = {
     solve: { x: 170, y: 1170, w: 750, h: 880, labelX: 370, labelY: 1720, anchor: 'start' },
     build: { x: 1070, y: 1170, w: 1000, h: 880, labelX: 1780, labelY: 1720, anchor: 'end' },
 };
-const HeroDiagram = () => {
+const HeroAbstract = () => {
     const [activeChamber, setActiveChamber] = useState<ChamberKey | null>(null);
     const [proofTooltip, setProofTooltip] = useState(false);
 
@@ -51,7 +34,7 @@ const HeroDiagram = () => {
         <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center opacity-90">
             <svg
                 viewBox="-50 -50 2300 2500"
-                className="w-full h-full text-gray-500/50 dark:text-foreground/40"
+                className="w-full h-full text-gray-400/30 dark:text-foreground/20"
                 xmlns="http://www.w3.org/2000/svg"
                 strokeWidth={10}
             >
@@ -126,7 +109,7 @@ const HeroDiagram = () => {
                 </AnimatePresenceSvgWrapper>
 
                 {/* Static chamber labels — now correctly positioned */}
-                <g
+                {/* <g
                     className="fill-foreground/40 dark:fill-foreground/50 font-mono uppercase text-lg tracking-[0.2em]"
                     style={{ fontSize: '80px' }}
                     stroke="none"
@@ -136,7 +119,7 @@ const HeroDiagram = () => {
                     <text x={CHAMBER_BOUNDS.solve.labelX} y={CHAMBER_BOUNDS.solve.labelY}>Solve</text>
                     <text x={CHAMBER_BOUNDS.teach.labelX} y={CHAMBER_BOUNDS.teach.labelY} textAnchor="end">Teach</text>
                     <text x={CHAMBER_BOUNDS.build.labelX} y={CHAMBER_BOUNDS.build.labelY} textAnchor="end">Build</text>
-                </g>
+                </g> */}
 
                 {/* Invisible hover targets — one per chamber */}
                 {(Object.keys(CHAMBER_BOUNDS) as ChamberKey[]).map((key) => {
@@ -159,57 +142,9 @@ const HeroDiagram = () => {
 
             {/* HTML overlays */}
 
-            {/* Chamber description */}
-            <AnimatePresence mode="wait">
-                {activeChamber && (
-                    <motion.div
-                        key={activeChamber}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                    >
-                        <div className="max-w-[60%] rounded-2xl border border-foreground/10 bg-background/80 backdrop-blur-md px-5 py-4 shadow-lg">
-                            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-1">
-                                {CHAMBER_CONTENT[activeChamber].title}
-                            </div>
-                            <p className="text-sm leading-relaxed text-foreground/80">
-                                {CHAMBER_CONTENT[activeChamber].description}
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
-            {/* Provable tooltip — anchored to the left side where the ⊢ shape sits */}
-            <AnimatePresence>
-                {proofTooltip && (
-                    <motion.div
-                        initial={{ opacity: 0, x: -8 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -8 }}
-                        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                        className="pointer-events-none absolute"
-                        style={{
-                            // Anchor near the middle horizontal of the ⊢
-                            left: '8%',
-                            top: '50%',
-                            transform: 'translate(0, -50%)',
-                        }}
-                    >
-                        <div className="rounded-lg border border-foreground/10 bg-background/90 backdrop-blur-md px-3 py-2 shadow-md w-56">
-                            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground/50 mb-0.5">
-                                Provable
-                            </div>
-                            <p className="text-xs leading-snug text-foreground/70">
-                                The turnstile <span className="font-mono">⊢</span> denotes formal entailment — what
-                                follows is derivable from what precedes.
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+
+
         </div>
     );
 };
@@ -223,4 +158,4 @@ const AnimatePresenceSvgWrapper: React.FC<{ visible: boolean; children: React.Re
     </g>
 );
 
-export default HeroDiagram;
+export default HeroAbstract;

@@ -43,7 +43,7 @@ export default function RootLayout({ children }: {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${inter.variable} ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll`}
+      className={`${montserrat.variable} ${inter.variable} ${lato.variable} ${raleway.variable} antialiased custom-scroll`}
     >
       <body className="">
         <ThemeProvider

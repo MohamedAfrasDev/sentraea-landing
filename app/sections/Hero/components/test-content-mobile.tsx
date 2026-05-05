@@ -2,16 +2,16 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import React from 'react'
 
-const TestContent = () => {
+const TestContentMobile = () => {
     return (
-        <section className='z-20 px-7 hidden md:block'>
+        <section className='z-20 px-7 block md:hidden'>
 
-            <div className='flex items-center  min-w-full '>
-                <h1 className='text-[100px] leading-20 font-medium   w-1/3  -tracking-widest'>Turn what you know</h1>
+            <div className='flex flex-col items-start  min-w-full '>
+                <h1 className='text-[70px] leading-15 font-medium    -tracking-widest'>Turn what you know</h1>
 
-                <h1 className='text-5xl text-start pr-15 -pl-4 font-heading font-medium -tracking-widest'>into</h1>
+                <h1 className='text-4xl text-start pr-15 mt-5 mb-4 text-center -pl-4 font-heading font-medium -tracking-widest'>into</h1>
 
-                <h1 className='text-8xl    leading-24 font-semibold -tracking-widest uppercase text-primary '>
+                <h1 className='text-6xl    leading-14 font-semibold -tracking-widest uppercase text-primary '>
                     Clarity
                     <br />
                     <span className='w-20'>Change</span>
@@ -36,4 +36,4 @@ const TestContent = () => {
     )
 }
 
-export default TestContent
+export default TestContentMobile

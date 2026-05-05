@@ -35,7 +35,7 @@ export default function Home() {
           <Hero />
         </div>
         <div className="px-7">
-          <WhatIsSentraea />
+          {/* <WhatIsSentraea /> */}
         </div>
 
       </SmoothScroll>
