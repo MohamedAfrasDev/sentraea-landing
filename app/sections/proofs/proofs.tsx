@@ -5,7 +5,7 @@ import ProofCard from './components/proof-card'
 const Proofs = () => {
     return (
         <div className='flex flex-col gap-10'>
-            <div>
+            <div className='text-center'>
                 <p className=' uppercase'>FROM KNOWING TO DOING</p>
                 <h2 className='text-5xl font-medium tracking-tighter'>What do you do with what you know?</h2>
                 <p className='text-muted-foreground mt-3'>SENTRAEA helps you move from stored knowledge to clear action across everyday work.

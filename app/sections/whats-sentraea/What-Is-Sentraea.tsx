@@ -1,5 +1,6 @@
-import React from 'react'
-import HeroDiagram from '../Hero/components/hero-diagram'
+"use client";
+
+import React, { useEffect, useState } from 'react'
 import GridCard from './components/grid-card'
 import WorkspaceUi from "@/public/icons/WORKSPACE-UI.svg";
 import WorkspaceUIDARK from "@/public/icons/WORKSPACE-UI-DARK.svg"
@@ -7,7 +8,19 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 const WhatIsSentraea = () => {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Before mount, render neither image to avoid hydration mismatch.
+    // The placeholder div preserves layout space (matches image dimensions).
+    const imageSrc = mounted
+        ? (resolvedTheme === "dark" ? WorkspaceUIDARK : WorkspaceUi)
+        : null;
+
     return (
         <div className='flex flex-col gap-1'>
             <h2 className='text-5xl font-medium tracking-tighter'>What is SENTRAEA?</h2>
@@ -22,13 +35,17 @@ const WhatIsSentraea = () => {
                 </div>
                 <div className='text-start md:-mt-6'>
                     <p className='text-md tracking-tighter text-left'>INSIDE WORKSPACE</p>
-                    <Image
-                        src={theme === "dark" ? WorkspaceUIDARK : WorkspaceUi}
-                        alt="Workspace UI"
-                        width={580}
-                        height={580}
-                        className=''
-                    />
+                    {imageSrc ? (
+                        <Image
+                            src={imageSrc}
+                            alt="Workspace UI"
+                            width={580}
+                            height={580}
+                            className=''
+                        />
+                    ) : (
+                        <div style={{ width: 580, height: 580 }} aria-hidden="true" />
+                    )}
                 </div>
 
             </div>

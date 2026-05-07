@@ -22,6 +22,7 @@ import { Header } from "../components/Header";
 import Hero from "./sections/Hero/Hero";
 import WhatIsSentraea from "./sections/whats-sentraea/What-Is-Sentraea";
 import Proofs from "./sections/proofs/proofs";
+import HowItWorks from "./sections/how-it-works/how-it-works";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -38,6 +39,8 @@ export default function Home() {
         <div className="px-7 flex flex-col gap-30 pb-20">
           <WhatIsSentraea />
           <Proofs />
+
+          <HowItWorks />
         </div>
 
       </SmoothScroll>
