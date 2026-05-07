@@ -21,6 +21,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { Header } from "../components/Header";
 import Hero from "./sections/Hero/Hero";
 import WhatIsSentraea from "./sections/whats-sentraea/What-Is-Sentraea";
+import Proofs from "./sections/proofs/proofs";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -34,8 +35,9 @@ export default function Home() {
         <div className="">
           <Hero />
         </div>
-        <div className="px-7">
+        <div className="px-7 flex flex-col gap-30 pb-20">
           <WhatIsSentraea />
+          <Proofs />
         </div>
 
       </SmoothScroll>
