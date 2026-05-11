@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat, Raleway, Lato } from "next/font/google";
+import { Inter, Montserrat, Raleway, Lato, JetBrains_Mono, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 import { Suspense } from "react";
 import NavigationProgress from "@/components/navigation-process";
-import { Toaster } from "@/components/ui/sonner";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,7 +21,7 @@ const raleway = Raleway({
 
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
+  weight: ["300",],
   variable: "--font-lato",
 });
 
@@ -29,6 +29,18 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-mono",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-number",
 });
 
 export const metadata: Metadata = {
@@ -43,7 +55,7 @@ export default function RootLayout({ children }: {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${inter.variable} ${lato.variable} ${raleway.variable} antialiased custom-scroll`}
+      className={`${montserrat.variable} ${inter.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll`}
     >
       <body className="">
         <ThemeProvider

@@ -7,11 +7,11 @@ const TestContent = () => {
         <section className='z-20 px-7 hidden md:block'>
 
             <div className='flex items-center  min-w-full '>
-                <h1 className='text-[100px] leading-20 font-medium   w-1/3  -tracking-widest'>Turn what you know</h1>
+                <h1 className='text-[100px] leading-20 font-medium   w-1/3  tracking-[-0.5rem]'>Turn what you know</h1>
 
-                <h1 className='text-5xl text-start pr-15 -pl-4 font-heading font-medium -tracking-widest'>into</h1>
+                <h1 className='text-5xl text-start pr-15 -pl-4 font-heading font-medium tracking-tighter'>into</h1>
 
-                <h1 className='text-8xl    leading-24 font-semibold -tracking-widest uppercase text-primary '>
+                <h1 className='text-8xl    leading-24 font-semibold tracking-[-0.5rem] uppercase text-primary '>
                     Clarity
                     <br />
                     <span className='w-20'>Change</span>

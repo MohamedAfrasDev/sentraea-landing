@@ -1,34 +1,31 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 type ChamberKey = 'clarify' | 'teach' | 'solve' | 'build';
 
+// Three clean union-polygon paths — true outer boundary of each connected sub-shape.
+// fill="none" stroke="currentColor" → zero internal intersection lines.
+//
+// Shape 1: Left vertical bar  +  Middle horizontal
+const PATH_S1 = "M 0,0 L 150,0 L 150,1026 L 1788,1026 L 1788,1136 L 150,1136 L 150,2185 L 0,2185 Z";
+//
+// Shape 2: Top horizontal  +  T-divider upper  +  Right vertical upper
+const PATH_S2 = "M 428,0 L 2216,0 L 2216,943 L 2065,943 L 2065,150 L 1069,150 L 1069,884 L 919,884 L 919,150 L 428,150 Z";
+//
+// Shape 3: Bottom horizontal  +  T-divider lower  +  Right vertical lower
+const PATH_S3 = "M 428,2044 L 919,2044 L 919,1282 L 1069,1282 L 1069,2044 L 2065,2044 L 2065,1251 L 2216,1251 L 2216,2194 L 428,2194 Z";
 
-
-// Chamber bounding boxes — corrected to match the visual layout
-// Upper row: Clarify (left of T-divider), Teach (right of T-divider)
-// Lower row: Solve (left of T-divider),   Build (right of T-divider)
-type ChamberBound = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    labelX: number;
-    labelY: number;
-    anchor: 'start' | 'end';
+// Chamber bounds (same as original — these are correct for this viewBox)
+const CHAMBER_BOUNDS: Record<ChamberKey, { x: number; y: number; w: number; h: number }> = {
+    clarify: { x: 170, y: 150, w: 750, h: 880 },
+    teach: { x: 1070, y: 150, w: 1000, h: 880 },
+    solve: { x: 170, y: 1170, w: 750, h: 880 },
+    build: { x: 1070, y: 1170, w: 1000, h: 880 },
 };
 
-const CHAMBER_BOUNDS: Record<ChamberKey, ChamberBound> = {
-    clarify: { x: 170, y: 150, w: 750, h: 880, labelX: 360, labelY: 530, anchor: 'start' },
-    teach: { x: 1070, y: 150, w: 1000, h: 880, labelX: 1780, labelY: 530, anchor: 'end' },
-    solve: { x: 170, y: 1170, w: 750, h: 880, labelX: 370, labelY: 1720, anchor: 'start' },
-    build: { x: 1070, y: 1170, w: 1000, h: 880, labelX: 1780, labelY: 1720, anchor: 'end' },
-};
 const HeroAbstract = () => {
     const [activeChamber, setActiveChamber] = useState<ChamberKey | null>(null);
-    const [proofTooltip, setProofTooltip] = useState(false);
 
     return (
         <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center opacity-90">
@@ -36,92 +33,21 @@ const HeroAbstract = () => {
                 viewBox="-50 -50 2300 2500"
                 className="w-full h-full text-gray-400/30 dark:text-foreground/20"
                 xmlns="http://www.w3.org/2000/svg"
-                strokeWidth={10}
             >
-                <defs>
-                    <filter id="silhouette-outline" x="-2%" y="-2%" width="104%" height="104%">
-                        <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="dilated" />
-                        <feComposite in="dilated" in2="SourceAlpha" operator="out" result="outline" />
-                        <feFlood floodColor="currentColor" result="color" />
-                        <feComposite in="color" in2="outline" operator="in" />
-                    </filter>
-
-                    {/* Filter for the proof-symbol hover state — slightly stronger outline */}
-                    <filter id="silhouette-outline-active" x="-2%" y="-2%" width="104%" height="104%">
-                        <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="dilated" />
-                        <feComposite in="dilated" in2="SourceAlpha" operator="out" result="outline" />
-                        <feFlood floodColor="currentColor" result="color" />
-                        <feComposite in="color" in2="outline" operator="in" />
-                    </filter>
-                </defs>
-
-                {/* Pass 1: filled silhouette (all chambers + proof symbol parts) */}
-                <g fill="var(--background)" className='' strokeWidth={10}>
-                    {/* Bottom horizontal of the lower-right C */}
-                    <path d="M448,2044H2216a0,0,0,0,1,0,0v110a40,40,0,0,1-40,40H448a20,20,0,0,1-20-20V2064A20,20,0,0,1,448,2044Z" />
-                    {/* Top horizontal of the upper-right C */}
-                    <path d="M448,0H2176a40,40,0,0,1,40,40V150a0,0,0,0,1,0,0H448a20,20,0,0,1-20-20V20A20,20,0,0,1,448,0Z" />
-                    {/* Right verticals (upper + lower) */}
-                    <path d="M2065,10h110a40,40,0,0,1,40,40V923a20,20,0,0,1-20,20H2085a20,20,0,0,1-20-20V10A0,0,0,0,1,2065,10Z" />
-                    <path d="M2085,1251h110a20,20,0,0,1,20,20v883a40,40,0,0,1-40,40H2065a0,0,0,0,1,0,0V1271A20,20,0,0,1,2085,1251Z" />
-                    {/* T-divider (vertical bars between left/right chambers, top + bottom halves) */}
-                    <path d="M919,5h150V863.99a20,20,0,0,1-20,20H939a20,20,0,0,1-20-20V5Z" />
-                    <path d="M939,1282h110a20,20,0,0,1,20,20v892a0,0,0,0,1,0,0H919a0,0,0,0,1,0,0V1302A20,20,0,0,1,939,1282Z" />
-                </g>
-
-                {/* Proof-symbol parts rendered separately so we can attach hover handlers */}
+                {/* Three clean outline paths — no intersecting strokes */}
                 <g
-                    fill="var(--background)"
-                    style={{ cursor: 'help' }}
-                    onMouseEnter={() => setProofTooltip(true)}
-                    onMouseLeave={() => setProofTooltip(false)}
-                    className={'text-primary'}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={6}
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
                 >
-                    {/* Left vertical bar (the | of ⊢) */}
-                    <rect width="150" height="2185" rx="20" ry="20" />
-                    {/* Middle horizontal bar (the — of ⊢) */}
-                    <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
+                    <path d={PATH_S1} />
+                    <path d={PATH_S2} />
+                    <path d={PATH_S3} />
                 </g>
 
-                {/* Pass 2: outer outline only (full silhouette including proof symbol) */}
-                <g fill="black" filter="url(#silhouette-outline)" pointerEvents="none">
-                    <path d="M448,2044H2216a0,0,0,0,1,0,0v110a40,40,0,0,1-40,40H448a20,20,0,0,1-20-20V2064A20,20,0,0,1,448,2044Z" />
-                    <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
-                    <path d="M448,0H2176a40,40,0,0,1,40,40V150a0,0,0,0,1,0,0H448a20,20,0,0,1-20-20V20A20,20,0,0,1,448,0Z" />
-                    <rect width="150" height="2185" rx="20" ry="20" />
-                    <path d="M919,5h150V863.99a20,20,0,0,1-20,20H939a20,20,0,0,1-20-20V5Z" />
-                    <path d="M2065,10h110a40,40,0,0,1,40,40V923a20,20,0,0,1-20,20H2085a20,20,0,0,1-20-20V10A0,0,0,0,1,2065,10Z" />
-                    <path d="M2085,1251h110a20,20,0,0,1,20,20v883a40,40,0,0,1-40,40H2065a0,0,0,0,1,0,0V1271A20,20,0,0,1,2085,1251Z" />
-                    <path d="M939,1282h110a20,20,0,0,1,20,20v892a0,0,0,0,1,0,0H919a0,0,0,0,1,0,0V1302A20,20,0,0,1,939,1282Z" />
-                </g>
-
-                {/* Highlight outline that appears on the proof symbol when hovered */}
-                <AnimatePresenceSvgWrapper visible={proofTooltip}>
-                    <g
-                        fill="black"
-                        filter="url(#silhouette-outline-active)"
-                        pointerEvents="none"
-                        className="text-foreground/80"
-                    >
-                        <rect width="150" height="2185" rx="20" ry="20" />
-                        <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
-                    </g>
-                </AnimatePresenceSvgWrapper>
-
-                {/* Static chamber labels — now correctly positioned */}
-                {/* <g
-                    className="fill-foreground/40 dark:fill-foreground/50 font-mono uppercase text-lg tracking-[0.2em]"
-                    style={{ fontSize: '80px' }}
-                    stroke="none"
-                    pointerEvents="none"
-                >
-                    <text x={CHAMBER_BOUNDS.clarify.labelX} y={CHAMBER_BOUNDS.clarify.labelY}>Clarify</text>
-                    <text x={CHAMBER_BOUNDS.solve.labelX} y={CHAMBER_BOUNDS.solve.labelY}>Solve</text>
-                    <text x={CHAMBER_BOUNDS.teach.labelX} y={CHAMBER_BOUNDS.teach.labelY} textAnchor="end">Teach</text>
-                    <text x={CHAMBER_BOUNDS.build.labelX} y={CHAMBER_BOUNDS.build.labelY} textAnchor="end">Build</text>
-                </g> */}
-
-                {/* Invisible hover targets — one per chamber */}
+                {/* Invisible hover targets */}
                 {(Object.keys(CHAMBER_BOUNDS) as ChamberKey[]).map((key) => {
                     const b = CHAMBER_BOUNDS[key];
                     return (
@@ -139,23 +65,8 @@ const HeroAbstract = () => {
                     );
                 })}
             </svg>
-
-            {/* HTML overlays */}
-
-
-
-
         </div>
     );
 };
-
-// Tiny helper: AnimatePresence works on HTML, but for SVG groups we just need a
-// conditional render with a CSS opacity transition (Framer Motion's SVG support
-// inside AnimatePresence can be finicky for filtered groups).
-const AnimatePresenceSvgWrapper: React.FC<{ visible: boolean; children: React.ReactNode }> = ({ visible, children }) => (
-    <g style={{ opacity: visible ? 1 : 0, transition: 'opacity 200ms ease' }}>
-        {children}
-    </g>
-);
 
 export default HeroAbstract;

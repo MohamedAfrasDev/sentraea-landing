@@ -1,172 +1,106 @@
 "use client";
 
+import { Card } from '@/components/ui/card';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 type ChamberKey = 'clarify' | 'teach' | 'solve' | 'build';
 
+const LOGO_SCALE = 3.25;
 
+// Logo scaled size: 677×625 → 2200×2031
+// viewBox: "-1600 -100 5400 2300" → x range: -1600 to 3800
 
-// Chamber bounding boxes — corrected to match the visual layout
-// Upper row: Clarify (left of T-divider), Teach (right of T-divider)
-// Lower row: Solve (left of T-divider),   Build (right of T-divider)
-type ChamberBound = {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    labelX: number;
-    labelY: number;
-    anchor: 'start' | 'end';
+const PATH_S1 = "M 31,0 L 91,0 L 91,285 L 565,285 L 565,340 L 91,340 L 91,625 L 31,625 Z";
+const PATH_S2 = "M 144,0 L 677,0 L 677,274 L 612,274 L 612,60 L 379,60 L 379,234 L 324,234 L 324,60 L 144,60 Z";
+const PATH_S3 = "M 144,565 L 324,565 L 324,391 L 379,391 L 379,565 L 612,565 L 612,351 L 677,351 L 677,625 L 144,625 Z";
+
+// Chamber bounds from scaled logo geometry:
+//   Left  x: 91×3.25=296  →  324×3.25=1053   (inside left bar → inside inner vert)
+//   Right x: 379×3.25=1232 → 677×3.25=2200   (inside inner vert → right edge of outer vert)
+//   Top   y: 60×3.25=195  →  285×3.25=927
+//   Bot   y: 340×3.25=1105 → 565×3.25=1836
+const CHAMBER_BOUNDS: Record<ChamberKey, { x: number; y: number; w: number; h: number }> = {
+    clarify: { x: 296, y: 195, w: 757, h: 732 },
+    teach: { x: 1232, y: 195, w: 1068, h: 732 },
+    solve: { x: 296, y: 1105, w: 757, h: 731 },
+    build: { x: 1232, y: 1105, w: 1068, h: 731 },
 };
 
-const CHAMBER_BOUNDS: Record<ChamberKey, ChamberBound> = {
-    clarify: { x: 170, y: 150, w: 750, h: 880, labelX: 360, labelY: 530, anchor: 'start' },
-    teach: { x: 1070, y: 150, w: 1000, h: 880, labelX: 1780, labelY: 530, anchor: 'end' },
-    solve: { x: 170, y: 1170, w: 750, h: 880, labelX: 370, labelY: 1720, anchor: 'start' },
-    build: { x: 1070, y: 1170, w: 1000, h: 880, labelX: 1780, labelY: 1720, anchor: 'end' },
-};
-const CARDS: Record<ChamberKey, { x: number, y: number, w: number, h: number, title: string, desc: string, rows: string[], path: string, targetX: number, targetY: number }> = {
+// Left cards: x=-1500 (right edge=-350), connect to left edge of left bar x=101
+// Right cards: x=2400 (right edge=3550, fits in viewBox of 3800), connect to right edge of outer vert x=2200
+// Top chamber mid-y:   (195+927)/2  = 561
+// Bottom chamber mid-y: (1105+1836)/2 = 1470
+const CARDS: Record<ChamberKey, {
+    x: number; y: number; w: number; h: number;
+    title: string; desc: string; rows: string[];
+    path: string; targetX: number; targetY: number;
+}> = {
     clarify: {
-        x: -1500, y: 10, w: 1200, h: 600,
+        x: -1500, y: -170, w: 1100, h: 680,
         title: 'Clarify',
         desc: 'Organize notes, ideas, and fragments into something you can actually work with',
-        rows: [
-            "Gather what matters",
-            "Reduce noise",
-            "Surface what’s useful"
-        ],
-
-        path: 'M -300 400 C -100 400, -50 590, 150 590', targetX: 150, targetY: 590
+        rows: ['Gather what matters', 'Reduce noise', "Surface what's useful"],
+        path: 'M -350 561 C -150 561, -50 561, 101 561',
+        targetX: 101, targetY: 561,
     },
     teach: {
-        x: 2500, y: 10, w: 1200, h: 600,
+        x: 2550, y: -170, w: 1100, h: 680,
         title: 'Teach',
         desc: 'Turn what you understand into explanations other people can follow.',
-        rows: [
-            "Draft clearly",
-            "Structure ideas",
-            "Share understanding"
-        ],
-        path: 'M 2500 400 C 2300 400, 2250 590, 2085 590', targetX: 2085, targetY: 590
+        rows: ['Draft clearly', 'Structure ideas', 'Share understanding'],
+        path: 'M 2550 561 C 2380 561, 2320 561, 2200 561',
+        targetX: 2200, targetY: 561,
     },
     solve: {
-        x: -1500, y: 1250, w: 1200, h: 600,
+        x: -1500, y: 1050, w: 1100, h: 680,
         title: 'Solve',
         desc: 'Work through problems with clearer context, tradeoffs, and next steps.',
-        rows: [
-            "Compare options",
-            "Resolve blockers",
-            "Decide with context"
-        ],
-        path: 'M -300 1800 C -100 1800, -50 1610, 150 1610', targetX: 150, targetY: 1610
+        rows: ['Compare options', 'Resolve blockers', 'Decide with context'],
+        path: 'M -350 1470 C -150 1470, -50 1470, 101 1470',
+        targetX: 101, targetY: 1470,
     },
     build: {
-        x: 2500, y: 1250, w: 1200, h: 600,
+        x: 2550, y: 1050, w: 1100, h: 680,
         title: 'Build',
         desc: 'Turn thinking into outputs people can use, from briefs to plans to execution-ready work.',
-        rows: [
-            "Create deliverables",
-            "Prepare handoffs",
-            "Move work forward",
-        ],
-        path: 'M 2500 1800 C 2300 1800, 2250 1610, 2085 1610', targetX: 2085, targetY: 1610
+        rows: ['Create deliverables', 'Prepare handoffs', 'Move work forward'],
+        path: 'M 2550 1470 C 2380 1470, 2320 1470, 2200 1470',
+        targetX: 2200, targetY: 1470,
     },
 };
 
 const WorkAbstract = () => {
     const [activeChamber, setActiveChamber] = useState<ChamberKey | null>(null);
-    const [proofTooltip, setProofTooltip] = useState(false);
 
     return (
-        <div className=" relative w-full min-h-full max-w-[1200px] mx-auto aspect-[2.1] flex items-center justify-center opacity-90 mt-10">
+        <div className="relative w-full min-h-full max-w-[1200px] mx-auto aspect-[2.1] flex items-center justify-center opacity-90 mt-10">
             <svg
-                viewBox="-1600 -100 5400 2500"
-                className="w-full min-h-full text-gray-800 dark:text-foreground/20"
+                viewBox="-1600 -100 5400 2300"
+                className="w-full min-h-full text-black dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
-                strokeWidth={10}
             >
-                <defs>
-                    <filter id="silhouette-outline-primary" x="-2%" y="-2%" width="104%" height="104%">
-                        <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="dilated" />
-                        <feComposite in="dilated" in2="SourceAlpha" operator="out" result="outline" />
-                        <feFlood className="text-muted-foreground/90" floodColor="currentColor" result="color" />
-                        <feComposite in="color" in2="outline" operator="in" />
-                    </filter>
-
-                    {/* Filter for the proof-symbol hover state — slightly stronger outline */}
-                    <filter id="silhouette-outline-active-primary" x="-2%" y="-2%" width="104%" height="104%">
-                        <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="dilated" />
-                        <feComposite in="dilated" in2="SourceAlpha" operator="out" result="outline" />
-                        <feFlood className="text-muted-foreground/90" floodColor="currentColor" result="color" />
-                        <feComposite in="color" in2="outline" operator="in" />
-                    </filter>
-                </defs>
-
-                {/* Pass 1: filled silhouette (all chambers + proof symbol parts) */}
-                <g fill="var(--background)" className='' strokeWidth={10}>
-                    {/* Bottom horizontal of the lower-right C */}
-                    <path d="M448,2044H2216a0,0,0,0,1,0,0v110a40,40,0,0,1-40,40H448a20,20,0,0,1-20-20V2064A20,20,0,0,1,448,2044Z" />
-                    {/* Top horizontal of the upper-right C */}
-                    <path d="M448,0H2176a40,40,0,0,1,40,40V150a0,0,0,0,1,0,0H448a20,20,0,0,1-20-20V20A20,20,0,0,1,448,0Z" />
-                    {/* Right verticals (upper + lower) */}
-                    <path d="M2065,10h110a40,40,0,0,1,40,40V923a20,20,0,0,1-20,20H2085a20,20,0,0,1-20-20V10A0,0,0,0,1,2065,10Z" />
-                    <path d="M2085,1251h110a20,20,0,0,1,20,20v883a40,40,0,0,1-40,40H2065a0,0,0,0,1,0,0V1271A20,20,0,0,1,2085,1251Z" />
-                    {/* T-divider (vertical bars between left/right chambers, top + bottom halves) */}
-                    <path d="M919,5h150V863.99a20,20,0,0,1-20,20H939a20,20,0,0,1-20-20V5Z" />
-                    <path d="M939,1282h110a20,20,0,0,1,20,20v892a0,0,0,0,1,0,0H919a0,0,0,0,1,0,0V1302A20,20,0,0,1,939,1282Z" />
-                </g>
-
-                {/* Proof-symbol parts rendered separately so we can attach hover handlers */}
+                {/* Logo mark */}
                 <g
-                    fill="var(--background)"
-                    style={{ cursor: 'help' }}
-                    onMouseEnter={() => setProofTooltip(true)}
-                    onMouseLeave={() => setProofTooltip(false)}
+                    transform={`scale(${LOGO_SCALE})`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    className="text-foreground/40 dark:text-foreground/20"
                 >
-                    {/* Left vertical bar (the | of ⊢) */}
-                    <rect width="150" height="2185" rx="20" ry="20" />
-                    {/* Middle horizontal bar (the — of ⊢) */}
-                    <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
+                    <path d={PATH_S1} />
+                    <path d={PATH_S2} />
+                    <path d={PATH_S3} />
                 </g>
 
-                {/* Pass 2: outer outline only (full silhouette including proof symbol) */}
-                <g fill="black" filter="url(#silhouette-outline-primary)" pointerEvents="none" className="text-primary">
-                    <path d="M448,2044H2216a0,0,0,0,1,0,0v110a40,40,0,0,1-40,40H448a20,20,0,0,1-20-20V2064A20,20,0,0,1,448,2044Z" />
-                    <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
-                    <path d="M448,0H2176a40,40,0,0,1,40,40V150a0,0,0,0,1,0,0H448a20,20,0,0,1-20-20V20A20,20,0,0,1,448,0Z" />
-                    <rect width="150" height="2185" rx="20" ry="20" />
-                    <path d="M919,5h150V863.99a20,20,0,0,1-20,20H939a20,20,0,0,1-20-20V5Z" />
-                    <path d="M2065,10h110a40,40,0,0,1,40,40V923a20,20,0,0,1-20,20H2085a20,20,0,0,1-20-20V10A0,0,0,0,1,2065,10Z" />
-                    <path d="M2085,1251h110a20,20,0,0,1,20,20v883a40,40,0,0,1-40,40H2065a0,0,0,0,1,0,0V1271A20,20,0,0,1,2085,1251Z" />
-                    <path d="M939,1282h110a20,20,0,0,1,20,20v892a0,0,0,0,1,0,0H919a0,0,0,0,1,0,0V1302A20,20,0,0,1,939,1282Z" />
-                </g>
-
-                {/* Highlight outline that appears on the proof symbol when hovered */}
-                <AnimatePresenceSvgWrapper visible={proofTooltip}>
-                    <g
-                        fill="black"
-                        filter="url(#silhouette-outline-active-primary)"
-                        pointerEvents="none"
-                        className="text-primary"
-                    >
-                        <rect width="150" height="2185" rx="20" ry="20" />
-                        <path d="M18,1026H1768a20,20,0,0,1,20,20v110a20,20,0,0,1-20,20H18a0,0,0,0,1,0,0V1026A0,0,0,0,1,18,1026Z" />
-                    </g>
-                </AnimatePresenceSvgWrapper>
-
-
-
-                {/* Invisible hover targets — one per chamber */}
+                {/* Hover targets */}
                 {(Object.keys(CHAMBER_BOUNDS) as ChamberKey[]).map((key) => {
                     const b = CHAMBER_BOUNDS[key];
                     return (
                         <rect
                             key={key}
-                            x={b.x}
-                            y={b.y}
-                            width={b.w}
-                            height={b.h}
+                            x={b.x} y={b.y} width={b.w} height={b.h}
                             fill="transparent"
                             style={{ cursor: 'pointer' }}
                             onMouseEnter={() => setActiveChamber(key)}
@@ -184,41 +118,36 @@ const WorkAbstract = () => {
                             <path
                                 d={card.path}
                                 fill="none"
-                                stroke={isActive ? "var(--primary)" : "currentColor"}
+                                stroke={isActive ? 'var(--primary)' : 'currentColor'}
                                 strokeWidth={isActive ? 16 : 8}
                                 strokeLinecap="round"
-                                strokeDasharray={isActive ? "none" : "30 30"}
+                                strokeDasharray={isActive ? 'none' : '30 30'}
                                 className={`transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-20 text-muted-foreground'}`}
                             />
-                            {/* Dot at the chamber end */}
                             <circle
-                                cx={card.targetX}
-                                cy={card.targetY}
+                                cx={card.targetX} cy={card.targetY}
                                 r={isActive ? 25 : 15}
-                                fill={isActive ? "var(--primary)" : "currentColor"}
+                                fill={isActive ? 'var(--primary)' : 'currentColor'}
                                 className={`transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-20 text-muted-foreground'}`}
                             />
                         </g>
                     );
                 })}
 
-                {/* Cards (foreignObjects) */}
+                {/* Cards */}
                 {(Object.keys(CARDS) as ChamberKey[]).map((key) => {
                     const card = CARDS[key];
                     const isActive = activeChamber === key;
                     return (
                         <foreignObject
                             key={`card-${key}`}
-                            x={card.x}
-                            y={card.y}
-                            width={card.w}
-                            height={card.h}
+                            x={card.x} y={card.y} width={card.w} height={card.h}
                             onMouseEnter={() => setActiveChamber(key)}
                             onMouseLeave={() => setActiveChamber(null)}
                             style={{ overflow: 'visible' }}
                         >
-                            <div
-                                className={`w-full bg-primary/5 dark:bg-primary/10 rounded-xl  shadow-md flex flex-col justify-center px-24 py-16 border-[8px] backdrop-blur-2xl transition-all duration-300 ${isActive
+                            <Card
+                                className={`w-full bg-primary/5 dark:bg-primary/10 flex flex-col justify-center px-24 py-16 backdrop-blur-2xl transition-all duration-300 ${isActive
                                     ? 'border-primary/80 scale-105 shadow-primary/20'
                                     : 'border-border/50 scale-100'
                                     }`}
@@ -230,14 +159,14 @@ const WorkAbstract = () => {
                                 <p className="text-[80px] text-muted-foreground mt-4 leading-tight">
                                     {card.desc}
                                 </p>
-                                <div className='flex flex-col gap-3 mt-10'>
-                                    {card.rows.map((row, index) => (
-                                        <p className="text-[70px] text-muted-foreground mt-4 leading-tight" key={index}>
+                                <div className="flex flex-col gap-3 mt-10">
+                                    {card.rows.map((row, i) => (
+                                        <p key={i} className="text-[70px] text-muted-foreground mt-4 leading-tight">
                                             ● {row}
                                         </p>
                                     ))}
                                 </div>
-                            </div>
+                            </Card>
                         </foreignObject>
                     );
                 })}
@@ -245,14 +174,5 @@ const WorkAbstract = () => {
         </div>
     );
 };
-
-// Tiny helper: AnimatePresence works on HTML, but for SVG groups we just need a
-// conditional render with a CSS opacity transition (Framer Motion's SVG support
-// inside AnimatePresence can be finicky for filtered groups).
-const AnimatePresenceSvgWrapper: React.FC<{ visible: boolean; children: React.ReactNode }> = ({ visible, children }) => (
-    <g style={{ opacity: visible ? 1 : 0, transition: 'opacity 200ms ease' }}>
-        {children}
-    </g>
-);
 
 export default WorkAbstract;
