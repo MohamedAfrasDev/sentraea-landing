@@ -8,7 +8,7 @@ import TestContentMobile from './components/test-content-mobile'
 const Hero = () => {
     return (
         <div
-            className='min-h-screen relative overflow-hidden w-full'
+            className='min-h-screen relative overflow-hidden w-full px-6 py-6'
         >
 
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--tw-gradient-stops))] from-primary/30 via-zinc-950 to-zinc-950"></div>
@@ -17,6 +17,13 @@ const Hero = () => {
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
 
             {/* Dotted pattern overlay */}
+
+            {/* <div className=''>
+                <h1 className='text-8xl tracking-tighter font-semibold'>
+                    Turn what you know into
+                </h1>
+                <h1 className='text-8xl text-primary tracking-tighter uppercase font-bold'>
+                    Clarity, Change, and Growth.</h1></div> */}
 
 
             <div className='absolute -right-10 top-1/8 md:top-1/3 scale-125 md:scale-200 bottom-0'>
