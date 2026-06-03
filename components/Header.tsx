@@ -24,51 +24,66 @@ export const Header = () => {
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     const handleKeyDown = (e: any) => {
-
       if (e.altKey && e.key === "t") {
-        setTheme((prev: string) => prev === "dark" ? "light" : "dark");
+        setTheme((prev: string) => (prev === "dark" ? "light" : "dark"));
         console.log("b");
         if (e.repeat) return;
       }
-
-
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [theme]);
   return (
-    //  FIX 1: Changed "flex justify-center" to "flex flex-col items-center" 
+    //  FIX 1: Changed "flex justify-center" to "flex flex-col items-center"
     //         This stacks the children (navbar and mobile menu) vertically.
-    <header className="sticky z-50 w-full flex flex-col items-center transition-all duration-500 ease-in-out"
+    <header
+      className="sticky z-50 w-full flex flex-col items-center transition-all duration-500 ease-in-out"
       style={{
-        top: useIsMobile() ? 0 : isShrunk ? 10 : 0
-      }}>
+        top: useIsMobile() ? 0 : isShrunk ? 10 : 0,
+      }}
+    >
       {/* Outer container for width animation */}
       <div
         className={`transition-all w-full flex justify-center ease-in-out duration-500`}
         style={{
-          maxWidth: useIsMobile() ? "100%" : isShrunk ? "60%" : "100%",
+          maxWidth: useIsMobile() ? "100%" : isShrunk ? "90%" : "100%",
           minWidth: "100px",
         }}
       >
         {/* Inner navbar */}
-        <div className={cn("bg-white/70 dark:bg-gray-950/70  backdrop-blur-lg dark:backdrop-blur-lg   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5 dark:border border transition-all duration-300", isShrunk ? "dark:border-gray-700/30 border-gray-300/50" : "dark:border-gray-950")}
+        <div
+          className={cn(
+            " backdrop-blur-lg dark:backdrop-blur-3xl  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-50",
+            isShrunk &&
+              "bg-white/90 dark:bg-gray-950/80 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
+          )}
           style={{
-            borderRadius: isShrunk ? 10 : 0
-          }}>
+            borderRadius: isShrunk ? 10 : 0,
+          }}
+        >
           {/* Logo */}
           <a href="#studinity" className="flex items-center gap-2">
-            <Image src={HorizontalLogo} alt="Studinity Logo" className="dark:invert" height={60} width={200} />
+            <Image
+              src={HorizontalLogo}
+              alt="Studinity Logo"
+              className="dark:invert"
+              height={60}
+              width={200}
+            />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-foreground">
+          <nav className="hidden md:flex items-center gap-8 text-foreground uppercase">
             <a href="#features">Features</a>
             <a href="#reviews">Reviews</a>
             <a href="#pricing">Pricing</a>
-            <a href="#waitlist" className="bg-black text-white px-4 py-2 rounded-lg font-medium">Join Waitlist</a>
-
+            <a
+              href="#waitlist"
+              className="bg-primary text-white px-4 py-2 rounded-sm font-medium"
+            >
+              Join Waitlist
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -102,7 +117,13 @@ export const Header = () => {
               Pricing
             </a>
 
-            <a href="#waitlist" className="bg-black text-white px-4 py-2 rounded-lg font-medium" onClick={() => setIsMenuOpen(false)}>Join Waitlist</a>
+            <a
+              href="#waitlist"
+              className="bg-black text-white px-4 py-2 rounded-sm font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Join Waitlist
+            </a>
 
             <Link href={"/learnmore"} onClick={() => setIsMenuOpen(false)}>
               <button
@@ -110,7 +131,8 @@ export const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Learn More
-              </button></Link>
+              </button>
+            </Link>
           </nav>
         </div>
       )}
