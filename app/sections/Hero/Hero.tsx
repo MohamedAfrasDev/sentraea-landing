@@ -1,21 +1,144 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import GradientText from "@/components/GradientText";
 import TestContent from "./components/test-content";
 
 import HeroAbstract from "./components/hero-abstract";
 import TestContentMobile from "./components/test-content-mobile";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowRightIcon } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import LoginPageImage from "@/public/icons/login-page.png";
+import LoginPageDark from "@/public/icons/login-page-dark.png";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const Hero = () => {
-  return (
-    <div className="min-h-screen relative overflow-hidden w-full px-6 py-6">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--tw-gradient-stops))] from-primary/30 via-zinc-950 to-zinc-950"></div>
+  const cardRef = useRef<HTMLDivElement>(null);
 
-      <div className="absolute -right-10 top-1/8 md:top-1/3 scale-125 md:scale-200 bottom-0">
-        <HeroAbstract />
+  useEffect(() => {
+    // Dynamic loader helper for script injection
+    const loadScript = (src: string): Promise<boolean> => {
+      return new Promise((resolve) => {
+        if (document.querySelector(`script[src="${src}"]`)) {
+          resolve(true);
+          return;
+        }
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        script.onload = () => resolve(true);
+        script.onerror = () => resolve(false);
+        document.body.appendChild(script);
+      });
+    };
+
+    const initializeScrollTrigger = async () => {
+      try {
+        // Load GSAP & ScrollTrigger from high-performance cdnjs
+        const gsapLoaded = await loadScript(
+          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+        );
+        const triggerLoaded = await loadScript(
+          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
+        );
+
+        if (gsapLoaded && triggerLoaded) {
+          const win = window as any;
+          if (win.gsap && win.ScrollTrigger) {
+            win.gsap.registerPlugin(win.ScrollTrigger);
+
+            // Animate card up while scrolling down
+            win.gsap.fromTo(
+              cardRef.current,
+              { y: -40 },
+              {
+                y: 100,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: cardRef.current,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1, // Smooth scrub delay
+                },
+              },
+            );
+          }
+        }
+      } catch (error) {
+        console.error("GSAP ScrollTrigger setup failed:", error);
+      }
+    };
+
+    initializeScrollTrigger();
+  }, []);
+  const isDark = useTheme();
+  return (
+    <div
+      className="relative items-center flex flex-col"
+      style={{ overflow: "clip" }}
+    >
+      {/* ── Grid-line background ── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(to right,  oklch(64.559% 0.19149 257.011 / 0.10) 1px, transparent 1px),
+            linear-gradient(to bottom, oklch(64.559% 0.19149 257.011 / 0.10) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, black 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, black 100%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 50%, transparent 50%, oklch(64.559% 0.19149 257.011 / 0.02) 100%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      {/* ── Content sits above the grid ── */}
+      <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
+        <Card className="px-5 py-2 text-muted-foreground flex flex-row items-center text-xl font-medium tracking-tighter">
+          Idea <ArrowRight /> Evidence <ArrowRight /> Growth
+        </Card>
+        <h1 className="text-8xl mt-2 font-bold tracking-tighter text-center leading-25">
+          <span>An </span>
+          <span className="text-primary">Execution System </span>
+          <span>For Your Next Startup</span>
+        </h1>
+        <p className="text-3xl text-center mt-3 px-30">
+          Guide your startup with an AI execution system from idea to scale.
+        </p>
+
+        <Card
+          ref={cardRef}
+          className="flex border flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
+        >
+          <Image
+            src={
+              isDark.resolvedTheme == "dark" ? LoginPageDark : LoginPageImage
+            }
+            alt="a"
+            width={2100}
+            height={2100}
+            className="w-full items-center justify-center mt-2 h-full object-cover"
+          />
+        </Card>
       </div>
-      <div className="px-3 md:px-5 flex flex-col items-center justify-center min-h-[85vh] w-full py-16">
-        <TestContent />
-        <TestContentMobile />
-      </div>
-      <div className="opacity-80 -z-10 absolute inset-0 bg-[linear-gradient(rgba(242,242,242,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(242,242,242,0.5)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(57,58,59,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(57,58,59,0.07)_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_80%_80%_at_50%_50%,#000_10%,transparent_100%)] h-full w-full pointer-events-none"></div>
     </div>
   );
 };
