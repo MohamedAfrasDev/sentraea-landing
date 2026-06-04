@@ -16,19 +16,15 @@ const FourStagesSection = () => {
           shortLine={
             "Prove the problem and niche are real before you touch an MVP."
           }
-          subLine={
-            "Refine your idea, surface assumptions, and generate interviews that hit the real pain."
-          }
+          image="https://img.icons8.com/ios/500/idea--v1.png"
         />
         <StageCardComponent
           stage={"2"}
-          title={"Product Market Fit Design"}
+          title={"PMF Design"}
           shortLine={
             "Turn a validated problem into a concrete offer, smallest MVP, and clear PMF plan."
           }
-          subLine={
-            "Design your value prop, sketch your MVP, and map how you’ll reach your first 10–20 users."
-          }
+          image="https://img.icons8.com/ios/500/stall.png"
         />
         <StageCardComponent
           stage={"3"}
@@ -36,9 +32,7 @@ const FourStagesSection = () => {
           shortLine={
             "Turn your PMF plan into real experiments and see how strong your signal really is."
           }
-          subLine={
-            "Design your value prop, sketch your MVP, and map how you’ll reach your first 10–20 users."
-          }
+          image="https://img.icons8.com/ios/500/share-2--v1.png"
         />
         <StageCardComponent
           stage={"4"}
@@ -46,9 +40,7 @@ const FourStagesSection = () => {
           shortLine={
             "Turn early traction into a focused GTM motion and know when you’re ready to scale"
           }
-          subLine={
-            "Design your value prop, sketch your MVP, and map how you’ll reach your first 10–20 users."
-          }
+          image="https://img.icons8.com/ios/500/positive-dynamic--v1.png"
         />
       </div>
       <p className="text-2xl text-muted-foreground ">

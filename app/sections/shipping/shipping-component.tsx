@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, ChevronRight } from "lucide-react";
+import { AlertCircle, CheckCircle2, ChevronRight } from "lucide-react";
 import React from "react";
 
 const ShippingComponent = () => {
@@ -10,8 +10,8 @@ const ShippingComponent = () => {
     "Growth becomes a mix of random tactics instead of one clear motion.",
   ];
   return (
-    <div className="flex gap-7">
-      <h2 className="text-7xl font-medium tracking-tighter flex-2">
+    <div className="flex ">
+      <h2 className="text-7xl font-medium tracking-tighter flex-3 text-balance">
         Shipping is easy now.
         <br />{" "}
         <span className="text-primary">Building the right thing isn’t.</span>
@@ -20,10 +20,8 @@ const ShippingComponent = () => {
       <Card className="flex-1">
         {bullet.map((item, index) => (
           <div key={index} className="flex gap-5 items-start">
-            <ChevronRight className="w-10 h-10 text-primary" />
-            <p className="text-lg text-start  text-muted-foreground font-number">
-              {item}
-            </p>
+            <AlertCircle className="w-10 h-10 text-destructive" />
+            <p className="text-lg text-start  text-muted-foreground">{item}</p>
           </div>
         ))}
         <p className="text-lg text-start ">

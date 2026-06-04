@@ -11,6 +11,8 @@ import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
 import VerticalLogo from "@/public/logos/SENTRAEA_LOGO_ICON.svg";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import GetStartedBtn from "./getstarted-btn";
+import { motion } from "framer-motion";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,16 +76,24 @@ export const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-foreground uppercase">
+          <nav className="hidden md:flex items-center gap-8 text-foreground ">
             <a href="#features">Features</a>
             <a href="#reviews">Reviews</a>
             <a href="#pricing">Pricing</a>
-            <a
-              href="#waitlist"
-              className="bg-primary text-white px-4 py-2 rounded-sm font-medium"
-            >
-              Join Waitlist
-            </a>
+
+            {isShrunk && (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.5 }}
+              >
+                <GetStartedBtn
+                  title="Get Started For Free"
+                  className="text-md h-10 border-none rounded-sm"
+                />
+              </motion.div>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -122,7 +132,7 @@ export const Header = () => {
               className="bg-black text-white px-4 py-2 rounded-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Join Waitlist
+              Explore for free
             </a>
 
             <Link href={"/learnmore"} onClick={() => setIsMenuOpen(false)}>

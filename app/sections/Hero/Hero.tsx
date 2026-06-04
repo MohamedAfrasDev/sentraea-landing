@@ -13,6 +13,7 @@ import LoginPageImage from "@/public/icons/login-page.png";
 import LoginPageDark from "@/public/icons/login-page-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import GetStartedBtn from "@/components/getstarted-btn";
 
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -54,7 +55,7 @@ const Hero = () => {
               cardRef.current,
               { y: -40 },
               {
-                y: 100,
+                y: 400,
                 ease: "none",
                 scrollTrigger: {
                   trigger: cardRef.current,
@@ -112,7 +113,7 @@ const Hero = () => {
       />
       {/* ── Content sits above the grid ── */}
       <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
-        <Card className="px-5 py-2 text-muted-foreground flex flex-row items-center text-xl font-medium tracking-tighter">
+        <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tighter">
           Idea <ArrowRight /> Evidence <ArrowRight /> Growth
         </Card>
         <h1 className="text-8xl mt-2 font-bold tracking-tighter text-center leading-25">
@@ -120,13 +121,15 @@ const Hero = () => {
           <span className="text-primary">Execution System </span>
           <span>For Your Next Startup</span>
         </h1>
-        <p className="text-3xl text-center mt-3 px-30">
+        <p className="text-3xl text-center text-muted-foreground mt-3 px-30">
           Guide your startup with an AI execution system from idea to scale.
         </p>
-
+        <div className="mt-5">
+          <GetStartedBtn title="Get Started For Free" className="" />
+        </div>
         <Card
           ref={cardRef}
-          className="flex border flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
+          className="flex border bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
         >
           <Image
             src={
