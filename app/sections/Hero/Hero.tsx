@@ -7,7 +7,13 @@ import TestContent from "./components/test-content";
 import HeroAbstract from "./components/hero-abstract";
 import TestContentMobile from "./components/test-content-mobile";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowRightIcon } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowRightIcon,
+  GitGraph,
+  Lightbulb,
+  MoveUpIcon,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
 import LoginPageImage from "@/public/icons/login-page.png";
 import LoginPageDark from "@/public/icons/login-page-dark.png";
@@ -118,11 +124,18 @@ const Hero = () => {
         </Card>
         <h1 className="text-8xl mt-2 font-bold tracking-tighter text-center leading-25">
           <span>An </span>
-          <span className="text-primary">Execution System </span>
+          <span className="text-primary  tracking-[0.0001rem] font-number gap-2">
+            Execution
+          </span>
+          <span className="text-primary mx-5  tracking-[0.0001rem] font-number gap-2">
+            System
+          </span>
+          <br />
           <span>For Your Next Startup</span>
         </h1>
-        <p className="text-3xl text-center text-muted-foreground mt-3 px-30">
-          Guide your startup with an AI execution system from idea to scale.
+        <p className="text-3xl text-center text-muted-foreground mt-3 px-30 items-center flex">
+          Guide your startup with an AI execution system from idea{" "}
+          <ArrowRight className="mx-4" /> scale
         </p>
         <div className="mt-5">
           <GetStartedBtn title="Get Started For Free" className="" />

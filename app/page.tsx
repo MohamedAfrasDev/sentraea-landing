@@ -36,10 +36,13 @@ export default function Home() {
         <Header />
         <div className="">
           <Hero />
-          <div className="px-20 flex flex-col gap-40">
-            <StagesComp />
-            <ShippingComponent />
-            <HowItWorks />
+
+          <div className="px-15">
+            <div className=" flex flex-col mt-20 px-5 gap-40 border-muted-foreground/3">
+              <StagesComp />
+              <ShippingComponent />
+              <HowItWorks />
+            </div>
           </div>
         </div>
       </SmoothScroll>
