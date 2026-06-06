@@ -124,10 +124,10 @@ const Hero = () => {
         </Card>
         <h1 className="text-8xl mt-2 font-bold tracking-tighter text-center leading-25">
           <span>An </span>
-          <span className="text-primary  tracking-[0.0001rem] font-number gap-2">
+          <span className="text-primary uppercase tracking-[0.0001rem] font-number gap-2">
             Execution
           </span>
-          <span className="text-primary mx-5  tracking-[0.0001rem] font-number gap-2">
+          <span className="text-primary uppercase mx-5  tracking-[0.0001rem] font-number gap-2">
             System
           </span>
           <br />

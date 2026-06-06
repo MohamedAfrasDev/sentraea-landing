@@ -6,10 +6,10 @@ const FourStagesSection = () => {
     <div className="flex flex-col items-start text-start gap-10">
       <h2 className="text-7xl tracking-tighter font-semibold capitalize flex-3 mt-10">
         One{" "}
-        <span className="text-primary font-semibold font-number">
+        <span className="text-primary font-semibold font-number uppercase">
           workspace
         </span>
-        . <br />
+        <br />
         Four disciplined stages
       </h2>
 
