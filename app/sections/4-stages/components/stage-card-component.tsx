@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface StageCardComponentProps {
@@ -7,6 +7,7 @@ interface StageCardComponentProps {
   title: string;
   shortLine: string;
   image: string;
+  mockup: StaticImageData;
 }
 
 const StageCardComponent = ({
@@ -14,6 +15,7 @@ const StageCardComponent = ({
   title,
   shortLine,
   image,
+  mockup,
 }: StageCardComponentProps) => {
   return (
     <Card className="text-start gap-0 bg-card/40">

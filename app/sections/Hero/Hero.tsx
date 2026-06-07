@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import GradientText from "@/components/GradientText";
 import TestContent from "./components/test-content";
 
@@ -80,7 +80,12 @@ const Hero = () => {
 
     initializeScrollTrigger();
   }, []);
-  const isDark = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <div
       className="relative items-center flex flex-col"
@@ -145,13 +150,12 @@ const Hero = () => {
           className="flex border bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
         >
           <Image
-            src={
-              isDark.resolvedTheme == "dark" ? LoginPageDark : LoginPageImage
-            }
+            src={mounted && resolvedTheme === "dark" ? LoginPageDark : LoginPageImage}
             alt="a"
             width={2100}
             height={2100}
             className="w-full items-center justify-center mt-2 h-full object-cover"
+            suppressHydrationWarning
           />
         </Card>
       </div>

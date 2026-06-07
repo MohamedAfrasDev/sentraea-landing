@@ -1,7 +1,19 @@
 import React from "react";
 import StageCardComponent from "./components/stage-card-component";
+import Stage1 from "@/public/stages/STAGE-1.png";
+import Stage2 from "@/public/stages/STAGE-2.png";
+import Stage3 from "@/public/stages/STAGE-3.png";
+import Stage4 from "@/public/stages/STAGE-4.png";
+
+import Stage1Dark from "@/public/stages/STAGE-1-DARK.png";
+import Stage2Dark from "@/public/stages/STAGE-2-DARK.png";
+import Stage3Dark from "@/public/stages/STAGE-3-DARK.png";
+import Stage4Dark from "@/public/stages/STAGE-4-DARK.png";
+import { useTheme } from "next-themes";
 
 const FourStagesSection = () => {
+  const isDark = useTheme();
+
   return (
     <div className="flex flex-col items-start text-start gap-10">
       <h2 className="text-7xl tracking-tighter font-semibold capitalize flex-3 mt-10">
@@ -21,6 +33,7 @@ const FourStagesSection = () => {
             "Prove the problem and niche are real before you touch an MVP."
           }
           image="https://img.icons8.com/ios/500/idea--v1.png"
+          mockup={isDark.resolvedTheme == "dark" ? Stage1Dark : Stage1}
         />
         <StageCardComponent
           stage={"2"}
@@ -29,6 +42,7 @@ const FourStagesSection = () => {
             "Turn a validated problem into a concrete offer, smallest MVP, and clear PMF plan."
           }
           image="https://img.icons8.com/ios/500/stall.png"
+          mockup={isDark.resolvedTheme == "dark" ? Stage2Dark : Stage2}
         />
         <StageCardComponent
           stage={"3"}
@@ -37,6 +51,7 @@ const FourStagesSection = () => {
             "Turn your PMF plan into real experiments and see how strong your signal really is."
           }
           image="https://img.icons8.com/ios/500/share-2--v1.png"
+          mockup={isDark.resolvedTheme == "dark" ? Stage3Dark : Stage3}
         />
         <StageCardComponent
           stage={"4"}
@@ -45,6 +60,7 @@ const FourStagesSection = () => {
             "Turn early traction into a focused GTM motion and know when you’re ready to scale"
           }
           image="https://img.icons8.com/ios/500/positive-dynamic--v1.png"
+          mockup={isDark.resolvedTheme == "dark" ? Stage4Dark : Stage4}
         />
       </div>
       <p className="text-2xl text-muted-foreground ">
