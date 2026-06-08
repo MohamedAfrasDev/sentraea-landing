@@ -71,7 +71,7 @@ const ShippingComponent = () => {
         <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-balance">
           Shipping is easy now.
           <br />{" "}
-          <span className="text-primary font-semibold font-number uppercase tracking-tighter">
+          <span className="text-primary font-semibold font-heading tracking-tight capitalize">
             Building the right thing isn’t.
           </span>
         </h2>

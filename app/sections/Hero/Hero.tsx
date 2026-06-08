@@ -92,24 +92,7 @@ const Hero = () => {
       style={{ overflow: "clip" }}
     >
       {/* ── Grid-line background ── */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `
-            linear-gradient(to right,  oklch(64.559% 0.19149 257.011 / 0.10) 1px, transparent 1px),
-            linear-gradient(to bottom, oklch(64.559% 0.19149 257.011 / 0.10) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-          maskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, black 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 20%, black 100%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
+      <div aria-hidden="true" />
       {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
       <div
         aria-hidden="true"
@@ -127,12 +110,12 @@ const Hero = () => {
         <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tighter">
           Idea <ArrowRight /> Evidence <ArrowRight /> Growth
         </Card>
-        <h1 className="text-8xl mt-2 font-bold tracking-tighter text-center leading-25">
+        <h1 className="text-8xl mt-2 font-semibold  tracking-tighter text-center leading-25">
           <span>An </span>
-          <span className="text-primary uppercase tracking-[0.0001rem] font-number gap-2">
+          <span className="text-primary font-heading tracking-[0.0001rem]  gap-2">
             Execution
           </span>
-          <span className="text-primary uppercase mx-5  tracking-[0.0001rem] font-number gap-2">
+          <span className="text-primary font-heading mx-5  tracking-[0.0001rem] gap-2">
             System
           </span>
           <br />

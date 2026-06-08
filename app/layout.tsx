@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat, Raleway, Lato, JetBrains_Mono, Geist_Mono } from "next/font/google";
+import {
+  Inter,
+  Montserrat,
+  Raleway,
+  Lato,
+  JetBrains_Mono,
+  Geist_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
-import NavigationProgress from "@/components/navigation-process";
+import localFont from "next/font/local";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-sans",
+import NavigationProgress from "@/components/navigation-process";
+const arizonaFlare = localFont({
+  src: [
+    {
+      path: "../public/fonts/ABCArizonaFlare-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-arizona-flare",
 });
 
 const raleway = Raleway({
@@ -21,7 +34,7 @@ const raleway = Raleway({
 
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["300",],
+  weight: ["300"],
   variable: "--font-lato",
 });
 
@@ -48,14 +61,16 @@ export const metadata: Metadata = {
   description: "Research Engine",
 };
 
-export default function RootLayout({ children }: {
-  children: React.ReactNode
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
 }) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${inter.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll`}
+      className={` ${inter.variable} ${arizonaFlare.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll`}
     >
       <body className="">
         <ThemeProvider
@@ -65,10 +80,14 @@ export default function RootLayout({ children }: {
           enableSystem={false}
         >
           <TooltipProvider>
-            <Suspense fallback={<div className="flex flex-col h-screen items-center justify-center">
-              <div className="h-14 w-14 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
-              <p className="text-muted-foreground">Loading...</p>
-            </div>}>
+            <Suspense
+              fallback={
+                <div className="flex flex-col h-screen items-center justify-center">
+                  <div className="h-14 w-14 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
+                  <p className="text-muted-foreground">Loading...</p>
+                </div>
+              }
+            >
               <NavigationProgress />
               {children}
             </Suspense>
