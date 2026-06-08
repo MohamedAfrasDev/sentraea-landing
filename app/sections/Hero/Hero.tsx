@@ -147,10 +147,14 @@ const Hero = () => {
         </div>
         <Card
           ref={cardRef}
-          className="flex border bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
+          className="flex border transition-none  bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
         >
           <Image
-            src={mounted && resolvedTheme === "dark" ? LoginPageDark : LoginPageImage}
+            src={
+              mounted && resolvedTheme === "dark"
+                ? LoginPageDark
+                : LoginPageImage
+            }
             alt="a"
             width={2100}
             height={2100}

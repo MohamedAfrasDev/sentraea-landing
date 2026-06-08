@@ -3,15 +3,22 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { Rocket, LightbulbOff, Files, TrendingDown } from "lucide-react";
 import React from "react";
 
+import AIShipping from "@/public/illustrations/ai-shipping.svg";
+import AICoding from "@/public/illustrations/ai-coding.svg";
+import RandomDocs from "@/public/illustrations/random-docs.svg";
+
+import GrowthImage from "@/public/illustrations/growth.svg";
+
+import Image from "next/image";
+
 const content = [
   {
     title: "AI made shipping faster.",
     description:
       "But it also made fake validation easier. Now everyone can ship an MVP in a weekend, making it harder to stand out and find real signal.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white rounded-2xl shadow-2xl overflow-hidden relative">
-        <Rocket className="w-32 h-32 opacity-80" />
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+      <div>
+        <Image src={AICoding} alt="AI-Coding" width={300} className="h-full" />
       </div>
     ),
   },
@@ -20,9 +27,8 @@ const content = [
     description:
       "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--pink-500),var(--indigo-500))] flex items-center justify-center text-white rounded-2xl shadow-2xl overflow-hidden relative">
-        <LightbulbOff className="w-32 h-32 opacity-80" />
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+      <div>
+        <Image src={AIShipping} alt="AI-Shipping" width={400} />
       </div>
     ),
   },
@@ -31,9 +37,13 @@ const content = [
     description:
       "Experiments live in random docs, and decisions get made from memory. Without a system of record, your team forgets why things failed.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white rounded-2xl shadow-2xl overflow-hidden relative">
-        <Files className="w-32 h-32 opacity-80" />
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+      <div>
+        <Image
+          src={RandomDocs}
+          alt="Random Docs"
+          width={400}
+          className="h-full"
+        />
       </div>
     ),
   },
@@ -42,9 +52,13 @@ const content = [
     description:
       "Growth becomes a mix of random tactics instead of one clear motion. You need a structured approach to find what actually moves the needle.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--violet-500),var(--fuchsia-500))] flex items-center justify-center text-white rounded-2xl shadow-2xl overflow-hidden relative">
-        <TrendingDown className="w-32 h-32 opacity-80" />
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+      <div>
+        <Image
+          src={GrowthImage}
+          alt="Growth Image"
+          width={400}
+          className="h-full"
+        />
       </div>
     ),
   },

@@ -11,6 +11,11 @@ import Stage3Dark from "@/public/stages/STAGE-3-DARK.png";
 import Stage4Dark from "@/public/stages/STAGE-4-DARK.png";
 import { useTheme } from "next-themes";
 
+import ProblemValidationImage from "@/public/illustrations/problem-validation.svg";
+import PMFDesignImage from "@/public/illustrations/product-market-fit.svg";
+import ExperimentsImage from "@/public/illustrations/experiments.svg";
+import ScaleImage from "@/public/illustrations/scale.svg";
+
 const FourStagesSection = () => {
   const isDark = useTheme();
 
@@ -32,7 +37,7 @@ const FourStagesSection = () => {
           shortLine={
             "Prove the problem and niche are real before you touch an MVP."
           }
-          image="https://img.icons8.com/ios/500/idea--v1.png"
+          image={ProblemValidationImage}
           mockup={isDark.resolvedTheme == "dark" ? Stage1Dark : Stage1}
         />
         <StageCardComponent
@@ -41,7 +46,7 @@ const FourStagesSection = () => {
           shortLine={
             "Turn a validated problem into a concrete offer, smallest MVP, and clear PMF plan."
           }
-          image="https://img.icons8.com/ios/500/stall.png"
+          image={PMFDesignImage}
           mockup={isDark.resolvedTheme == "dark" ? Stage2Dark : Stage2}
         />
         <StageCardComponent
@@ -50,7 +55,7 @@ const FourStagesSection = () => {
           shortLine={
             "Turn your PMF plan into real experiments and see how strong your signal really is."
           }
-          image="https://img.icons8.com/ios/500/share-2--v1.png"
+          image={ExperimentsImage}
           mockup={isDark.resolvedTheme == "dark" ? Stage3Dark : Stage3}
         />
         <StageCardComponent
@@ -59,7 +64,7 @@ const FourStagesSection = () => {
           shortLine={
             "Turn early traction into a focused GTM motion and know when you’re ready to scale"
           }
-          image="https://img.icons8.com/ios/500/positive-dynamic--v1.png"
+          image={ScaleImage}
           mockup={isDark.resolvedTheme == "dark" ? Stage4Dark : Stage4}
         />
       </div>
