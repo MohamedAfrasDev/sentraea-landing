@@ -15,8 +15,8 @@ import {
   MoveUpIcon,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import LoginPageImage from "@/public/icons/login-page.png";
-import LoginPageDark from "@/public/icons/login-page-dark.png";
+import LoginPageImage from "@/public/illustrations/hero-light.png";
+import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import GetStartedBtn from "@/components/getstarted-btn";
