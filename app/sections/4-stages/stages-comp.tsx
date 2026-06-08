@@ -11,10 +11,10 @@ import Stage3Dark from "@/public/stages/STAGE-3-DARK.png";
 import Stage4Dark from "@/public/stages/STAGE-4-DARK.png";
 import { useTheme } from "next-themes";
 
-import ProblemValidationImage from "@/public/illustrations/problem-validation.svg";
-import PMFDesignImage from "@/public/illustrations/product-market-fit.svg";
-import ExperimentsImage from "@/public/illustrations/experiments.svg";
-import ScaleImage from "@/public/illustrations/scale.svg";
+import ProblemValidationImage from "@/public/illustrations/Problem-Validation.jpg";
+import PMFDesignImage from "@/public/illustrations/PMF.jpg";
+import ExperimentsImage from "@/public/illustrations/MVP.jpg";
+import ScaleImage from "@/public/illustrations/scaling.jpg";
 
 const FourStagesSection = () => {
   const isDark = useTheme();
@@ -29,8 +29,11 @@ const FourStagesSection = () => {
         <br />
         Four disciplined stages
       </h2>
-
-      <div className="grid grid-cols-4 gap-5 flex-3">
+      <p className="text-2xl text-muted-foreground ">
+        Sentraea stores every version, experiment, and decision so you see how
+        v1 → v2 → v3 actually improved.
+      </p>
+      <div className="grid grid-cols-4 gap-10 flex-3">
         <StageCardComponent
           stage={"1"}
           title={"Problem & Idea Validation"}
@@ -68,10 +71,6 @@ const FourStagesSection = () => {
           mockup={isDark.resolvedTheme == "dark" ? Stage4Dark : Stage4}
         />
       </div>
-      <p className="text-2xl text-muted-foreground ">
-        Sentraea stores every version, experiment, and decision so you see how
-        v1 → v2 → v3 actually improved.
-      </p>
     </div>
   );
 };

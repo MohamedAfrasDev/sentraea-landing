@@ -62,7 +62,32 @@ export const StickyScroll = ({
   }, [activeCard]);
 
   return (
-    <div ref={ref} className="flex justify-center relative space-x-10 w-full">
+    <div
+      ref={ref}
+      className="flex gap-10 justify-center relative space-x-10 w-full"
+    >
+      <div
+        className={cn(
+          "hidden md:flex h-[60vh] w-1/2 rounded-xl sticky top-[20vh] overflow-hidden items-center justify-center",
+          contentClassName,
+        )}
+      >
+        {content.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{
+              opacity: activeCard === index ? 1 : 0,
+              scale: activeCard === index ? 1 : 0.95,
+              zIndex: activeCard === index ? 10 : 0,
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute inset-0 flex items-center justify-center w-full h-full"
+          >
+            {item.content}
+          </motion.div>
+        ))}
+      </div>
       <div className="relative flex items-start px-4 w-full md:w-1/2">
         <div className="max-w-2xl w-full">
           <div className="py-[10vh] md:py-[20vh]">
@@ -102,28 +127,6 @@ export const StickyScroll = ({
             ))}
           </div>
         </div>
-      </div>
-      <div
-        className={cn(
-          "hidden md:flex h-[60vh] w-1/2 rounded-xl sticky top-[20vh] overflow-hidden items-center justify-center",
-          contentClassName,
-        )}
-      >
-        {content.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{
-              opacity: activeCard === index ? 1 : 0,
-              scale: activeCard === index ? 1 : 0.95,
-              zIndex: activeCard === index ? 10 : 0,
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute inset-0 flex items-center justify-center w-full h-full"
-          >
-            {item.content}
-          </motion.div>
-        ))}
       </div>
     </div>
   );

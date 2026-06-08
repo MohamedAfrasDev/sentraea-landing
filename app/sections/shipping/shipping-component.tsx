@@ -3,11 +3,11 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { Rocket, LightbulbOff, Files, TrendingDown } from "lucide-react";
 import React from "react";
 
-import AIShipping from "@/public/illustrations/ai-shipping.svg";
-import AICoding from "@/public/illustrations/ai-coding.svg";
-import RandomDocs from "@/public/illustrations/random-docs.svg";
+import AIShipping from "@/public/illustrations/nobody-cares-code.jpg";
+import AICoding from "@/public/illustrations/ai-shipping.jpg";
+import RandomDocs from "@/public/illustrations/random-docs.jpg";
 
-import GrowthImage from "@/public/illustrations/growth.svg";
+import GrowthImage from "@/public/illustrations/growth.jpg";
 
 import Image from "next/image";
 
@@ -18,7 +18,7 @@ const content = [
       "But it also made fake validation easier. Now everyone can ship an MVP in a weekend, making it harder to stand out and find real signal.",
     content: (
       <div>
-        <Image src={AICoding} alt="AI-Coding" width={300} className="h-full" />
+        <Image src={AICoding} alt="AI-Coding" width={700} />
       </div>
     ),
   },
@@ -28,7 +28,7 @@ const content = [
       "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
     content: (
       <div>
-        <Image src={AIShipping} alt="AI-Shipping" width={400} />
+        <Image src={AIShipping} alt="AI-Shipping" width={700} />
       </div>
     ),
   },
@@ -38,12 +38,7 @@ const content = [
       "Experiments live in random docs, and decisions get made from memory. Without a system of record, your team forgets why things failed.",
     content: (
       <div>
-        <Image
-          src={RandomDocs}
-          alt="Random Docs"
-          width={400}
-          className="h-full"
-        />
+        <Image src={RandomDocs} alt="Random Docs" width={700} />
       </div>
     ),
   },
@@ -53,12 +48,7 @@ const content = [
       "Growth becomes a mix of random tactics instead of one clear motion. You need a structured approach to find what actually moves the needle.",
     content: (
       <div>
-        <Image
-          src={GrowthImage}
-          alt="Growth Image"
-          width={400}
-          className="h-full"
-        />
+        <Image src={GrowthImage} alt="Growth Image" width={700} />
       </div>
     ),
   },
@@ -81,7 +71,7 @@ const ShippingComponent = () => {
         </p>
       </div>
 
-      <div className="">
+      <div className="mt-15">
         <StickyScroll content={content} />
       </div>
     </div>

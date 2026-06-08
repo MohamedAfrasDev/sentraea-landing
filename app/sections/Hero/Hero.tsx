@@ -24,75 +24,22 @@ import GetStartedBtn from "@/components/getstarted-btn";
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Dynamic loader helper for script injection
-    const loadScript = (src: string): Promise<boolean> => {
-      return new Promise((resolve) => {
-        if (document.querySelector(`script[src="${src}"]`)) {
-          resolve(true);
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        script.onload = () => resolve(true);
-        script.onerror = () => resolve(false);
-        document.body.appendChild(script);
-      });
-    };
-
-    const initializeScrollTrigger = async () => {
-      try {
-        // Load GSAP & ScrollTrigger from high-performance cdnjs
-        const gsapLoaded = await loadScript(
-          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
-        );
-        const triggerLoaded = await loadScript(
-          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
-        );
-
-        if (gsapLoaded && triggerLoaded) {
-          const win = window as any;
-          if (win.gsap && win.ScrollTrigger) {
-            win.gsap.registerPlugin(win.ScrollTrigger);
-
-            // Animate card up while scrolling down
-            win.gsap.fromTo(
-              cardRef.current,
-              { y: -40 },
-              {
-                y: 400,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: cardRef.current,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 1, // Smooth scrub delay
-                },
-              },
-            );
-          }
-        }
-      } catch (error) {
-        console.error("GSAP ScrollTrigger setup failed:", error);
-      }
-    };
-
-    initializeScrollTrigger();
-  }, []);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
     <div
-      className="relative items-center flex flex-col"
+      className="relative items-center h-screen flex flex-col"
       style={{ overflow: "clip" }}
     >
-      {/* ── Grid-line background ── */}
-      <div aria-hidden="true" />
+      {/* ── Sharp Noisy Background Overlay ── */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] dark:opacity-[0.12] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.85' numOctaves='9' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%30' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
       {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
       <div
         aria-hidden="true"
@@ -124,23 +71,6 @@ const Hero = () => {
         <div className="mt-5">
           <GetStartedBtn title="Get Started For Free" className="" />
         </div>
-        <Card
-          ref={cardRef}
-          className="flex border transition-none  bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md shadow-lg"
-        >
-          <Image
-            src={
-              mounted && resolvedTheme === "dark"
-                ? LoginPageDark
-                : LoginPageImage
-            }
-            alt="a"
-            width={2100}
-            height={2100}
-            className="w-full items-center justify-center mt-2 h-full object-cover"
-            suppressHydrationWarning
-          />
-        </Card>
       </div>
     </div>
   );

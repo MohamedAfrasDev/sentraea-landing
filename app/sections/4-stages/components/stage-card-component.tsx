@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 
@@ -6,8 +7,9 @@ interface StageCardComponentProps {
   stage: string;
   title: string;
   shortLine: string;
-  image: string;
+  image: StaticImageData;
   mockup: StaticImageData;
+  className?: string;
 }
 
 const StageCardComponent = ({
@@ -16,19 +18,25 @@ const StageCardComponent = ({
   shortLine,
   image,
   mockup,
+  className,
 }: StageCardComponentProps) => {
   return (
-    <Card className="text-start p-7 gap-0 flex flex-col justify-between  bg-card/40">
+    <Card
+      className={cn(
+        "text-start p-0 gap-0 flex flex-col justify-between  bg-card/40",
+        className,
+      )}
+    >
       <div>
         <Image
           src={image}
           alt="icon"
           width={250}
           height={250}
-          className="min-h-[200px] max-h-[200px]"
+          className="min-h-[200px] max-h-[400px] w-full object-contain"
         />
       </div>
-      <div className="flex flex-col  h-full mt-5">
+      <div className="flex flex-col px-5 py-6 h-full ">
         <p className="text-md uppercase font-number text-muted-foreground tracking-[0.2rem]">
           Stage {stage}
         </p>
