@@ -112,12 +112,8 @@ const Hero = () => {
         </Card>
         <h1 className="text-8xl mt-2 font-semibold  tracking-tighter text-center leading-25">
           <span>An </span>
-          <span className="text-primary font-heading tracking-[0.0001rem]  gap-2">
-            Execution
-          </span>
-          <span className="text-primary font-heading mx-5  tracking-[0.0001rem] gap-2">
-            System
-          </span>
+          <span className="text-primary font-heading   gap-2">Execution</span>
+          <span className="text-primary font-heading mx-5   gap-2">System</span>
           <br />
           <span>For Your Next Startup</span>
         </h1>

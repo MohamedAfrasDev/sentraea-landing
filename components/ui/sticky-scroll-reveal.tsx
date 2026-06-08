@@ -67,14 +67,19 @@ export const StickyScroll = ({
         <div className="max-w-2xl w-full">
           <div className="py-[10vh] md:py-[20vh]">
             {content.map((item, index) => (
-              <div key={item.title + index} className="my-32">
+              <div key={item.title + index} className={cn("my-32")}>
                 <motion.h2
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: activeCard === index ? 1 : 0.3,
                   }}
                   transition={{ duration: 0.5 }}
-                  className="text-4xl font-semibold tracking-tight text-foreground"
+                  className={cn(
+                    activeCard === index ? "text-primary" : "text-foreground",
+                    activeCard === index &&
+                      "scale-112 transition-all duration-300 ease-in-out",
+                    "text-5xl transition-all font-heading duration-300 font-semibold tracking-tight",
+                  )}
                 >
                   {item.title}
                 </motion.h2>
@@ -85,7 +90,10 @@ export const StickyScroll = ({
                       opacity: activeCard === index ? 1 : 0.3,
                     }}
                     transition={{ duration: 0.5 }}
-                    className="text-lg text-muted-foreground mt-6"
+                    className={cn(
+                      "text-lg text-muted-foreground mt-4 transition-all duration-300",
+                      activeCard === index && "scale-112  ease-in-out",
+                    )}
                   >
                     {item.description}
                   </motion.p>
