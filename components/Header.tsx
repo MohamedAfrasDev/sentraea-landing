@@ -56,9 +56,9 @@ export const Header = () => {
         {/* Inner navbar */}
         <div
           className={cn(
-            " backdrop-blur-lg dark:backdrop-blur-5xl bg-background/90  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
+            " backdrop-blur-lg dark:backdrop-blur-5xl bg-background/30  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
             isShrunk &&
-              "bg-white/90 dark:bg-gray-950/80 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
+              "bg-white/70 dark:bg-gray-950/60 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
           )}
           style={{
             borderRadius: isShrunk ? 10 : 0,
