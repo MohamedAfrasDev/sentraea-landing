@@ -13,10 +13,10 @@ import Stage3Dark from "@/public/stages/STAGE-3-DARK.png";
 import Stage4Dark from "@/public/stages/STAGE-4-DARK.png";
 import { useTheme } from "next-themes";
 
-import ProblemValidationImage from "@/public/illustrations/problem_validation.svg";
-import PMFDesignImage from "@/public/illustrations/product-market-fit.svg";
+import ProblemValidationImage from "@/public/illustrations/idea-validation.svg";
+import PMFDesignImage from "@/public/illustrations/product-quality-animate.svg";
 import ExperimentsImage from "@/public/illustrations/experiments.svg";
-import ScaleImage from "@/public/illustrations/scale.svg";
+import ScaleImage from "@/public/illustrations/scalee.svg";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
