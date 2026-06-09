@@ -23,7 +23,7 @@ const StageCardComponent = ({
   return (
     <Card
       className={cn(
-        "text-start p-0 gap-0 flex flex-col justify-between  bg-card/40",
+        "text-start p-0 gap-0 flex flex-row    bg-card/40",
         className,
       )}
     >
@@ -33,7 +33,7 @@ const StageCardComponent = ({
           alt="icon"
           width={250}
           height={250}
-          className="min-h-[200px] max-h-[400px] w-full object-contain"
+          className=" min-h-[320px] max-h-[400px]  w-full "
         />
       </div>
       <div className="flex flex-col px-5 py-6 h-full ">

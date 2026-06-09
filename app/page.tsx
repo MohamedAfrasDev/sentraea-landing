@@ -40,7 +40,9 @@ export default function Home() {
 
           <div className="px-15 pb-20">
             <div className=" flex flex-col mt-20 px-5 gap-40 border-muted-foreground/3">
-              <StagesComp />
+              <div className="w-full">
+                <StagesComp />
+              </div>
               <ShippingComponent />
               <HowItWorks />
               <CTA />

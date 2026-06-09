@@ -77,6 +77,7 @@ export default function RootLayout({
           attribute="class"
           storageKey="theme"
           defaultTheme="light"
+          forcedTheme="light"
           enableSystem={false}
         >
           <TooltipProvider>

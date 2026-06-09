@@ -20,6 +20,7 @@ import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import GetStartedBtn from "@/components/getstarted-btn";
+import BGOverlayHero from "./components/components/bg-overlay";
 
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -91,6 +92,9 @@ const Hero = () => {
       className="relative items-center flex flex-col"
       style={{ overflow: "clip" }}
     >
+      {/* <div ref={cardRef} className="w-full h-full">
+        <BGOverlayHero />
+      </div> */}
       {/* ── Grid-line background ── */}
       <div aria-hidden="true" />
       {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
@@ -122,7 +126,8 @@ const Hero = () => {
           <ArrowRight className="mx-4" /> scale
         </p>
         <div className="mt-5">
-          <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" />
+          {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
+          <Button className={"text-xl py-5 px-4"}>Explore for Free</Button>
         </div>
         <Card
           ref={cardRef}
