@@ -28,7 +28,7 @@ const content = [
       "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
     content: (
       <div>
-        <Image src={AICoding} alt="AI-Shipping" width={700} />
+        <Image src={AICoding} alt="AI-Shipping" width={400} />
       </div>
     ),
   },
@@ -38,7 +38,7 @@ const content = [
       "Experiments live in random docs, and decisions get made from memory. Without a system of record, your team forgets why things failed.",
     content: (
       <div>
-        <Image src={RandomDocs} alt="Random Docs" width={700} />
+        <Image src={RandomDocs} alt="Random Docs" width={400} />
       </div>
     ),
   },
@@ -48,7 +48,7 @@ const content = [
       "Growth becomes a mix of random tactics instead of one clear motion. You need a structured approach to find what actually moves the needle.",
     content: (
       <div>
-        <Image src={GrowthImage} alt="Growth Image" width={700} />
+        <Image src={GrowthImage} alt="Growth Image" width={400} />
       </div>
     ),
   },
