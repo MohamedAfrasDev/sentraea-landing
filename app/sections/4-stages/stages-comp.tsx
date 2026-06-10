@@ -14,7 +14,7 @@ import Stage4Dark from "@/public/stages/STAGE-4-DARK.png";
 import { useTheme } from "next-themes";
 
 import ProblemValidationImage from "@/public/illustrations/idea-validation.svg";
-import PMFDesignImage from "@/public/illustrations/product-quality-animate.svg";
+import PMFDesignImage from "@/public/illustrations/kanban method-bro.svg";
 import ExperimentsImage from "@/public/illustrations/experiments.svg";
 import ScaleImage from "@/public/illustrations/scalee.svg";
 
