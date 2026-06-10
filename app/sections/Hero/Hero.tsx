@@ -89,7 +89,7 @@ const Hero = () => {
   }, []);
   return (
     <div
-      className="relative items-center flex flex-col"
+      className="relative items-center bg-white flex flex-col"
       style={{ overflow: "clip" }}
     >
       {/* <div ref={cardRef} className="w-full h-full">
@@ -121,13 +121,15 @@ const Hero = () => {
           <br />
           <span>For Your Next Startup</span>
         </h1>
-        <p className="text-3xl text-center   mt-3 px-30 items-center flex">
+        <p className="text-3xl text-center tracking-tighter  mt-3 px-30 items-center flex">
           Guide your startup with an AI execution system from idea{" "}
           <ArrowRight className="mx-4" /> scale
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
-          <Button className={"text-xl py-5 px-4"}>Explore for Free</Button>
+          <Button className={"text-xl py-5 px-4 tracking-tight"}>
+            Explore for Free
+          </Button>
         </div>
         <Card
           ref={cardRef}

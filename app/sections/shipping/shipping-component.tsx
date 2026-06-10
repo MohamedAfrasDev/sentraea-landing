@@ -4,10 +4,10 @@ import { Rocket, LightbulbOff, Files, TrendingDown } from "lucide-react";
 import React from "react";
 
 import AIShipping from "@/public/illustrations/ai-coding.svg";
-import AICoding from "@/public/illustrations/ai-shipping.svg";
-import RandomDocs from "@/public/illustrations/random-docs.svg";
+import AICoding from "@/public/illustrations/Hand-coding-bro.svg";
+import RandomDocs from "@/public/illustrations/Documents-bro.svg";
 
-import GrowthImage from "@/public/illustrations/growth.svg";
+import GrowthImage from "@/public/illustrations/Growth-curve-bro.svg";
 
 import Image from "next/image";
 
@@ -28,7 +28,7 @@ const content = [
       "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
     content: (
       <div>
-        <Image src={AICoding} alt="AI-Shipping" width={400} />
+        <Image src={AICoding} alt="AI-Shipping" width={500} />
       </div>
     ),
   },
@@ -38,7 +38,7 @@ const content = [
       "Experiments live in random docs, and decisions get made from memory. Without a system of record, your team forgets why things failed.",
     content: (
       <div>
-        <Image src={RandomDocs} alt="Random Docs" width={400} />
+        <Image src={RandomDocs} alt="Random Docs" width={600} />
       </div>
     ),
   },
@@ -48,7 +48,7 @@ const content = [
       "Growth becomes a mix of random tactics instead of one clear motion. You need a structured approach to find what actually moves the needle.",
     content: (
       <div>
-        <Image src={GrowthImage} alt="Growth Image" width={400} />
+        <Image src={GrowthImage} alt="Growth Image" width={500} />
       </div>
     ),
   },
@@ -56,12 +56,12 @@ const content = [
 
 const ShippingComponent = () => {
   return (
-    <div className="relative   ">
+    <div className="relative  bg-white px-20 pt-20 pb-20">
       <div className=" ">
-        <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-balance">
+        <h2 className="text-5xl md:text-7xl font-semibold tracking-[-5px] text-balance">
           Shipping is easy now.
           <br />{" "}
-          <span className="text-primary font-semibold font-heading tracking-tight capitalize">
+          <span className="text-primary font-semibold font-heading tracking-[-5px] capitalize">
             Building the right thing isn’t.
           </span>
         </h2>

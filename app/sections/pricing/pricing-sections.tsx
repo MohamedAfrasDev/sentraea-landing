@@ -96,7 +96,7 @@ const renderValue = (value: string | boolean, highlight: boolean = false) => {
 
 const PricingSections = () => {
   return (
-    <section className="relative w-full  bg-white ">
+    <section className="relative w-full   ">
       <div className="mx-auto px-20">
         {/* Header */}
         <div className="max-w-3xl mt-10">

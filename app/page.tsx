@@ -40,14 +40,18 @@ export default function Home() {
           <Hero />
 
           <div className=" pb-20">
-            <div className=" flex flex-col mt-20  gap-40 border-muted-foreground/3">
+            <div className=" flex flex-col mt-20 border-muted-foreground/3">
               <div className="w-full px-20">
                 <StagesComp />
-                <ShippingComponent />
               </div>
-              <PricingSections />
-              <HowItWorks />
-              <CTA />
+              <div className="relative z-10 bg-background flex flex-col gap-40 w-full">
+                <div className="">
+                  <ShippingComponent />
+                </div>
+                <PricingSections />
+                <HowItWorks />
+                <CTA />
+              </div>
             </div>
           </div>
         </div>

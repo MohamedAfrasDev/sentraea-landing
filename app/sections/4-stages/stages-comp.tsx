@@ -27,6 +27,7 @@ const FourStagesSection = () => {
   const isDark = useTheme();
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -42,6 +43,12 @@ const FourStagesSection = () => {
         return containerWidth - sectionWidth + 100;
       };
 
+      // Set the spacer height dynamically
+      if (spacerRef.current) {
+        spacerRef.current.style.height = `${getScrollAmount()}px`;
+      }
+
+      // 1. Animate horizontal scroll
       const tween = gsap.to(container, {
         x: () => -getScrollAmount(), // Move left by the exact distance
         ease: "none",
@@ -50,13 +57,19 @@ const FourStagesSection = () => {
       ScrollTrigger.create({
         trigger: section,
         start: "top top",
-        // The vertical scroll distance exactly matches the horizontal distance (1:1 ratio)
         end: () => `+=${getScrollAmount()}`,
-        pin: true,
         animation: tween,
-        // Since you are using Lenis for smooth scroll, this must be `true` (not a number).
-        // A number creates double-smoothing which feels laggy and "slow".
         scrub: true,
+        invalidateOnRefresh: true,
+      });
+
+      // 2. Pin the section until the end of the page so it stays as a background
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "max",
+        pin: true,
+        pinSpacing: false, // Let the next sections scroll over it
         invalidateOnRefresh: true,
       });
     }, section);
@@ -65,14 +78,15 @@ const FourStagesSection = () => {
   }, []);
 
   return (
-    <div
-      ref={sectionRef}
-      className="flex flex-col items-start text-start gap-10 overflow-hidden min-h-screen pt-24"
-    >
+    <>
+      <div
+        ref={sectionRef}
+        className="flex flex-col  items-start text-start gap-10 overflow-hidden min-h-screen pt-24 -z-10"
+      >
       <div className=" max-w-6xl">
-        <h2 className="text-7xl tracking-tighter font-semibold capitalize flex-3">
+        <h2 className="text-7xl tracking-[-5px] font-semibold capitalize flex-3">
           One{" "}
-          <span className="text-primary tracking-tight font-semibold font-heading ">
+          <span className="text-primary tracking-[-5px] font-semibold font-heading ">
             workspace
           </span>
           <br />
@@ -130,6 +144,8 @@ const FourStagesSection = () => {
         />
       </div>
     </div>
+    <div ref={spacerRef} className="w-full" />
+  </>
   );
 };
 
