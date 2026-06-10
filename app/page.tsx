@@ -41,14 +41,16 @@ export default function Home() {
 
           <div className=" pb-20">
             <div className=" flex flex-col mt-20 border-muted-foreground/3">
-              <div className="w-full px-20">
+              <div className="w-full px-20 z-10">
                 <StagesComp />
               </div>
-              <div className="relative z-10 bg-background flex flex-col  w-full">
-                <div className="">
-                  <ShippingComponent />
-                  <PricingSections />
-                </div>
+
+              <div className="w-full z-20">
+                <ShippingComponent />
+              </div>
+
+              <div className="relative z-30 bg-background flex flex-col w-full">
+                <PricingSections />
                 <HowItWorks />
                 <CTA />
               </div>

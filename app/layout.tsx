@@ -57,8 +57,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sentraea",
-  description: "Research Engine",
+  title: "Sentraea | An Execution System for Your Next Startup",
+  description:
+    "Guide your startup with an AI execution system from idea to scale.",
 };
 
 export default function RootLayout({
@@ -70,7 +71,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={` ${inter.variable} ${arizonaFlare.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll`}
+      className={` ${inter.variable} ${arizonaFlare.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
         <ThemeProvider

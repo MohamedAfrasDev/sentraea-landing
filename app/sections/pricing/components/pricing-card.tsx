@@ -29,6 +29,7 @@ const PricingCard = ({
 }: PricingCardProps) => {
   return (
     <Card
+      key={name}
       className={cn(
         "px-5 py-5 text-start rounded-lg justify-between",
         featured && "scale-106 bg-primary",
@@ -85,6 +86,7 @@ const PricingCard = ({
       <div>
         {features.map((feature, index) => (
           <div
+            key={index}
             className={cn(
               "flex items-center justify-between mt-4",
               featured && "text-white",

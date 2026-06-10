@@ -10,6 +10,9 @@ interface StageCardComponentProps {
   image: StaticImageData;
   mockup: StaticImageData;
   className?: string;
+  evidence: string;
+  source: string;
+  scale?: number;
 }
 
 const StageCardComponent = ({
@@ -19,11 +22,14 @@ const StageCardComponent = ({
   image,
   mockup,
   className,
+  evidence,
+  source,
+  scale,
 }: StageCardComponentProps) => {
   return (
     <Card
       className={cn(
-        "text-start p-0 gap-0 flex flex-row h-fit shadow-2xl   bg-card/40",
+        "text-start px-10  py-3 gap-0 flex flex-row shadow-2xl items-start  bg-card/40",
         className,
       )}
     >
@@ -31,16 +37,25 @@ const StageCardComponent = ({
         <Image
           src={image}
           alt="icon"
-          width={250}
-          className=" min-h-[320px] max-h-[300px] p-6   w-full "
+          width={1000}
+          className="  max-h-[350px] p-6   w-full "
+          style={{
+            scale: scale ? scale : 1,
+          }}
         />
       </div>
-      <div className="flex flex-col px-5 py-6 h-full ">
-        <p className="text-md uppercase font-number text-muted-foreground tracking-[0.2rem]">
-          Stage {stage}
-        </p>
-        <h2 className="text-3xl font-semibold z-10 font-heading">{title}</h2>
-        <p className="text-sm mt-3 z-10 text-muted-foreground">{shortLine}</p>
+      <div className="flex flex-col justify-between px-5 py-6 min-h-fit gap-5">
+        <div>
+          <p className="text-md uppercase font-number text-muted-foreground tracking-[0.2rem]">
+            Stage {stage}
+          </p>
+          <h2 className="text-3xl font-semibold z-10 font-heading">{title}</h2>
+          <p className="text-lg mt-3 tracking-tighter z-10 ">{shortLine}</p>
+        </div>
+        <div className="h-full bg-gray-100/50 px-5 py-3 rounded-sm">
+          <p className="text-muted-foreground italic">{evidence}</p>
+          <span className="text-muted-foreground italic text-xs">{source}</span>
+        </div>
       </div>
     </Card>
   );

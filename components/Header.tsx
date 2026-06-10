@@ -65,7 +65,7 @@ export const Header = () => {
           }}
         >
           {/* Logo */}
-          <a href="#studinity" className="flex items-center gap-2">
+          <a href="#sentraea" className="flex items-center gap-2">
             <Image
               src={HorizontalLogo}
               alt="Studinity Logo"

@@ -1,15 +1,19 @@
 import { Card } from "@/components/ui/card";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { Rocket, LightbulbOff, Files, TrendingDown } from "lucide-react";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
-import AIShipping from "@/public/illustrations/ai-coding.svg";
-import AICoding from "@/public/illustrations/Hand-coding-bro.svg";
-import RandomDocs from "@/public/illustrations/Documents-bro.svg";
+import AIShipping from "@/public/illustrations/ai-shipping-2.svg";
+import AICoding from "@/public/illustrations/ai-coding-2.svg";
+import RandomDocs from "@/public/illustrations/random-docs-2.svg";
 
-import GrowthImage from "@/public/illustrations/Growth-curve-bro.svg";
+import GrowthImage from "@/public/illustrations/growth-scale.svg";
 
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const content = [
   {
@@ -18,7 +22,7 @@ const content = [
       "But it also made fake validation easier. Now everyone can ship an MVP in a weekend, making it harder to stand out and find real signal.",
     content: (
       <div>
-        <Image src={AIShipping} alt="AI-Coding" width={300} />
+        <Image src={AIShipping} alt="AI-Coding" width={500} />
       </div>
     ),
   },
@@ -28,7 +32,7 @@ const content = [
       "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
     content: (
       <div>
-        <Image src={AICoding} alt="AI-Shipping" width={500} />
+        <Image src={AICoding} alt="AI-Shipping" width={600} />
       </div>
     ),
   },
@@ -55,8 +59,28 @@ const content = [
 ];
 
 const ShippingComponent = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: container,
+        start: "bottom bottom", // Pin when the bottom of this section hits the bottom of the viewport
+        end: "max", // Stay pinned until the page ends
+        pin: true,
+        pinSpacing: false, // Don't add padding below, allowing the next section to overlap
+        invalidateOnRefresh: true,
+      });
+    }, container);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="relative  bg-white px-20 pt-20 pb-20">
+    <div ref={containerRef} className="relative bg-white px-20 pt-20 pb-20">
       <div className=" ">
         <h2 className="text-5xl md:text-7xl font-semibold tracking-[-5px] text-balance">
           Shipping is easy now.

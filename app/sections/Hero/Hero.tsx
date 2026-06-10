@@ -89,6 +89,7 @@ const Hero = () => {
   }, []);
   return (
     <div
+      id="sentraea"
       className="relative items-center bg-white flex flex-col"
       style={{ overflow: "clip" }}
     >

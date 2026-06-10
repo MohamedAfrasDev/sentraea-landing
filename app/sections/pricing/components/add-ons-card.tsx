@@ -36,8 +36,12 @@ const AddOnsCard = () => {
       </div>
 
       <div className="flex-2 grid grid-cols-3">
-        {addOns.map((item) => (
-          <div className="flex flex-col gap-5 justify-between">
+        {addOns.map((item, index) => (
+          <div
+            className="flex flex-col gap-5 justify-between"
+            key={item.id}
+            id=""
+          >
             <h3 className="text-xl tracking-tighter font-medium">
               {item.title}
             </h3>
