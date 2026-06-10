@@ -31,7 +31,7 @@ const PricingCard = ({
     <Card
       key={name}
       className={cn(
-        "px-5 py-5 text-start rounded-lg justify-between",
+        "px-5 py-5 text-start rounded-lg justify-between bg-card/60",
         featured && "scale-106 bg-primary",
         className,
       )}

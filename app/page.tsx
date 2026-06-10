@@ -27,6 +27,7 @@ import StagesComp from "./sections/4-stages/stages-comp";
 import ShippingComponent from "./sections/shipping/shipping-component";
 import CTA from "./sections/cta/cta";
 import PricingSections from "./sections/pricing/pricing-sections";
+import Footer from "./sections/footer/footer";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -39,7 +40,7 @@ export default function Home() {
         <div className="">
           <Hero />
 
-          <div className=" pb-20">
+          <div className="">
             <div className=" flex flex-col mt-20 border-muted-foreground/3">
               <div className="w-full px-20 z-10">
                 <StagesComp />
@@ -51,8 +52,10 @@ export default function Home() {
 
               <div className="relative z-30 bg-background flex flex-col w-full">
                 <PricingSections />
-                <HowItWorks />
+                {/* <HowItWorks /> */}
                 <CTA />
+
+                <Footer />
               </div>
             </div>
           </div>

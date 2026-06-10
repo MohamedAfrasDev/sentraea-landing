@@ -3,9 +3,9 @@ import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { Rocket, LightbulbOff, Files, TrendingDown } from "lucide-react";
 import React, { useEffect, useRef } from "react";
 
-import AIShipping from "@/public/illustrations/ai-shipping-2.svg";
+import AIShipping from "@/public/illustrations/ai-shipping-3.svg";
 import AICoding from "@/public/illustrations/ai-coding-2.svg";
-import RandomDocs from "@/public/illustrations/random-docs-2.svg";
+import RandomDocs from "@/public/illustrations/random-docs-3.svg";
 
 import GrowthImage from "@/public/illustrations/growth-scale.svg";
 

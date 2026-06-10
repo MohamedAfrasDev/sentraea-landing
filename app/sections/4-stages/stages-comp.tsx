@@ -110,10 +110,10 @@ const FourStagesSection = () => {
             }
             image={ProblemValidationImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage1Dark : Stage1}
-            className="w-[85vw] max-w-[800px] shrink-0"
+            className="w-[85vw] max-w-[900px] shrink-0"
             evidence="CB Insights data confirms 42% of startups die building products with zero market need. Validate the signal before compiling the code."
             source="CB Insights Startup Failure Post-Mortem Report"
-            scale={1.7}
+            scale={1.9}
           />
           <StageCardComponent
             stage={"2"}
@@ -123,7 +123,7 @@ const FourStagesSection = () => {
             }
             image={PMFDesignImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage2Dark : Stage2}
-            className="w-[85vw] max-w-[800px] shrink-0"
+            className="w-[85vw] max-w-[900px] shrink-0"
             evidence="YC's primary axiom: 'It’s better to build something that a small number of users love, than a large number of users like.' Constrain the MVP."
             source="Y Combinator / Paul Graham"
           />
@@ -135,7 +135,7 @@ const FourStagesSection = () => {
             }
             image={ExperimentsImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage3Dark : Stage3}
-            className="w-[85vw] max-w-[800px] shrink-0"
+            className="w-[85vw] max-w-[900px] shrink-0"
             source="Reforge (Brian Balfour) / Growth Compounding Models."
             evidence="Reforge data models dictate that experimentation velocity is the highest-weighted variable in achieving PMF. If you aren't testing, you are guessing."
           />
@@ -147,7 +147,7 @@ const FourStagesSection = () => {
             }
             image={ScaleImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage4Dark : Stage4}
-            className="w-[95vw] max-w-[800px] shrink-0"
+            className="w-[95vw] max-w-[900px] shrink-0"
             scale={1.4}
             evidence="Startup Genome analysis proves 74% of tech startups die due to premature scaling. Do not inject capital until the GTM vector is deterministic."
             source="Startup Genome Project (Comprehensive Analysis of 3,200+ startups)"

@@ -29,7 +29,7 @@ const StageCardComponent = ({
   return (
     <Card
       className={cn(
-        "text-start px-10  py-3 gap-0 flex flex-row shadow-2xl items-start  bg-card/40",
+        "text-start px-10 w-full  py-3 gap-0 flex flex-row shadow-2xl items-start  bg-card/60",
         className,
       )}
     >
@@ -38,7 +38,7 @@ const StageCardComponent = ({
           src={image}
           alt="icon"
           width={1000}
-          className="  max-h-[350px] p-6   w-full "
+          className="  max-h-[300px]  min-h-[300px] p-6 "
           style={{
             scale: scale ? scale : 1,
           }}
@@ -54,7 +54,7 @@ const StageCardComponent = ({
         </div>
         <div className="h-full bg-gray-100/50 px-5 py-3 rounded-sm">
           <p className="text-muted-foreground italic">{evidence}</p>
-          <span className="text-muted-foreground italic text-xs">{source}</span>
+          <span className="text-primary/70 italic text-xs">{source}</span>
         </div>
       </div>
     </Card>

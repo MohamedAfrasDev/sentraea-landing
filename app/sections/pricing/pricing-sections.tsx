@@ -130,8 +130,9 @@ const PricingSections = () => {
               "Limited knowledge uploads",
               "No advanced background processing",
             ]}
-            btnText="Get Started for Free"
+            btnText="Start for Free"
             variant="outline"
+            className="pr-8"
           />
 
           <PricingCard
@@ -170,7 +171,7 @@ const PricingSections = () => {
             ]}
             btnText="Upgrade now"
             variant="default"
-            className="rounded-r-none"
+            className="rounded-r-none pl-8"
           />
           <PricingCard
             name={"Team"}
@@ -194,92 +195,81 @@ const PricingSections = () => {
           />
         </div>
 
-        <AddOnsCard />
-        {/* Pricing Table */}
-        <div className="w-full mt-16 overflow-x-auto md:overflow-visible pb-8">
-          <Card className="min-w-[800px] w-full bg-background rounded-3xl p-8 md:p-12 border border-border shadow-sm overflow-visible">
-            {/* Header Row */}
-            <div className="grid grid-cols-4 gap-6 pb-8 border-b border-border sticky top-[80px] bg-background z-20 pt-8 -mt-8 md:pt-12 md:-mt-12">
+        {/* <div className="w-full mt-16 overflow-x-auto md:overflow-visible pb-8">
+          <Card className="min-w-[800px] w-full bg-card/60  p-8 md:p-12 border border-border shadow-2xl overflow-visible">
+            <div className="grid grid-cols-5 gap-6 pb-8 sticky top-[80px] bg-transparent backdrop-blur-2xl z-20 pt-8 -mt-8 md:pt-12 md:-mt-12">
               <div className="flex items-end pb-2">
-                <h3 className="text-xl font-medium text-foreground">
-                  Features
+                <h3 className="text-4xl tracking-tighter font-medium text-foreground">
+                  Pricing
                 </h3>
               </div>
 
-              {/* Validation */}
               <div className="flex flex-col pr-4">
-                <h3 className="text-xl font-medium text-foreground">
-                  Validation
-                </h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-semibold tracking-tight text-foreground">
-                    $0
-                  </span>
-                  <span className="text-muted-foreground text-sm ml-1">
-                    /mo
-                  </span>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-3xl font-semibold font-heading text-foreground">
+                    Free
+                  </h3>
                 </div>
-                <p className="text-sm text-muted-foreground mt-3 min-h-[40px] leading-relaxed">
-                  For early founders testing the waters.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full mt-6 rounded-full h-11 text-sm tracking-wide"
-                >
+
+                <Button variant="outline_without_border" className="mt-4">
                   Start for free
                 </Button>
               </div>
 
-              {/* Execution (Featured) */}
               <div className="flex flex-col pr-4 relative">
-                <h3 className="text-xl font-medium text-foreground flex items-center gap-2">
-                  Execution
-                  <span className="bg-primary/10 text-primary text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                    Featured
-                  </span>
-                </h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-semibold tracking-tight text-foreground">
-                    $49
-                  </span>
-                  <span className="text-muted-foreground text-sm ml-1">
-                    /mo
-                  </span>
+                <div className="flex justify-between">
+                  <h3 className="text-3xl font-semibold font-heading text-foreground">
+                    Pro
+                  </h3>
+                  <div className="font-number">
+                    <span className="text-3xl font-semibold tracking-tight text-foreground">
+                      $49
+                    </span>
+                    <span className="text-muted-foreground text-sm ml-1">
+                      /mo
+                    </span>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-3 min-h-[40px] leading-relaxed">
-                  For startups ready to build with discipline.
-                </p>
-                <Button className="w-full mt-6 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-11 text-sm tracking-wide">
-                  Upgrade
-                </Button>
+
+                <Button className={"mt-4"}>Upgrade Now</Button>
               </div>
 
-              {/* Portfolio */}
-              <div className="flex flex-col pr-4">
-                <h3 className="text-xl font-medium text-foreground">
-                  Portfolio
-                </h3>
-                <div className="mt-4">
-                  <span className="text-4xl font-semibold tracking-tight text-foreground">
-                    $149
-                  </span>
-                  <span className="text-muted-foreground text-sm ml-1">
-                    /mo
-                  </span>
+              <div className="flex flex-col pr-4 relative">
+                <div className="flex justify-between">
+                  <h3 className="text-3xl font-semibold font-heading text-foreground">
+                    Growth
+                  </h3>
+                  <div className="font-number">
+                    <span className="text-3xl font-semibold tracking-tight text-foreground">
+                      $149
+                    </span>
+                    <span className="text-muted-foreground text-sm ml-1">
+                      /mo
+                    </span>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-3 min-h-[40px] leading-relaxed">
-                  For studios running multiple bets.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full mt-6 rounded-full h-11 text-sm tracking-wide"
-                >
-                  Contact Sales
-                </Button>
+
+                <Button className={"mt-4"}>Upgrade Now</Button>
+              </div>
+              <div className="flex flex-col pr-4 relative">
+                <div className="flex justify-between">
+                  <h3 className="text-3xl font-semibold font-heading text-foreground">
+                    Team
+                  </h3>
+                  <div className="font-number">
+                    <span className="text-3xl font-semibold tracking-tight text-foreground">
+                      $399
+                    </span>
+                    <span className="text-muted-foreground text-sm ml-1">
+                      /mo
+                    </span>
+                  </div>
+                </div>
+
+                <Button className={"mt-4"}>Upgrade Now</Button>
               </div>
             </div>
 
-            {/* Feature Rows */}
             <div className="flex flex-col">
               {features.map((feature, idx) => (
                 <div
@@ -302,10 +292,9 @@ const PricingSections = () => {
               ))}
             </div>
           </Card>
-        </div>
+        </div> */}
 
-        {/* FAQ Micro Row */}
-        <div className="mt-24 pt-12 border-t border-border/50 grid md:grid-cols-2 gap-12 lg:gap-24">
+        {/* <div className="mt-24 pt-12 border-t border-border/50 grid md:grid-cols-2 gap-12 lg:gap-24">
           <div>
             <h4 className="text-lg font-medium text-foreground">
               Do you charge per seat?
@@ -325,7 +314,7 @@ const PricingSections = () => {
               at any time. Changes take effect immediately and are prorated.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
