@@ -112,7 +112,8 @@ const Hero = () => {
       {/* ── Content sits above the grid ── */}
       <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
         <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tighter">
-          Idea <ArrowRight /> Evidence <ArrowRight /> Growth
+          Clarify <ArrowRight /> Teach <ArrowRight /> Solve <ArrowRight />
+          Ship
         </Card>
         <h1 className="text-8xl mt-2 font-semibold  tracking-tighter text-center leading-25">
           <span>An </span>

@@ -116,7 +116,7 @@ export const StickyScroll = ({
                     }}
                     transition={{ duration: 0.5 }}
                     className={cn(
-                      "text-lg text-foreground mt-4 transition-all duration-300",
+                      "text-lg text-foreground mt-4 transition-all duration-300 tracking-tighter",
                       activeCard === index && "scale-112  ease-in-out",
                     )}
                   >

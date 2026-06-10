@@ -44,11 +44,11 @@ export default function Home() {
               <div className="w-full px-20">
                 <StagesComp />
               </div>
-              <div className="relative z-10 bg-background flex flex-col gap-40 w-full">
+              <div className="relative z-10 bg-background flex flex-col  w-full">
                 <div className="">
                   <ShippingComponent />
+                  <PricingSections />
                 </div>
-                <PricingSections />
                 <HowItWorks />
                 <CTA />
               </div>

@@ -65,7 +65,7 @@ const ShippingComponent = () => {
             Building the right thing isn’t.
           </span>
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-2xl">
+        <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-2xl tracking-tighter">
           Sentraea exists to protect your work by forcing your startup through
           the right stages.
         </p>

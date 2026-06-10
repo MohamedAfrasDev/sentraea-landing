@@ -56,7 +56,7 @@ export const Header = () => {
         {/* Inner navbar */}
         <div
           className={cn(
-            " backdrop-blur-lg dark:backdrop-blur-5xl bg-white/30  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
+            " backdrop-blur-lg dark:backdrop-blur-5xl bg-white/70  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
             isShrunk &&
               "bg-white/70 dark:bg-gray-950/60 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
           )}

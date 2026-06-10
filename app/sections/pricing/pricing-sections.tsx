@@ -4,6 +4,8 @@ import React from "react";
 import { Check, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import PricingCard from "./components/pricing-card";
+import AddOnsCard from "./components/add-ons-card";
 
 const features = [
   {
@@ -96,24 +98,103 @@ const renderValue = (value: string | boolean, highlight: boolean = false) => {
 
 const PricingSections = () => {
   return (
-    <section className="relative w-full   ">
+    <section className="relative w-full py-20  bg-primary/10 text-center">
       <div className="mx-auto px-20">
         {/* Header */}
-        <div className="max-w-3xl mt-10">
-          <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-balance text-foreground">
+        <div className="max-w-screen text-center w-full mx-auto">
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-[-5px] text-balance text-foreground">
             Priced for{" "}
-            <span className="font-heading text-primary">execution</span>.
+            <span className="font-heading text-primary">Execution.</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mt-6 min-w-8xl max-w-8xl leading-relaxed tracking-tighter">
             Sentraea is structured around your startup workspace. You don&apos;t
             pay per generic seat—you pay for the execution depth required to
             move through the four disciplined stages.
           </p>
         </div>
 
+        <div className="grid grid-cols-4 gap-0 mt-10">
+          <PricingCard
+            name={"Free"}
+            value={"0"}
+            yearlyValue={"0"}
+            subTitle={"New founders testing the product"}
+            featured={false}
+            features={[
+              "1 workspace",
+              "Stage 1 lite",
+              "Limited AI runs",
+              "Limited knowledge uploads",
+              "No advanced background processing",
+            ]}
+            btnText="Get Started for Free"
+            variant="outline"
+          />
+
+          <PricingCard
+            name={"Pro"}
+            value={"49"}
+            yearlyValue={"490"}
+            subTitle={"One founder validating and shaping a startup"}
+            featured={true}
+            features={[
+              "1 workspace",
+              "Full Stage 1 + Stage 2",
+              "Light Stage 3 tracking",
+              "Generous monthly AI credits",
+              "Knowledge base",
+              "Workspace subdomain",
+              "Basic exports",
+            ]}
+            btnText="Upgrade now"
+            variant="default"
+          />
+
+          <PricingCard
+            name={"Growth"}
+            value={"149"}
+            yearlyValue={"599"}
+            subTitle={"Founders actively executing and iterating"}
+            featured={false}
+            features={[
+              "Up to 3 workspaces",
+              "Full Stage 1–4 access",
+              "Higher AI/search credits",
+              "Background workflows",
+              "Richer tracking",
+              "DM/social signal processing",
+              "Priority processing",
+            ]}
+            btnText="Upgrade now"
+            variant="default"
+            className="rounded-r-none"
+          />
+          <PricingCard
+            name={"Team"}
+            value={"399"}
+            yearlyValue={"999"}
+            subTitle={
+              "Venture studios, multi-product founders, small startup teams"
+            }
+            featured={false}
+            features={[
+              "Up to 10 workspaces",
+              "Full Stage 1–4 access",
+              "Team seats",
+              "Highest AI/workflow limits, advanced analytics",
+              "Priority support",
+              "Admin controls",
+            ]}
+            btnText="Upgrade now"
+            variant="default"
+            className="rounded-l-none"
+          />
+        </div>
+
+        <AddOnsCard />
         {/* Pricing Table */}
         <div className="w-full mt-16 overflow-x-auto md:overflow-visible pb-8">
-          <Card className="min-w-[800px] w-full bg-background rounded-3xl p-8 md:p-12 border border-border shadow-sm">
+          <Card className="min-w-[800px] w-full bg-background rounded-3xl p-8 md:p-12 border border-border shadow-sm overflow-visible">
             {/* Header Row */}
             <div className="grid grid-cols-4 gap-6 pb-8 border-b border-border sticky top-[80px] bg-background z-20 pt-8 -mt-8 md:pt-12 md:-mt-12">
               <div className="flex items-end pb-2">
