@@ -124,8 +124,8 @@ const Hero = () => {
           <span>For Your Next Startup</span>
         </h1>
         <p className="text-3xl text-center tracking-tighter  mt-3 px-30 items-center flex">
-          Guide your startup with an AI execution system from idea{" "}
-          <ArrowRight className="mx-4" /> scale
+          The AI venture-building platform that helps founders turn ideas into
+          scalable businesses.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
