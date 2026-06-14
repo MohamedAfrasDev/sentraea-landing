@@ -77,23 +77,10 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-foreground ">
-            <a href="#features">Features</a>
-            <a href="#reviews">Reviews</a>
             <a href="#pricing">Pricing</a>
-
-            {isShrunk && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.5 }}
-              >
-                <GetStartedBtn
-                  title="Get Started For Free"
-                  className="text-md h-10 border-none rounded-sm"
-                />
-              </motion.div>
-            )}
+            <a href="#login" className="text-primary">
+              Login
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}

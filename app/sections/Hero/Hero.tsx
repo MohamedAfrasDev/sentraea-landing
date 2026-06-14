@@ -1,26 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import GradientText from "@/components/GradientText";
-import TestContent from "./components/test-content";
+import { useEffect, useRef, useState } from "react";
 
-import HeroAbstract from "./components/hero-abstract";
-import TestContentMobile from "./components/test-content-mobile";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ArrowRightIcon,
-  GitGraph,
-  Lightbulb,
-  MoveUpIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import LoginPageImage from "@/public/illustrations/hero-light.png";
 import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import GetStartedBtn from "@/components/getstarted-btn";
-import BGOverlayHero from "./components/components/bg-overlay";
 
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -113,24 +101,31 @@ const Hero = () => {
       {/* ── Content sits above the grid ── */}
       <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
         <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tighter">
-          Clarify <ArrowRight /> Teach <ArrowRight /> Solve <ArrowRight />
-          Ship
+          Demo <ArrowRight /> Sell <ArrowRight /> Build <ArrowRight />
+          Scale
         </Card>
-        <h1 className="text-8xl mt-2 font-semibold  tracking-tighter text-center leading-25">
+        <h1 className="text-5xl  md:text-8xl mt-2 font-semibold  tracking-tighter text-center leading-14 md:leading-25">
           <span>An </span>
           <span className="text-primary font-heading   gap-2">Execution</span>
           <span className="text-primary font-heading mx-5   gap-2">System</span>
           <br />
           <span>For Your Next Startup</span>
         </h1>
-        <p className="text-3xl text-center tracking-tighter  mt-3 px-30 items-center flex">
-          The AI venture-building platform that helps founders turn ideas into
-          scalable businesses.
+        <p className="text-lg md:text-3xl text-center tracking-tighter  mt-3 px-5 md:px-30 items-center ">
+          Sentraea is an AI Execution system for{" "}
+          <span className="font-medium font-heading">
+            solo, bootstrapped, non‑technical founders
+          </span>{" "}
+          that stops you from building the wrong product by forcing validation
+          first.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
-          <Button className={"text-xl py-5 px-4 tracking-tight"}>
-            Explore for Free
+          <Button
+            className={"text-xl py-5 px-4 tracking-tight text-white bg-black"}
+            variant={"outline"}
+          >
+            Join the waitlist
           </Button>
         </div>
         <Card

@@ -16,10 +16,11 @@ const CTA = () => {
         {/* Badge */}
 
         <h2 className="text-5xl md:text-7xl capitalize font-semibold text-white tracking-tighter mb-6 max-w-3xl">
-          Stop guessing what to{" "}
-          <span className="font-heading text-primary tracking-tight relative whitespace-nowrap">
-            build
-          </span>
+          Stop building{" "}
+          <span className="text-primary tracking-tight font-heading capitalize text-7xl">
+            products
+          </span>{" "}
+          nobody wants.
         </h2>
 
         <p className="text-lg md:text-xl w-full max-w-2xl mx-auto text-muted-foreground mb-10 leading-relaxed">
