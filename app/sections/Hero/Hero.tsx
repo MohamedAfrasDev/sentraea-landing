@@ -114,10 +114,8 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-lg md:text-3xl text-center tracking-tighter  mt-10 px-5 md:px-30 items-center ">
-          An Execution System For{" "}
-          <span className="font-heading">Solo, Bootstrapped Founders</span>{" "}
-          Sentraea stops you from building the wrong product by forcing
-          validation and disciplined next steps before you ship.
+          Sentraea helps you avoid building the wrong product by guiding you
+          through validation and clear next steps before you ship.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
