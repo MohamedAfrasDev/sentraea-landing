@@ -35,7 +35,9 @@ const FourStagesSection = () => {
 
     if (!section || !container) return;
 
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
       // Calculate the exact horizontal distance we need to move
       const getScrollAmount = () => {
         const containerWidth = container.scrollWidth;
@@ -72,9 +74,15 @@ const FourStagesSection = () => {
         pinSpacing: false, // Let the next sections scroll over it
         invalidateOnRefresh: true,
       });
-    }, section);
 
-    return () => ctx.revert();
+      return () => {
+        if (spacerRef.current) {
+          spacerRef.current.style.height = "0px";
+        }
+      };
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
@@ -100,7 +108,7 @@ const FourStagesSection = () => {
 
         <div
           ref={containerRef}
-          className="flex flex-row gap-10 w-max px-10 lg:px-20 mt-10"
+          className="flex flex-col md:flex-row gap-10 w-max mx-auto lg:px-20 mt-10"
         >
           <StageCardComponent
             stage={"1"}
@@ -110,7 +118,7 @@ const FourStagesSection = () => {
             }
             image={ProblemValidationImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage1Dark : Stage1}
-            className="w-[85vw] max-w-[900px] shrink-0"
+            className="w-screen max-w-[900px] shrink-0"
             evidence="CB Insights data confirms 42% of startups die building products with zero market need. Validate the signal before compiling the code."
             source="CB Insights Startup Failure Post-Mortem Report"
             scale={1.9}
@@ -123,7 +131,7 @@ const FourStagesSection = () => {
             }
             image={PMFDesignImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage2Dark : Stage2}
-            className="w-[85vw] max-w-[900px] shrink-0"
+            className="w-screen max-w-[900px] shrink-0"
             evidence="YC's primary axiom: 'It’s better to build something that a small number of users love, than a large number of users like.' Constrain the MVP."
             source="Y Combinator / Paul Graham"
           />
@@ -135,7 +143,7 @@ const FourStagesSection = () => {
             }
             image={ExperimentsImage}
             mockup={isDark.resolvedTheme == "dark" ? Stage3Dark : Stage3}
-            className="w-[85vw] max-w-[900px] shrink-0"
+            className="w-screen max-w-[900px] shrink-0"
             source="Reforge (Brian Balfour) / Growth Compounding Models."
             evidence="Reforge data models dictate that experimentation velocity is the highest-weighted variable in achieving PMF. If you aren't testing, you are guessing."
           />

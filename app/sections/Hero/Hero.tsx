@@ -110,7 +110,8 @@ const Hero = () => {
           <span className="text-primary  mx-5   gap-2">System</span>
           <br />
           <span className="">
-            For Solo, Bootstrapped <br /> Founders
+            For Solo, Bootstrapped <br />
+            Startup Founders
           </span>
         </h1>
         <p className="text-lg md:text-3xl text-center tracking-tighter  mt-10 px-5 md:px-30 items-center ">

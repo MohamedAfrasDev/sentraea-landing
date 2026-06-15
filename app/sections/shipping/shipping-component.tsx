@@ -19,7 +19,7 @@ const content = [
   {
     title: "AI made shipping faster.",
     description:
-      "But it also made fake validation easier. Now everyone can ship an MVP in a weekend, making it harder to stand out and find real signal.",
+      "AI gives 10X the abiltity to build something. But zero additional clarity about what to build.",
     content: (
       <div>
         <Image src={AIShipping} alt="AI-Coding" width={500} />
@@ -82,10 +82,10 @@ const ShippingComponent = () => {
   return (
     <div ref={containerRef} className="relative bg-white px-20 pt-20 pb-20">
       <div className=" ">
-        <h2 className="text-5xl md:text-7xl font-semibold tracking-[-5px] text-balance">
+        <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter md:tracking-[-5px] text-balance">
           Shipping is easy now.
           <br />{" "}
-          <span className="text-primary font-semibold font-heading tracking-[-5px] capitalize">
+          <span className="text-primary font-semibold font-heading tracking-tighter md:tracking-[-5px] capitalize">
             Building the right thing isn’t.
           </span>
         </h2>

@@ -116,7 +116,7 @@ const PricingSections = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-0 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-0 mt-10">
           <PricingCard
             name={"Free"}
             value={"0"}

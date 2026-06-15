@@ -29,7 +29,7 @@ const StageCardComponent = ({
   return (
     <Card
       className={cn(
-        "text-start px-10 w-full  py-3 gap-0 flex flex-row shadow-2xl items-start  bg-card/60",
+        "text-start px-10 w-full  py-3 gap-0 flex flex-col md:flex-row shadow-2xl items-start  bg-card/60",
         className,
       )}
     >
