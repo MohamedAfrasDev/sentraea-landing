@@ -48,7 +48,7 @@ const Hero = () => {
             // Animate card up while scrolling down
             win.gsap.fromTo(
               cardRef.current,
-              { y: -40 },
+              { y: -10 },
               {
                 y: 400,
                 ease: "none",
@@ -104,20 +104,20 @@ const Hero = () => {
           Demo <ArrowRight /> Sell <ArrowRight /> Build <ArrowRight />
           Scale
         </Card>
-        <h1 className="text-5xl  md:text-8xl mt-2 font-semibold  tracking-tighter text-center leading-14 md:leading-25">
+        <h1 className="text-5xl font-heading text-foreground/85  md:text-9xl mt-2 font-medium  tracking-tighter text-center leading-14 md:leading-28">
           <span>An </span>
-          <span className="text-primary font-heading   gap-2">Execution</span>
-          <span className="text-primary font-heading mx-5   gap-2">System</span>
+          <span className="text-primary    gap-2">Execution</span>
+          <span className="text-primary  mx-5   gap-2">System</span>
           <br />
-          <span>For Your Next Startup</span>
+          <span className="">
+            For Solo, Bootstrapped <br /> Founders
+          </span>
         </h1>
-        <p className="text-lg md:text-3xl text-center tracking-tighter  mt-3 px-5 md:px-30 items-center ">
-          Sentraea is an AI Execution system for{" "}
-          <span className="font-medium font-heading">
-            solo, bootstrapped, non‑technical founders
-          </span>{" "}
-          that stops you from building the wrong product by forcing validation
-          first.
+        <p className="text-lg md:text-3xl text-center tracking-tighter  mt-10 px-5 md:px-30 items-center ">
+          An Execution System For{" "}
+          <span className="font-heading">Solo, Bootstrapped Founders</span>{" "}
+          Sentraea stops you from building the wrong product by forcing
+          validation and disciplined next steps before you ship.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
