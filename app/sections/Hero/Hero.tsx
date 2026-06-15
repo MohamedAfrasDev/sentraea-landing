@@ -114,8 +114,8 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-lg md:text-3xl text-center tracking-tighter  mt-10 px-5 md:px-30 items-center ">
-          Sentraea helps you avoid building the wrong product by guiding you
-          through validation and clear next steps before you ship.
+          Stop building blindly. Validate your idea and know the right next step
+          before you ship.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
