@@ -81,19 +81,7 @@ export default function RootLayout({
           forcedTheme="light"
           enableSystem={false}
         >
-          <TooltipProvider>
-            <Suspense
-              fallback={
-                <div className="flex flex-col h-screen items-center justify-center">
-                  <div className="h-14 w-14 animate-spin rounded-full border-4 border-gray-300 border-t-primary"></div>
-                  <p className="text-muted-foreground">Loading...</p>
-                </div>
-              }
-            >
-              <NavigationProgress />
-              {children}
-            </Suspense>
-          </TooltipProvider>
+          <TooltipProvider>{children}</TooltipProvider>
           <Toaster />
         </ThemeProvider>
       </body>
