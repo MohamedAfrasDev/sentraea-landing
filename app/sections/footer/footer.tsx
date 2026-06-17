@@ -2,11 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
+import Image from "next/image";
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 border-t border-white/10 pt-20 pb-8 relative overflow-hidden">
+    <footer className="bg-black/90 border-t border-white/10 pt-20 pb-8 relative overflow-hidden">
       {/* Subtle Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
 
       <div className="container mx-auto px-5 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 mb-16">
@@ -16,12 +18,15 @@ const Footer = () => {
               href="/"
               className="text-2xl font-bold text-white tracking-tighter mb-4 flex items-center gap-2"
             >
-              <div className="h-7 w-7 rounded-lg bg-linear-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg shadow-primary/20">
-                <div className="h-2.5 w-2.5 rounded-sm bg-black"></div>
-              </div>
-              Sentraea
+              <Image
+                src={HorizontalLogo}
+                alt="Sentraea"
+                width={1000}
+                height={1000}
+                className="invert"
+              />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm mb-6 pr-4">
+            <p className="text-white  leading-relaxed max-w-sm mb-6 pr-4">
               The complete startup workspace. Run stages, validate ideas, and
               build products that people actually want to use.
             </p>
