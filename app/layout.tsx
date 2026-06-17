@@ -29,7 +29,7 @@ const arizonaFlare = localFont({
 const sfproDisplay = localFont({
   src: [
     {
-      path: "../public/fonts/SFPRODISPLAYREGULAR.OTF",
+      path: "../public/fonts/SFPRODISPLAYREGULAR.otf",
       weight: "400",
       style: "normal",
     },
