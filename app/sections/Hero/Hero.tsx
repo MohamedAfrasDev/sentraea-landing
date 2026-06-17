@@ -133,11 +133,7 @@ const Hero = () => {
           className="flex border transition-none shadow-[100px_100px_200px_rgba(105, 105, 105,0.001)]  shadow-gray-500/50  bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md"
         >
           <Image
-            src={
-              mounted && resolvedTheme === "dark"
-                ? LoginPageDark
-                : LoginPageImage
-            }
+            src={LoginPageImage}
             alt="a"
             width={2100}
             height={2100}

@@ -82,7 +82,7 @@ const ShippingComponent = () => {
   return (
     <div ref={containerRef} className="relative bg-white px-20 pt-20 pb-20">
       <div className=" ">
-        <h2 className="text-5xl md:text-7xl font-medium tracking-tighter md:tracking-[-1px] text-balance">
+        <h2 className="text-5xl md:text-7xl font-medium tracking-tighter md:tracking-[-3px] text-balance">
           Shipping is easy now.
           <br />{" "}
           <span className="text-primary font-medium font-heading tracking-tighter md:tracking-[-5px] capitalize">
