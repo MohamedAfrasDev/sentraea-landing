@@ -26,6 +26,16 @@ const arizonaFlare = localFont({
   variable: "--font-arizona-flare",
 });
 
+const sfproDisplay = localFont({
+  src: [
+    {
+      path: "../public/fonts/SFPRODISPLAYREGULAR.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-sfpro",
+});
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
