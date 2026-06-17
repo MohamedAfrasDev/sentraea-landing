@@ -114,7 +114,7 @@ const Hero = () => {
             Startup Founders
           </span>
         </h1>
-        <p className="text-lg md:text-3xl text-center tracking-tighter  mt-10 px-5 md:px-30 items-center ">
+        <p className="text-lg md:text-3xl text-center tracking-tight  mt-10 px-5 md:px-30 items-center ">
           Sentraea helps solo, bootstrapped founders avoid building blindly by
           pressure‑testing their idea with real evidence and giving them a clear
           next step before they ship.
