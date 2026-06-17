@@ -29,9 +29,49 @@ const arizonaFlare = localFont({
 const sfproDisplay = localFont({
   src: [
     {
+      path: "../public/fonts/SFPRODISPLAYTHINITALIC.otf",
+      weight: "100",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYULTRALIGHTITALIC.otf",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYLIGHTITALIC.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
       path: "../public/fonts/SFPRODISPLAYREGULAR.otf",
       weight: "400",
       style: "normal",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYMEDIUM.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYSEMIBOLDITALIC.otf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYBOLD.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYHEAVYITALIC.otf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/SFPRODISPLAYBLACKITALIC.otf",
+      weight: "900",
+      style: "italic",
     },
   ],
   variable: "--font-sfpro",
@@ -81,7 +121,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={` ${inter.variable} ${arizonaFlare.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
+      className={` ${inter.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
         <ThemeProvider

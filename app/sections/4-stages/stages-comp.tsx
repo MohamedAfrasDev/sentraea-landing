@@ -92,15 +92,15 @@ const FourStagesSection = () => {
         className="flex flex-col  items-start text-start gap-10 overflow-hidden min-h-screen pt-24 -z-10"
       >
         <div className=" max-w-6xl">
-          <h2 className="text-7xl tracking-[-5px] font-semibold capitalize flex-3">
+          <h2 className="text-7xl tracking-[-1px] font-(family-name:--font-sfpro) font-medium capitalize flex-3">
             One{" "}
-            <span className="text-primary tracking-[-5px] font-semibold font-heading ">
+            <span className="text-primary tracking-[-5px] font-medium font-heading ">
               workspace
             </span>
             <br />
             Four disciplined stages
           </h2>
-          <p className="text-xl text-muted-foreground mt-4 tracking-tighter">
+          <p className="text-xl text-muted-foreground mt-4 tracking-tig">
             Sentraea stores every version, experiment, and decision so you see
             how v1 → v2 → v3 actually improved.
           </p>

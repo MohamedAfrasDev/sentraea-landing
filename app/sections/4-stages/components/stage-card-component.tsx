@@ -49,8 +49,8 @@ const StageCardComponent = ({
           <p className="text-md uppercase font-number text-muted-foreground tracking-[0.2rem]">
             Stage {stage}
           </p>
-          <h2 className="text-3xl font-semibold z-10 font-heading">{title}</h2>
-          <p className="text-lg mt-3 tracking-tighter z-10 ">{shortLine}</p>
+          <h2 className="text-3xl font-heading font-bold z-10 ">{title}</h2>
+          <p className="text-lg mt-3 tracking-tight z-10 ">{shortLine}</p>
         </div>
         <div className="h-full bg-gray-100/50 px-5 py-3 rounded-sm">
           <p className="text-muted-foreground italic">{evidence}</p>
