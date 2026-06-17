@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Logo from "@/assets/images/studinity_logo_new.png";
 import Image from "next/image";
 import MenuIcon from "@/public/file.svg";
@@ -17,6 +17,10 @@ import { motion } from "framer-motion";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShrunk, setIsShrunk] = useState(false);
+
+  const scrollTo = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsShrunk(window.scrollY > 600);
@@ -65,7 +69,7 @@ export const Header = () => {
           }}
         >
           {/* Logo */}
-          <a href="#sentraea" className="flex items-center gap-2">
+          <button onClick={() => scrollTo("sentraea")} className="flex items-center gap-2 cursor-pointer">
             <Image
               src={HorizontalLogo}
               alt="Studinity Logo"
@@ -73,14 +77,16 @@ export const Header = () => {
               height={60}
               width={200}
             />
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-foreground ">
-            <a href="#pricing">Pricing</a>
-            <a href="#login" className="text-primary">
+            <button onClick={() => scrollTo("docs")} className="cursor-pointer">Docs</button>
+            <button onClick={() => scrollTo("community")} className="cursor-pointer">Community</button>
+            <button onClick={() => scrollTo("pricing")} className="cursor-pointer">Pricing</button>
+            <button onClick={() => scrollTo("login")} className="text-primary cursor-pointer">
               Login
-            </a>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -104,23 +110,21 @@ export const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
           <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
-            <a href="#features" onClick={() => setIsMenuOpen(false)}>
+            <button onClick={() => { scrollTo("features"); setIsMenuOpen(false); }} className="cursor-pointer">
               Features
-            </a>
-            <a href="#reviews" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => { scrollTo("reviews"); setIsMenuOpen(false); }} className="cursor-pointer">
               Reviews
-            </a>
-            <a href="#pricing" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => { scrollTo("pricing"); setIsMenuOpen(false); }} className="cursor-pointer">
               Pricing
-            </a>
-
-            <a
-              href="#waitlist"
-              className="bg-black text-white px-4 py-2 rounded-sm font-medium"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button
+              onClick={() => { scrollTo("waitlist"); setIsMenuOpen(false); }}
+              className="bg-black text-white px-4 py-2 rounded-sm font-medium cursor-pointer"
             >
               Explore for free
-            </a>
+            </button>
 
             <Link href={"/learnmore"} onClick={() => setIsMenuOpen(false)}>
               <button

@@ -6,7 +6,10 @@ import React from "react";
 
 const CTA = () => {
   return (
-    <section className="relative overflow-hidden bg-black/90 py-24 sm:py-32 flex flex-col justify-center h-screen">
+    <section
+      id="waitlist"
+      className="relative overflow-hidden bg-black/90 py-24 sm:py-32 flex flex-col justify-center h-screen"
+    >
       {/* Background Glow */}
       <div className="absolute inset-0 z-0 h-full w-full bg-[radial-gradient(#363636_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_60%,#000_80%,transparent_100%)]" />
 
@@ -19,7 +22,7 @@ const CTA = () => {
 
         <h2 className="text-5xl md:text-7xl capitalize font-medium text-white tracking-tight mb-6 max-w-3xl">
           Stop building{" "}
-          <span className="text-primary tracking-tight font-heading capitalize text-7xl">
+          <span className="text-primary tracking-tight font-heading font-semibold capitalize text-7xl">
             products
           </span>{" "}
           nobody wants.

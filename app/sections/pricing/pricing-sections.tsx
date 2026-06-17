@@ -105,11 +105,11 @@ const PricingSections = () => {
       <div className="mx-auto px-20">
         {/* Header */}
         <div className="max-w-screen text-center w-full mx-auto">
-          <h2 className="text-5xl md:text-7xl font-semibold tracking-[-5px] text-balance text-foreground">
+          <h2 className="text-5xl md:text-7xl font-medium tracking-[-3px] text-balance text-foreground">
             Priced for{" "}
             <span className="font-heading text-primary">Execution.</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mt-6 min-w-8xl max-w-8xl leading-relaxed tracking-tighter">
+          <p className="text-lg md:text-xl text-muted-foreground mt-6 min-w-8xl max-w-8xl leading-relaxed tracking-tight">
             Sentraea is structured around your startup workspace. You don&apos;t
             pay per generic seat—you pay for the execution depth required to
             move through the four disciplined stages.

@@ -76,7 +76,7 @@ const PricingCard = ({
 
         <p
           className={cn(
-            "text-lg leading-[20px] tracking-tighter text-muted-foreground mt-3",
+            "text-lg leading-[20px] tracking-tight text-muted-foreground mt-3",
             featured && "text-white",
           )}
         >
@@ -94,13 +94,17 @@ const PricingCard = ({
           >
             <p
               className={cn(
-                "text-base leading-[20px] tracking-tighter text-muted-foreground",
+                "text-base leading-[20px] tracking-tight text-muted-foreground",
                 featured && "text-white",
               )}
             >
               {feature}
             </p>
-            <Check className="w-5 h-5 text-primary" />
+            {featured ? (
+              <Check className="w-5 h-5 text-white" />
+            ) : (
+              <Check className="w-5 h-5 text-primary" />
+            )}
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -13,6 +13,9 @@ import { useTheme } from "next-themes";
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
+  const scrollTo = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
   useEffect(() => {
     // Dynamic loader helper for script injection
     const loadScript = (src: string): Promise<boolean> => {
@@ -124,6 +127,7 @@ const Hero = () => {
           <Button
             className={"text-xl py-5 px-4 tracking-tight text-white bg-black"}
             variant={"outline"}
+            onClick={(e) => scrollTo("waitlist")}
           >
             Join the waitlist
           </Button>
