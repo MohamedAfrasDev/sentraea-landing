@@ -6,6 +6,7 @@ import {
   Lato,
   JetBrains_Mono,
   Geist_Mono,
+  Manrope,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -24,6 +25,16 @@ const arizonaFlare = localFont({
     },
   ],
   variable: "--font-arizona-flare",
+});
+const heming = localFont({
+  src: [
+    {
+      path: "../public/fonts/Heming.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-heming",
 });
 
 const sfproDisplay = localFont({
@@ -106,6 +117,12 @@ const geistMono = Geist_Mono({
   variable: "--font-number",
 });
 
+const manropeFont = Manrope({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+});
+
 export const metadata: Metadata = {
   title: "Sentraea | An Execution System for Your Next Startup",
   description:
@@ -121,7 +138,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={` ${inter.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
+      className={` ${inter.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
         <ThemeProvider
