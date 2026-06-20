@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import LoginPageImage from "@/public/illustrations/hero-light.png";
+import LoginPageImage from "@/public/illustrations/workspace-mockup.png";
 import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
