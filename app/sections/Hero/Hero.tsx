@@ -118,9 +118,9 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-lg md:text-3xl text-center tracking-tight  mt-10 px-5 md:px-30 items-center ">
-          Sentraea helps solo, bootstrapped founders avoid building blindly by
-          pressure‑testing their idea with real evidence and giving them a clear
-          next step before they ship.
+          Sentraea is an AI execution system for solo, bootstrapped founders
+          that picks the right playbook for your startup and tells you exactly
+          what to do next at every stage.
         </p>
         <div className="mt-5">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
