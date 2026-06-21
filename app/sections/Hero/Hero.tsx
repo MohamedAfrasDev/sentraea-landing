@@ -108,7 +108,7 @@ const Hero = () => {
           Scale
         </Card>
         <h1 className="text-5xl font-heading text-foreground/85  md:text-9xl mt-2 font-medium  tracking-tighter text-center leading-14 md:leading-28">
-          <span>An </span>
+          <span>The </span>
           <span className="text-primary    gap-2">Execution</span>
           <span className="text-primary  mx-5   gap-2">System</span>
           <br />
