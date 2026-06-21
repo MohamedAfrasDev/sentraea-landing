@@ -53,7 +53,7 @@ const Hero = () => {
               cardRef.current,
               { y: -10 },
               {
-                y: 400,
+                y: 200,
                 ease: "none",
                 scrollTrigger: {
                   trigger: cardRef.current,
@@ -134,14 +134,14 @@ const Hero = () => {
         </div>
         <Card
           ref={cardRef}
-          className="flex border transition-none shadow-[100px_100px_200px_rgba(105, 105, 105,0.001)]  shadow-gray-500/50  bg-gray-600 dark:bg-card flex-col px-2 py-2 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-md"
+          className="flex border transition-none shadow-[100px_100px_200px_rgba(105, 105, 105,10)]  shadow-gray-500/50  bg-gray-600 dark:bg-card flex-col px-1 py-1 justify-center items-center mt-10 w-[89%] overflow-hidden rounded-2xl"
         >
           <Image
             src={LoginPageImage}
             alt="a"
-            width={2100}
-            height={2100}
-            className="w-full items-center justify-center mt-2 h-full object-cover"
+            width={2200}
+            height={2200}
+            className="w-full items-center justify-center mt-1 mx-auto   h-full object-cover"
             suppressHydrationWarning
           />
         </Card>
