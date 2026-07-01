@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import LoginPageImage from "@/public/illustrations/workspace-mockup.png";
 import LoginPageDark from "@/public/illustrations/hero-dark.png";
@@ -103,34 +102,37 @@ const Hero = () => {
       />
       {/* ── Content sits above the grid ── */}
       <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
-        <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tighter">
-          Demo <ArrowRight /> Sell <ArrowRight /> Build <ArrowRight />
-          Scale
+        <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20 backdrop-blur-2xl border-card flex flex-row items-center text-sm md:text-base font-medium tracking-tight uppercase">
+          Built for solo, bootstrapped founders
         </Card>
-        <h1 className="text-5xl font-heading text-foreground/85  md:text-9xl mt-2 font-medium  tracking-tighter text-center leading-14 md:leading-28">
+        <h1 className="text-4xl sm:text-5xl font-heading text-foreground/85  md:text-8xl mt-4 font-medium  tracking-tighter text-center leading-11 sm:leading-14 md:leading-24">
           <span>The </span>
           <span className="text-primary    gap-2">Execution</span>
-          <span className="text-primary  mx-5   gap-2">System</span>
-          <br />
+          <span className="text-primary  mx-2 md:mx-5   gap-2">System</span>
+          <br className="hidden sm:block" />
           <span className="">
-            For Solo, Bootstrapped <br />
-            Startup Founders
+            That Stops Founders From
+            <br />
+            Building The Wrong Thing
           </span>
         </h1>
         <p className="text-lg md:text-3xl text-center tracking-tight  mt-10 px-5 md:px-30 items-center ">
-          Sentraea is an AI execution system for solo, bootstrapped founders
-          that picks the right playbook for your startup and tells you exactly
-          what to do next at every stage.
+          Sentraea gives solo, bootstrapped founders a stage-gated playbook
+          with evidence requirements — so every next step is based on proof,
+          not assumptions.
         </p>
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col items-center gap-3">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
           <Button
             className={"text-xl py-5 px-4 tracking-tight text-white bg-black"}
             variant={"outline"}
             onClick={(e) => scrollTo("waitlist")}
           >
-            Join the waitlist
+            Get early access
           </Button>
+          <p className="text-sm text-muted-foreground tracking-tight">
+            Not an AI cofounder. Not for teams. Not for agencies.
+          </p>
         </div>
         <Card
           ref={cardRef}

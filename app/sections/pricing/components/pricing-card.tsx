@@ -15,6 +15,7 @@ interface PricingCardProps {
   btnText: string;
   variant: string;
   className?: string;
+  onBtnClick?: () => void;
 }
 const PricingCard = ({
   name,
@@ -26,6 +27,7 @@ const PricingCard = ({
   btnText,
   variant,
   className,
+  onBtnClick,
 }: PricingCardProps) => {
   return (
     <Card
@@ -116,6 +118,7 @@ const PricingCard = ({
             featured && "bg-white text-primary shadow-none hover:bg-white/80",
           )}
           variant={"outline"}
+          onClick={onBtnClick}
         >
           {btnText}
         </Button>
@@ -127,6 +130,7 @@ const PricingCard = ({
             featured && "bg-white text-primary hover:bg-white/80",
           )}
           variant={variant as any}
+          onClick={onBtnClick}
         >
           {btnText}
         </Button>

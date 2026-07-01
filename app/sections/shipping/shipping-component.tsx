@@ -19,7 +19,7 @@ const content = [
   {
     title: "AI made shipping faster.",
     description:
-      "AI gives 10X the abiltity to build something. But zero additional clarity about what to build.",
+      "You can ship 10x faster now. That just means you can build the wrong thing 10x faster too.",
     content: (
       <div>
         <Image src={AIShipping} alt="AI-Coding" width={500} />
@@ -29,7 +29,7 @@ const content = [
   {
     title: "Nobody cares about the code.",
     description:
-      "Most founders jump from idea to code and only later discover nobody cares. Building the product is the easy part. Building the right product is the hard part.",
+      "Most founders jump from idea to code and find out months later nobody wanted it. Building the product is the easy part. Building the right product is the hard part.",
     content: (
       <div>
         <Image src={AICoding} alt="AI-Shipping" width={600} />
@@ -39,7 +39,7 @@ const content = [
   {
     title: "Random docs, random decisions.",
     description:
-      "Experiments live in random docs, and decisions get made from memory. Without a system of record, your team forgets why things failed.",
+      "Your experiments live in scattered docs and your decisions live in memory. When something fails, you can't tell if it was a bad idea or bad timing — so you can't avoid it next time.",
     content: (
       <div>
         <Image src={RandomDocs} alt="Random Docs" width={600} />
@@ -47,9 +47,9 @@ const content = [
     ),
   },
   {
-    title: "Growth is not random tactics.",
+    title: "False urgency, real damage.",
     description:
-      "Growth becomes a mix of random tactics instead of one clear motion. You need a structured approach to find what actually moves the needle.",
+      "A competitor launches, raises a round, or posts a big number — and suddenly your roadmap changes out of fear, not evidence. Most pivots aren't bad instincts. They're panic wearing a strategy costume.",
     content: (
       <div>
         <Image src={GrowthImage} alt="Growth Image" width={500} />
@@ -82,7 +82,10 @@ const ShippingComponent = () => {
   return (
     <div ref={containerRef} className="relative bg-white px-20 pt-20 pb-20">
       <div className=" ">
-        <h2 className="text-5xl md:text-7xl font-medium tracking-tighter md:tracking-[-3px] text-balance">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary font-medium">
+          The Cost
+        </p>
+        <h2 className="text-5xl md:text-7xl font-medium tracking-tighter md:tracking-[-3px] text-balance mt-3">
           Shipping is easy now.
           <br />{" "}
           <span className="text-primary font-medium font-heading tracking-tighter md:tracking-[-5px] capitalize">
@@ -90,8 +93,8 @@ const ShippingComponent = () => {
           </span>
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-2xl tracking-tight">
-          Sentraea exists to protect your work by forcing your startup through
-          the right stages.
+          Without a system, every one of these compounds into wasted months,
+          burned runway, and a product nobody asked for.
         </p>
       </div>
 
