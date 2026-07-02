@@ -16,6 +16,7 @@
   --font-body: var(--font-sfpro), sans-serif;
   --font-number: var(--font-number), monospace;
   --font-hd: var(--font-sfpro), sans-serif;
+  --font-manrope: var(--font-manrope), sans-serif;
 
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);

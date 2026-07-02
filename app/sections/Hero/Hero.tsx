@@ -83,6 +83,8 @@ const Hero = () => {
       className="relative items-center bg-white flex flex-col"
       style={{ overflow: "clip" }}
     >
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+
       {/* <div ref={cardRef} className="w-full h-full">
         <BGOverlayHero />
       </div> */}
@@ -101,11 +103,11 @@ const Hero = () => {
         }}
       />
       {/* ── Content sits above the grid ── */}
-      <div className="relative bg-transparent z-10 flex flex-col items-center mt-20">
-        <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20 backdrop-blur-2xl border-card flex flex-row items-center text-sm md:text-base font-medium tracking-tight uppercase">
-          Built for solo, bootstrapped founders
+      <div className="relative bg-transparent z-10 flex flex-col items-center mt-5">
+        <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20 backdrop-blur-2xl border-card flex flex-row items-center text-sm md:text-base font-medium ">
+          Built for Solo, Bootstrapped Startup Founders
         </Card>
-        <h1 className="text-4xl sm:text-5xl font-heading text-foreground/85  md:text-8xl mt-4 font-medium  tracking-tighter text-center leading-11 sm:leading-14 md:leading-24">
+        <h1 className="text-4xl sm:text-5xl font-serif tracking-tighter font-medium text-foreground/85  md:text-[125px] mt-4 text-center leading-11 sm:leading-14 md:leading-30">
           <span>The </span>
           <span className="text-primary    gap-2">Execution</span>
           <span className="text-primary  mx-2 md:mx-5   gap-2">System</span>
@@ -116,10 +118,10 @@ const Hero = () => {
             Building The Wrong Thing
           </span>
         </h1>
-        <p className="text-lg md:text-3xl text-center tracking-tight  mt-10 px-5 md:px-30 items-center ">
-          Sentraea gives solo, bootstrapped founders a stage-gated playbook
-          with evidence requirements — so every next step is based on proof,
-          not assumptions.
+        <p className="text-lg md:text-3xl text-center tracking-tight  mt-5 px-5 md:px-30 items-center ">
+          Sentraea gives solo, bootstrapped founders a stage-gated playbook with
+          evidence requirements — so every next step is based on proof, not
+          assumptions.
         </p>
         <div className="mt-5 flex flex-col items-center gap-3">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}

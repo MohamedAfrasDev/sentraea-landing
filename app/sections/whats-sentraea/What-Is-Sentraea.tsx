@@ -15,8 +15,8 @@ const WhatIsSentraea = () => {
         The System
       </p>
       <h2 className="text-4xl md:text-6xl font-medium tracking-tight md:tracking-[-3px] mt-3 max-w-4xl text-balance">
-        Sentraea doesn&apos;t build for you. It makes sure you build the
-        right thing, in the right order.
+        Sentraea doesn&apos;t build for you. It makes sure you build the right
+        thing, in the right order.
       </h2>
       <h3 className="text-lg md:text-xl text-muted-foreground mt-4 tracking-tight max-w-2xl">
         This isn&apos;t an AI cofounder, and it won&apos;t write your code or
@@ -49,9 +49,7 @@ const WhatIsSentraea = () => {
           />
           <GridCard
             title={"Tracks Every Decision"}
-            desc={
-              "See what you tried, what happened, and why you moved on."
-            }
+            desc={"See what you tried, what happened, and why you moved on."}
             isFocal={false}
           />
         </div>
@@ -59,13 +57,6 @@ const WhatIsSentraea = () => {
           <p className="text-md tracking-tighter text-muted-foreground text-left">
             INSIDE WORKSPACE
           </p>
-          <Image
-            src={theme === "dark" ? WorkspaceUIDARK : WorkspaceUi}
-            alt="Sentraea workspace showing the current stage and evidence gate"
-            width={580}
-            height={580}
-            className="w-full h-auto"
-          />
         </div>
       </div>
     </section>
