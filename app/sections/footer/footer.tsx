@@ -10,19 +10,6 @@ const Footer = () => {
       {/* Subtle Background Glow */}
 
       <div className="container mx-auto px-5 relative z-10">
-        <div className="flex flex-col items-center text-center gap-6 pb-16 mb-16 border-b border-white/10">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white max-w-2xl text-balance">
-            Build in the right direction.{" "}
-            <span className="text-primary">Not by accident.</span>
-          </h2>
-          <a
-            href="#waitlist"
-            className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md font-medium text-sm hover:bg-white/90 transition-colors"
-          >
-            Get early access
-          </a>
-        </div>
-
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 mb-16">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2 flex flex-col items-start">
@@ -39,9 +26,9 @@ const Footer = () => {
               />
             </Link>
             <p className="text-white  leading-relaxed max-w-sm mb-6 pr-4">
-              The execution system for solo, bootstrapped founders.
-              Stage-gated, evidence-required — built to stop you from
-              building the wrong thing.
+              The execution system for solo, bootstrapped founders. Stage-gated,
+              evidence-required — built to stop you from building the wrong
+              thing.
             </p>
             <div className="flex items-center gap-4">
               <Link

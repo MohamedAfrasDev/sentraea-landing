@@ -60,16 +60,19 @@ export const Header = () => {
         {/* Inner navbar */}
         <div
           className={cn(
-            " backdrop-blur-lg dark:backdrop-blur-5xl bg-white/70  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
+            " backdrop-blur-lg dark:backdrop-blur-5xl bg-white/70 dark:bg-black  rounded-xl   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
             isShrunk &&
-              "bg-white/70 dark:bg-gray-950/60 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
+              "bg-white/70 dark:bg-black/70 border-muted-foreground/5  shadow-lg shadow-gray-200/90 dark:shadow-gray-950/60 ",
           )}
           style={{
             borderRadius: isShrunk ? 10 : 0,
           }}
         >
           {/* Logo */}
-          <button onClick={() => scrollTo("sentraea")} className="flex items-center gap-2 cursor-pointer">
+          <button
+            onClick={() => scrollTo("sentraea")}
+            className="flex items-center gap-2 cursor-pointer"
+          >
             <Image
               src={HorizontalLogo}
               alt="Studinity Logo"
@@ -81,10 +84,25 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-foreground ">
-            <button onClick={() => scrollTo("docs")} className="cursor-pointer">Docs</button>
-            <button onClick={() => scrollTo("community")} className="cursor-pointer">Community</button>
-            <button onClick={() => scrollTo("pricing")} className="cursor-pointer">Pricing</button>
-            <button onClick={() => scrollTo("login")} className="text-primary cursor-pointer">
+            <button onClick={() => scrollTo("docs")} className="cursor-pointer">
+              Docs
+            </button>
+            <button
+              onClick={() => scrollTo("community")}
+              className="cursor-pointer"
+            >
+              Community
+            </button>
+            <button
+              onClick={() => scrollTo("pricing")}
+              className="cursor-pointer"
+            >
+              Pricing
+            </button>
+            <button
+              onClick={() => scrollTo("login")}
+              className="text-primary cursor-pointer"
+            >
               Login
             </button>
           </nav>
@@ -110,17 +128,38 @@ export const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
           <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
-            <button onClick={() => { scrollTo("features"); setIsMenuOpen(false); }} className="cursor-pointer">
+            <button
+              onClick={() => {
+                scrollTo("features");
+                setIsMenuOpen(false);
+              }}
+              className="cursor-pointer"
+            >
               Features
             </button>
-            <button onClick={() => { scrollTo("reviews"); setIsMenuOpen(false); }} className="cursor-pointer">
+            <button
+              onClick={() => {
+                scrollTo("reviews");
+                setIsMenuOpen(false);
+              }}
+              className="cursor-pointer"
+            >
               Reviews
             </button>
-            <button onClick={() => { scrollTo("pricing"); setIsMenuOpen(false); }} className="cursor-pointer">
+            <button
+              onClick={() => {
+                scrollTo("pricing");
+                setIsMenuOpen(false);
+              }}
+              className="cursor-pointer"
+            >
               Pricing
             </button>
             <button
-              onClick={() => { scrollTo("waitlist"); setIsMenuOpen(false); }}
+              onClick={() => {
+                scrollTo("waitlist");
+                setIsMenuOpen(false);
+              }}
               className="bg-black text-white px-4 py-2 rounded-sm font-medium cursor-pointer"
             >
               Explore for free

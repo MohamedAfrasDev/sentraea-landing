@@ -7,6 +7,7 @@ import {
   JetBrains_Mono,
   Geist_Mono,
   Manrope,
+  Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -36,7 +37,72 @@ const heming = localFont({
   ],
   variable: "--font-heming",
 });
+const overcame = localFont({
+  src: [
+    {
+      path: "../public/fonts/overcame-demo.outline.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-overcame",
+});
 
+const gtsuper = localFont({
+  src: [
+    {
+      path: "../public/fonts/GT-Super-Display-Light-Italic-Trial.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Light-Trial.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Regular-Italic-Trial.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Regular-Trial.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Medium-Italic-Trial.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Medium-Trial.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Bold-Italic-Trial.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Bold-Trial.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Super-Italic-Trial.otf",
+      weight: "900",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/GT-Super-Display-Super-Trial.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gtsuper",
+});
 const sfproDisplay = localFont({
   src: [
     {
@@ -90,9 +156,13 @@ const sfproDisplay = localFont({
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-body",
+  variable: "--font-raleway",
 });
-
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+});
 const lato = Lato({
   subsets: ["latin"],
   weight: ["300"],
@@ -138,15 +208,14 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={` ${inter.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
+      className={` ${inter.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
         <ThemeProvider
           attribute="class"
           storageKey="theme"
           defaultTheme="light"
-          forcedTheme="light"
-          enableSystem={false}
+          enableSystem={true}
         >
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster />

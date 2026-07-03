@@ -51,9 +51,9 @@ const CTA = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-5 flex flex-col items-center justify-center text-center">
-        <h2 className="text-5xl md:text-7xl capitalize font-medium text-white tracking-tight mb-6 max-w-3xl">
+        <h2 className="text-5xl md:text-7xl capitalize  text-white tracking-tight mb-6 max-w-3xl">
           Stop building{" "}
-          <span className="text-primary tracking-tight font-heading font-semibold capitalize text-7xl">
+          <span className="text-primary tracking-tight font-serif font-medium capitalize text-7xl">
             products
           </span>{" "}
           nobody wants.
@@ -61,8 +61,7 @@ const CTA = () => {
 
         <p className="text-lg md:text-xl w-full max-w-2xl mx-auto text-white/80 mb-10 leading-relaxed">
           Get early access and tell us where you are — we&apos;ll show you
-          exactly what stage you&apos;re in before you build another
-          feature.
+          exactly what stage you&apos;re in before you build another feature.
         </p>
 
         {!submitted ? (
@@ -106,9 +105,8 @@ const CTA = () => {
 
             <div className="text-left">
               <p className="text-sm text-white/60 mb-2">
-                What&apos;s the one thing you wish you knew before you
-                started building?{" "}
-                <span className="text-white/40">(optional)</span>
+                What&apos;s the one thing you wish you knew before you started
+                building? <span className="text-white/40">(optional)</span>
               </p>
               <InputGroup className="bg-black/50 backdrop-blur-md shadow-none">
                 <InputGroupTextarea
@@ -144,12 +142,10 @@ const CTA = () => {
         ) : (
           <div className="w-full max-w-md mx-auto flex flex-col items-center gap-3 border border-white/10 rounded-lg bg-black/40 px-6 py-8">
             <CheckCircle2 className="h-8 w-8 text-primary" />
-            <h3 className="text-xl font-medium text-white">
-              You&apos;re in.
-            </h3>
+            <h3 className="text-xl font-medium text-white">You&apos;re in.</h3>
             <p className="text-white/70 text-sm">
-              We&apos;ll reach out as we open up early access — no spam, no
-              drip campaign.
+              We&apos;ll reach out as we open up early access — no spam, no drip
+              campaign.
             </p>
           </div>
         )}

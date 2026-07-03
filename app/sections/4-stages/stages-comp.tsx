@@ -29,7 +29,7 @@ const FourStagesSection = () => {
         <p className="text-sm font-number uppercase tracking-[0.2em] text-primary font-medium">
           The Problem
         </p>
-        <h2 className="text-4xl md:text-7xl font-serif font-medium tracking-tight md:tracking-[-3px] mt-3 text-balance">
+        <h2 className="text-4xl md:text-7xl font-manrope  font-semibold tracking-tight md:tracking-[-3px] mt-3 text-balance">
           Most solo founders don&apos;t fail because of a bad idea.
         </h2>
       </div>
