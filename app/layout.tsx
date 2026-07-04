@@ -215,7 +215,8 @@ export default function RootLayout({
           attribute="class"
           storageKey="theme"
           defaultTheme="light"
-          enableSystem={true}
+          forcedTheme="light"
+          enableSystem={false}
         >
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster />

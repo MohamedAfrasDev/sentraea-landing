@@ -255,10 +255,10 @@ export default function InteractiveCLI() {
     <div
       className="
         relative w-full max-w-[520px]
-        rounded-2xl overflow-hidden
-        bg-gray-100/60 dark:bg-gray-800/40
+        rounded-sm overflow-hidden
+        bg-black dark:bg-gray-800/40
         backdrop-blur-2xl
-        shadow-2xl
+        shadow-xl
       "
       onClick={() => inputRef.current?.focus()}
     >
