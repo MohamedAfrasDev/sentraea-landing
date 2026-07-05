@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/input-group";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const JoinWaitlistSection = () => {
   const current_stage_section = [
@@ -21,6 +22,55 @@ const JoinWaitlistSection = () => {
     "I have some revenue but want to grow faster",
   ];
   const [currentStage, setCurrentStage] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    if (!email.trim()) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+    if (!currentStage) {
+      toast.error("Please tell us where you are right now.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          stage: currentStage,
+          message: message.trim(),
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        toast.error(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+      setEmail("");
+      setMessage("");
+      setCurrentStage("");
+      toast.success("You're on the list! We'll be in touch soon.");
+    } catch {
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       id="waitlist"
@@ -47,13 +97,18 @@ const JoinWaitlistSection = () => {
           </p>
         </div>
 
-        <form className="w-full">
+        <form className="w-full" onSubmit={handleSubmit}>
           <div className="w-full">
             <InputGroup className="w-full">
               <InputGroupAddon align={"block-start"}>
                 <InputGroupText>Email Address</InputGroupText>
               </InputGroupAddon>
               <InputGroupInput
+                type="email"
+                name="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{
                   fontSize: 18,
                 }}
@@ -100,6 +155,9 @@ const JoinWaitlistSection = () => {
                 </InputGroupText>
               </InputGroupAddon>
               <InputGroupTextarea
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="min-h-[100px] max-h-[100px] text-lg"
                 style={{
                   fontSize: 18,
@@ -109,8 +167,22 @@ const JoinWaitlistSection = () => {
             </InputGroup>
           </div>
 
-          <Button className={"w-full text-lg py-5 mt-5"}>
-            Claim my founding spot <ArrowRight />
+          <Button
+            type="submit"
+            disabled={isSubmitting || submitted}
+            className={"w-full text-lg py-5 mt-5"}
+          >
+            {isSubmitting ? (
+              <>
+                Claiming your spot <Loader2 className="animate-spin" />
+              </>
+            ) : submitted ? (
+              "You're on the list ✓"
+            ) : (
+              <>
+                Claim my founding spot <ArrowRight />
+              </>
+            )}
           </Button>
         </form>
 
