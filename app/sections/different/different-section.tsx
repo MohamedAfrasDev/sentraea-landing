@@ -75,9 +75,9 @@ const DifferentSection = () => {
                   className="flex flex-row gap-5 shadow-sm bg-card/50 px-4 py-4"
                   key={index}
                 >
-                  <p className="text-xl">{system.icon}</p>
+                  <p className="text-md">{system.icon}</p>
                   <div>
-                    <h4 className="text-xl">{system.title}</h4>
+                    <h4 className="md:text-xl text-lg">{system.title}</h4>
                     <p className="text-muted-foreground">
                       {system.description}
                     </p>
@@ -99,9 +99,9 @@ const DifferentSection = () => {
                   className="flex flex-row gap-5 shadow-sm bg-primary/5 px-4 py-4"
                   key={index}
                 >
-                  <p className="text-xl">{system.icon}</p>
+                  <p className="text-md">{system.icon}</p>
                   <div>
-                    <h4 className="text-xl">{system.title}</h4>
+                    <h4 className="md:text-xl text-lg">{system.title}</h4>
                     <p className="text-muted-foreground">
                       {system.description}
                     </p>
