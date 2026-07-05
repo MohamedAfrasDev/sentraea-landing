@@ -105,11 +105,11 @@ const Hero = () => {
         }}
       />
       {/* ── Content sits above the grid ── */}
-      <div className="relative flex-2 bg-transparent z-10 px-10 justify-start flex flex-col items-start mt-10">
+      <div className="relative flex-2 bg-transparent  px-10 justify-start flex flex-col items-start mt-10">
         <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tight">
           Execution System for Solo Founders
         </Card>
-        <h1 className="text-[50px] font-heading text-foreground/85  md:text-[160px] mt-2 font-medium  tracking-tighter text-start leading-14 md:leading-35">
+        <h1 className="text-[50px] font-heading  text-foreground/85  md:text-[160px] mt-2 font-medium  tracking-tighter text-start leading-14 md:leading-35">
           <span>Stop building the</span>
           <br />
           <span className="text-primary     gap-2">wrong thing</span>
@@ -127,13 +127,6 @@ const Hero = () => {
             onClick={(e) => scrollTo("waitlist")}
           >
             Get early access <ArrowRight />
-          </Button>
-
-          <Button
-            variant={"outline"}
-            className={"text-xl py-5 px-4 tracking-tight"}
-          >
-            See how it works
           </Button>
         </div>
         {/* <Card

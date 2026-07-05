@@ -34,7 +34,7 @@ const ExecutionSystem = () => {
   return (
     <div className="px-10 min-h-screen h-full py-10 flex gap-10">
       <div>
-        <h2 className="font-heading font-medium text-4xl md:text-6xl ">
+        <h2 className="font-heading font-semibold text-4xl md:text-6xl ">
           An execution system.
           <br /> <span className=" text-primary">Not an AI cofounder.</span>
         </h2>
@@ -48,7 +48,10 @@ const ExecutionSystem = () => {
           {side_cards.map((card, index) => {
             return (
               <div key={index} className="">
-                <p className="text-xl text-muted-foreground">{card}</p>
+                <p className="text-xl text-muted-foreground">
+                  <span className="text-red-600 font-medium">✕ </span>
+                  {card}
+                </p>
               </div>
             );
           })}

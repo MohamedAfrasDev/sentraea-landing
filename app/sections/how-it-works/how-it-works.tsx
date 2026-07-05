@@ -26,7 +26,7 @@ const HowItWorks = () => {
         <p className="uppercase  tracking-[0.08rem] text-center text-muted-foreground">
           How Sentraea works
         </p>
-        <h2 className="font-heading font-medium text-center text-4xl md:text-7xl ">
+        <h2 className="font-heading font-semibold text-center text-4xl md:text-6xl ">
           Three steps.
           <br />{" "}
           <span className=" text-primary">

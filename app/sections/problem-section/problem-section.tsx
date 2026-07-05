@@ -13,7 +13,7 @@ const ProblemSection = () => {
   return (
     <div className="px-10 flex gap-10 h-screen justify-start items-center">
       <div className="flex-1 w-full">
-        <h2 className="text-4xl md:text-6xl text-start font-heading text-foreground/85 tracking-tight leading-14 md:leading-17">
+        <h2 className="text-4xl font-semibold md:text-6xl text-start font-heading text-foreground/85 tracking-tight leading-14 md:leading-17">
           Most solo founders
           <br /> fail <span className=" text-primary">before</span> they build.
         </h2>

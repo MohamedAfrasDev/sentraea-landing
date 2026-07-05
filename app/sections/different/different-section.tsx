@@ -55,7 +55,7 @@ const DifferentSection = () => {
   ];
   return (
     <div className="bg-white flex flex-col justify-center min-h-screen h-full py-10">
-      <h2 className="font-heading font-medium text-4xl md:text-7xl leading-15 text-center">
+      <h2 className="font-heading font-semibold text-4xl md:text-6xl leading-15 text-center">
         Two founders. <br />
         <span className=" text-primary">
           {" "}

@@ -15,11 +15,12 @@ const PricingSections = () => {
     >
       <div className="mx-auto px-5 md:px-20">
         <div className="max-w-2xl text-center w-full mx-auto">
-          <p className="text-sm uppercase tracking-[0.2em] text-primary font-medium">
+          <p className="text-sm uppercase font-number tracking-[0.08em] text-primary font-medium">
             Early Access Pricing
           </p>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight md:tracking-[-3px] text-balance text-foreground mt-3">
-            Pricing is still being shaped by early founders.
+          <h2 className="text-4xl md:text-6xl font-heading  font-semibold tracking-tight md:tracking-[-3px] text-balance text-foreground mt-3">
+            Pricing is still being shaped by
+            <span className="text-primary"> early founders.</span>
           </h2>
           <p className="text-lg text-muted-foreground mt-5 leading-relaxed tracking-tight">
             This is the direction we&apos;re testing — not a final price.
