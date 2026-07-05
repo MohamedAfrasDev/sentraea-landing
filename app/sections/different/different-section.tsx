@@ -54,8 +54,8 @@ const DifferentSection = () => {
     },
   ];
   return (
-    <div className="bg-white flex flex-col justify-center min-h-screen h-full py-10">
-      <h2 className="font-heading font-semibold text-4xl md:text-6xl leading-15 text-center">
+    <div className="bg-white flex flex-col justify-center min-h-screen h-full px-10 py-10">
+      <h2 className="font-heading font-semibold text-4xl md:text-6xl md:leading-15 text-center">
         Two founders. <br />
         <span className=" text-primary">
           {" "}
@@ -64,7 +64,7 @@ const DifferentSection = () => {
         </span>
       </h2>
 
-      <div className="flex gap-10 justify-center mt-10">
+      <div className="flex gap-5 justify-center mt-10">
         <div>
           <h3 className="text-2xl font-medium text-center">Without a system</h3>
 

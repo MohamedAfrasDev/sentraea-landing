@@ -21,7 +21,10 @@ const HowItWorks = () => {
     },
   ];
   return (
-    <div className="bg-white px-10 min-h-screen h-full py-10 justify-center items-center">
+    <div
+      id="howitworks"
+      className="bg-white px-10 min-h-screen h-full py-10 justify-center items-center"
+    >
       <div className="items-center justify-center w-full">
         <p className="uppercase  tracking-[0.08rem] text-center text-muted-foreground">
           How Sentraea works
@@ -35,7 +38,7 @@ const HowItWorks = () => {
         </h2>
       </div>
 
-      <div className="flex gap-10 justify-center mt-10">
+      <div className="flex flex-col md:flex-row gap-10 justify-center mt-10">
         {steps.map((step, index) => {
           return (
             <Card

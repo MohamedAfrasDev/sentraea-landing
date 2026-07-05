@@ -32,7 +32,7 @@ const ExecutionSystem = () => {
     },
   ];
   return (
-    <div className="px-10 min-h-screen h-full py-10 flex gap-10">
+    <div className="px-10 min-h-screen h-full py-10 flex flex-col md:flex-row gap-10">
       <div>
         <h2 className="font-heading font-semibold text-4xl md:text-6xl ">
           An execution system.

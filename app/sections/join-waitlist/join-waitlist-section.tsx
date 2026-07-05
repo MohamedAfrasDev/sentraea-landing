@@ -22,17 +22,20 @@ const JoinWaitlistSection = () => {
   ];
   const [currentStage, setCurrentStage] = useState("");
   return (
-    <div className="bg-black/90 min-h-screen h-full py-20 relative items-center flex flex-col justify-center px-20">
+    <div
+      id="waitlist"
+      className="bg-black/90 min-h-screen h-full py-20 relative items-center flex flex-col justify-center px-5 md:px-20"
+    >
       <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
       <Card className="z-2 items-center bg-card/98 backdrop-blur-lg w-fit justify-center">
         <p className="uppercase tracking-[0.08rem] text-muted-foreground font-number">
           Join the waitlist
         </p>
-        <h2 className="font-heading text-6xl font-semibold">
+        <h2 className="font-heading text-4xl text-center md:text-6xl font-semibold">
           Get early access to
           <span className="text-primary"> Sentraea.</span>
         </h2>
-        <p className="text-lg">
+        <p className="text-lg text-center">
           First 50 founders get founding member pricing. Help shape what gets
           built.
         </p>

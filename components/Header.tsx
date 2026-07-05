@@ -13,6 +13,7 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import GetStartedBtn from "./getstarted-btn";
 import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,26 +85,17 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-foreground ">
-            <button onClick={() => scrollTo("docs")} className="cursor-pointer">
-              Docs
-            </button>
             <button
-              onClick={() => scrollTo("community")}
+              onClick={() => scrollTo("howitworks")}
               className="cursor-pointer"
             >
-              Community
+              How it works
             </button>
             <button
               onClick={() => scrollTo("pricing")}
               className="cursor-pointer"
             >
               Pricing
-            </button>
-            <button
-              onClick={() => scrollTo("login")}
-              className="text-primary cursor-pointer"
-            >
-              Login
             </button>
           </nav>
 
@@ -113,11 +105,11 @@ export const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <Image src={CloseIcon} alt="Close menu" width={30} height={20} />
+              <X />
             ) : (
               // FIX 2: Changed from <MenuIcon /> to <Image /> for consistency
               // <MenuIcon className="h-5 w-5" />
-              <h2>a</h2>
+              <Menu />
             )}
           </button>
         </div>
@@ -129,50 +121,17 @@ export const Header = () => {
         <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
           <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
             <button
-              onClick={() => {
-                scrollTo("features");
-                setIsMenuOpen(false);
-              }}
+              onClick={() => scrollTo("howitworks")}
               className="cursor-pointer"
             >
-              Features
+              How it works
             </button>
             <button
-              onClick={() => {
-                scrollTo("reviews");
-                setIsMenuOpen(false);
-              }}
-              className="cursor-pointer"
-            >
-              Reviews
-            </button>
-            <button
-              onClick={() => {
-                scrollTo("pricing");
-                setIsMenuOpen(false);
-              }}
+              onClick={() => scrollTo("pricing")}
               className="cursor-pointer"
             >
               Pricing
             </button>
-            <button
-              onClick={() => {
-                scrollTo("waitlist");
-                setIsMenuOpen(false);
-              }}
-              className="bg-black text-white px-4 py-2 rounded-sm font-medium cursor-pointer"
-            >
-              Explore for free
-            </button>
-
-            <Link href={"/learnmore"} onClick={() => setIsMenuOpen(false)}>
-              <button
-                className="bg-blue-400 text-white px-4 py-2 rounded-lg font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Learn More
-              </button>
-            </Link>
           </nav>
         </div>
       )}

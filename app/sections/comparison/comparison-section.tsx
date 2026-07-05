@@ -67,7 +67,7 @@ const ComparisonSection = () => {
         <p className="uppercase font-number tracking-[0.08rem] text-muted-foreground">
           Why Sentraea is different
         </p>
-        <h2 className="font-heading text-6xl font-semibold">
+        <h2 className="font-heading text-4xl md:text-6xl font-semibold">
           Built for one person. <br />
           <span className="text-primary">Not a team, not a platform.</span>
         </h2>
