@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Table,
@@ -7,7 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React from "react";
+import { ArrowRight } from "lucide-react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const ComparisonSection = () => {
   const table_content = [
@@ -61,6 +63,15 @@ const ComparisonSection = () => {
       startup_books: "~",
     },
   ];
+  const scrollTo = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  const [isShrunk, setIsShrunk] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setIsShrunk(window.scrollY > 600);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="px-10 py-10 flex flex-col gap-10 min-h-screen justify-center">
       <div>
@@ -118,6 +129,20 @@ const ComparisonSection = () => {
           </TableBody>
         </Table>
       </Card>
+
+      <div className="items-center flex flex-col">
+        <p className="text-center text-xl">
+          This is the only tool built specifically to stop you from making the
+          $140K mistake
+        </p>
+
+        <Button
+          onClick={() => scrollTo("waitlist")}
+          className={"text-xl py-5 px-5 items-center mt-5"}
+        >
+          Claim your founding spot <ArrowRight />
+        </Button>
+      </div>
     </div>
   );
 };

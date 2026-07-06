@@ -47,8 +47,10 @@ const ProblemSection = () => {
               42%
             </h3>
             <p className="text-muted-foreground">
-              of startups fail because they build something the market doesn't
-              need
+              of startups failed because they built something nobody wanted.
+            </p>
+            <p className="italic">
+              You&apos;re reading this because you know that could be you.
             </p>
           </Card>
 

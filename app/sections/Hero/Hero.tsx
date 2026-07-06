@@ -105,7 +105,7 @@ const Hero = () => {
         }}
       />
       {/* ── Content sits above the grid ── */}
-      <div className="relative flex-2 bg-transparent  px-10 justify-start flex flex-col items-start mt-10">
+      <div className="relative flex-2 bg-transparent w-full px-10 justify-start flex flex-col items-start mt-10">
         <Card className="px-5 py-2 shadow-xl text-muted-foreground bg-card/20    backdrop-blur-2xl border-card flex flex-row items-center text-xl font-medium tracking-tight">
           Execution System for Solo Founders
         </Card>
@@ -114,20 +114,21 @@ const Hero = () => {
           <br />
           <span className="text-primary     gap-2">wrong thing</span>
         </h1>
-        <p className="text-lg md:text-3xl text-start tracking-tight  mt-5 md:mt-10  items-start ">
-          Sentraea is a stage-gated execution system for solo founders. It tells
-          you exactly what to do next — and requires evidence before you move
-          forward.
+        <p className="text-lg md:text-3xl px-3 text-start tracking-tight  mt-5 md:mt-10  items-start ">
+          It tells you exactly what to do next.
+          <br /> And won't let you build without proof.
         </p>
-        <div className="mt-4 gap-5 flex">
+        <div className="mt-4 gap-5 px-3 ">
           {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
           <Button
-            className={"text-xl py-5 px-4 tracking-tight text-white bg-black"}
-            variant={"outline"}
+            className={"text-2xl py-6 px-5 tracking-tight"}
             onClick={(e) => scrollTo("waitlist")}
           >
-            Get early access <ArrowRight />
+            Join the waitlist — free <ArrowRight />
           </Button>
+          <p className="text-xl mt-2 text-muted-foreground">
+            50 founding spots. 33 remaining.
+          </p>
         </div>
         {/* <Card
           ref={cardRef}

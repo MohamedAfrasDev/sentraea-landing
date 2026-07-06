@@ -61,6 +61,7 @@ const PricingSections = () => {
             btnText="Reserve founding pricing"
             variant="default"
             onBtnClick={() => scrollTo("waitlist")}
+            secValue="Founding pricing ends when we hit 50 members."
           />
         </div>
 

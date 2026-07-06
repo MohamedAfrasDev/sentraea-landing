@@ -20,29 +20,23 @@ const CTA = () => {
     >
       <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-      <h2 className="font-heading text-4xl  md:text-7xl text-center font-bold">
-        Build <span className="text-primary">something real.</span>
-        <br /> Not just something fast.
+      <h2 className="font-heading text-4xl  md:text-6xl text-center font-bold">
+        You started reading this because
+        <br /> you&apos;re afraid of wasting 6 months.
+        <br />
+        <span className="text-primary md:text-7xl up">
+          {" "}
+          Sentraea exists to make sure you don't.
+        </span>
       </h2>
-      <p className="text-muted-foreground mt-5 text-lg md:text-xl">
-        Sentraea gives you the system, the gates, and the discipline to build in
-        the right direction — from the very first day.
-      </p>
 
       <div className="flex gap-5 mt-10 z-2">
         <Button
-          className={"text-lg px-4 py-5"}
+          className={"px-5 py-6 text-2xl"}
           onClick={(e) => scrollTo("waitlist")}
         >
-          Get early access <ArrowRight />
-        </Button>
-
-        <Button
-          className={"text-lg px-4 py-5"}
-          onClick={(e) => scrollTo("howitworks")}
-          variant={"outline"}
-        >
-          How it works
+          Join the waitlist — free
+          <ArrowRight />
         </Button>
       </div>
     </div>
