@@ -6,7 +6,7 @@ const HowItWorks = () => {
   const steps = [
     {
       title: "Get your playbook",
-      desc: "Answer 5 questions about where you are right now. Sentraea assigns you a personalised stage-gated execution map built for solo founders at your exact stage.",
+      desc: "Answer 5 questions about where you are right now. Sentraea assigns you a personalised stage-gated execution map Built for bootstrapped founders at your exact stage.",
       badge: "Stage 1A assigned instantly",
     },
     {

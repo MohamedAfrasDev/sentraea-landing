@@ -14,7 +14,7 @@ const ProblemSection = () => {
     <div className="px-10 flex flex-col md:flex-row gap-10  min-h-screen h-full py-10 justify-start items-center">
       <div className="flex-1 w-full">
         <h2 className="text-4xl font-semibold md:text-6xl text-start font-heading text-foreground/85 tracking-tight leading-10 md:leading-17">
-          Most solo founders
+          Most <br /> bootstrapped founders
           <br /> fail <span className=" text-primary">before</span> they build.
         </h2>
 

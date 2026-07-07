@@ -36,7 +36,10 @@ const ExecutionSystem = () => {
       <div>
         <h2 className="font-heading font-semibold text-4xl md:text-6xl ">
           An execution system.
-          <br /> <span className=" text-primary">Not an AI cofounder.</span>
+          <br />{" "}
+          <span className=" text-primary">
+            Not an AI — a system that holds your whole team accountable
+          </span>
         </h2>
         <p className="text-xl font-muted-foreground mt-5">
           Sentraea doesn't execute tasks for you. It makes sure you're executing

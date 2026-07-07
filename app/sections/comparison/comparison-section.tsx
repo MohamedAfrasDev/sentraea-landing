@@ -14,7 +14,7 @@ import React, { useCallback, useEffect, useState } from "react";
 const ComparisonSection = () => {
   const table_content = [
     {
-      name: "Built for solo founders",
+      name: "Built for bootstrapped founders",
       sentraea: "✓",
       generic_tools: "✕",
       ai_copilots: "~",
@@ -79,7 +79,8 @@ const ComparisonSection = () => {
           Why Sentraea is different
         </p>
         <h2 className="font-heading text-4xl md:text-6xl font-semibold">
-          Built for one person. <br />
+          1 to 4 people, bootstrapped, figuring it out themselves
+          <br />
           <span className="text-primary">Not a team, not a platform.</span>
         </h2>
       </div>

@@ -194,7 +194,7 @@ const manropeFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Sentraea | An Execution System for Your Next Startup",
+  title: "Sentraea | An Execution System for Bootstrapped Startup Founders",
   description:
     "Guide your startup with an AI execution system from idea to scale.",
 };
