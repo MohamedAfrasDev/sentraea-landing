@@ -15,6 +15,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 
 import NavigationProgress from "@/components/navigation-process";
 const arizonaFlare = localFont({
@@ -196,7 +197,7 @@ const manropeFont = Manrope({
 export const metadata: Metadata = {
   title: "Sentraea | An Execution System for Bootstrapped Startup Founders",
   description:
-    "Guide your startup with an AI execution system from idea to scale.",
+    "Guide your bootstrapped startup with an AI execution system from idea to scale.",
 };
 
 export default function RootLayout({
@@ -218,6 +219,7 @@ export default function RootLayout({
           forcedTheme="light"
           enableSystem={false}
         >
+          <Analytics />
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster />
         </ThemeProvider>
