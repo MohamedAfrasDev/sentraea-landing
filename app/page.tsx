@@ -17,30 +17,46 @@ import ExecutionSystem from "./sections/exectuion-system-section/execution-syste
 import HowItWorks from "./sections/how-it-works/how-it-works";
 import ComparisonSection from "./sections/comparison/comparison-section";
 import JoinWaitlistSection from "./sections/join-waitlist/join-waitlist-section";
+import ProofSection from "./sections/proof/proof-section";
+import TrustSection from "./sections/trust/trust-section";
+import ExecutionGrid from "./sections/execution-grid/execution-grid";
+import FitSection from "./sections/fit/fit-section";
+import FaqSection from "./sections/faq/faq-section";
+import FinalCta from "./sections/final-cta/final-cta";
+import FooterAnchor from "./sections/footer-anchor/footer-anchor";
+import Hero2 from "./sections/Hero/Hero-2";
 
 export default function Home() {
   return (
-    <div className="min-h-full">
+    <div className="min-h-full bg-white">
       <SmoothScroll>
         <Header />
         <div className="">
           <Hero />
+          {/* <Hero2 /> */}
 
           <div className="">
             <div className=" flex flex-col mt-10 border-muted-foreground/3">
-              <ProblemSection />
+              <ProofSection />
+              <HowItWorks />
+              <TrustSection />
+              <ExecutionGrid />
+              <FitSection />
+              <FaqSection />
+              {/* <FinalCta /> */}
+              <JoinWaitlistSection />
+
+              <FooterAnchor />
+              {/* <ProblemSection />
 
               <DifferentSection />
               <ExecutionSystem />
 
-              <HowItWorks />
-
               <ComparisonSection />
 
               <PricingSections />
-              <JoinWaitlistSection />
               <CTA />
-              <Footer />
+              <Footer /> */}
             </div>
           </div>
         </div>

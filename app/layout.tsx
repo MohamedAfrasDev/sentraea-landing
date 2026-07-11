@@ -8,6 +8,8 @@ import {
   Geist_Mono,
   Manrope,
   Playfair_Display,
+  Instrument_Serif,
+  Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -154,10 +156,108 @@ const sfproDisplay = localFont({
   ],
   variable: "--font-sfpro",
 });
+
+const clashDisplay = localFont({
+  src: [
+    {
+      path: "../public/fonts/ClashDisplay-Extralight.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/ClashDisplay-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/ClashDisplay-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/ClashDisplay-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/ClashDisplay-Semibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/ClashDisplay-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-clash-display",
+});
+const satoshi = localFont({
+  src: [
+    {
+      path: "../public/fonts/Satoshi-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-LightItalic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Satoshi-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-Italic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Satoshi-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-MediumItalic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Satoshi-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/Satoshi-Black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Satoshi-BlackItalic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-satoshi",
+});
+
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   variable: "--font-raleway",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-instrument-serif",
 });
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -209,7 +309,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={` ${inter.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
+      className={` ${inter.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${clashDisplay.variable} ${satoshi.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
         <ThemeProvider

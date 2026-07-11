@@ -10,10 +10,10 @@ import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import HeroRightSideCard from "./components/hero-right-side-card";
-import WeeklyConsole from "./components/weekly-console";
 import BG from "@/public/bg-hero.jpg";
 import Label from "@/public/icons/text-label.png";
-const Hero = () => {
+import { Badge } from "@/components/ui/badge";
+const Hero2 = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = useCallback((id: string) => {
@@ -84,7 +84,7 @@ const Hero = () => {
   return (
     <div
       id="sentraea"
-      className="relative px- items-center justify-center w-full pb-40 md:pb-24 h-full md:min-h-screen bg-white flex flex-col"
+      className="relative px- items-center justify-start w-full pb-40 md:pb-0 h-full md:h-screen bg-white flex flex-col"
       style={{ overflow: "clip" }}
     >
       <Image
@@ -92,29 +92,29 @@ const Hero = () => {
         alt="label"
         width={900}
         height={200}
-        className="absolute z-1 opacity-30 left-1 -bottom-20"
+        className="absolute z-1 opacity-50 left-1 -bottom-20"
       />
       <Image
         src={Label}
         alt="label"
         width={900}
         height={200}
-        className="absolute z-1 opacity-40 -right-100 -bottom-20"
+        className="absolute z-1 opacity-50 -right-100 -bottom-20"
       />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+      {/* <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" /> */}
       <div className="absolute inset-0 p-2 pointer-events-none">
-        <div className="relative w-full h-full overflow-hidden rounded-md ">
+        <div className="relative w-full h-full overflow-hidden rounded-xl">
           <Image
             src={BG}
             alt="bg"
             width={1000}
             height={1000}
             priority
-            className="w-full h-full object-"
+            className="w-full h-full object-cover"
           />
           {/* Visual noise overlay */}
           <div
-            className="absolute inset-0 opacity-[0.3] mix-blend-overlay pointer-events-none"
+            className="absolute inset-0 opacity-[0.7] mix-blend-overlay pointer-events-none"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             }}
@@ -128,29 +128,50 @@ const Hero = () => {
       {/* ── Grid-line background ── */}
       <div aria-hidden="true" />
       {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
-
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 50%, transparent 50%, oklch(64.559% 0.19149 257.011 / 0.02) 100%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 60% 55% at 50% 50%, transparent 50%, oklch(64.559% 0.19149 257.011 / 0.02) 100%)",
+          pointerEvents: "none",
+          zIndex: 10,
+        }}
+      />
       {/* ── Content sits above the grid ── */}
-      <div>
-        <div className="relative z-2 flex-2 bg-transparent w-full px-6 md:px-10 justify-center flex flex-col items-center mt-24 md:mt-32">
-          <Card className="px-4 py-1.5 shadow-sm border-white/10 text-white bg-card/10 backdrop-blur-2xl flex flex-row items-center gap-2 text-sm font-medium tracking-tight">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+      <div className="flex gap-5">
+        <div className="relative z-2 flex-2 bg-transparent w-full px-10 justify-start flex flex-col items-center mt-10">
+          <Card className="px-5 py-2 shadow-sm border-white/10 text-white bg-card/10    backdrop-blur-2xl flex flex-row items-center text-xl font-medium tracking-tight">
             Weekly operating system for solo founders
           </Card>
-          <h1 className="text-[46px] font-heading  text-foreground/85  md:text-[120px]   mt-3 tracking-[-2px]  md:tracking-[-7px]   text-center leading-[1.02]">
+          <h1 className="text-[40px] font-heading  text-foreground/85  md:text-[130px]   mt-2  tracking-[-10px]   text-center leading-14 md:leading-30">
             <span>Stop wasting weeks on</span>
             <br />
             <span className="text-primary     gap-2">the wrong work.</span>
           </h1>
-          <p className="text-lg md:text-2xl px-3 text-center tracking-tight text-neutral-600 max-w-3xl mt-5 md:mt-7 leading-snug">
-            Sentraea reads your founder context, checks the live market, gives
-            you one highest-leverage move for the week — and handles the small
-            execution around it.
+          <p className="text-lg md:text-3xl px-3 text-center tracking-tight  mt-5 md:mt-10  items-start ">
+            Sentraea looks at your founder context, checks the live market,
+            identifies the next highest-leverage move, and handles the small
+            execution around it so you can move with less decision fatigue.
           </p>
 
-          <div className="mt-9 gap-3 flex px-3">
+          <div className="mt-10 gap-4 flex px-3 ">
+            {/* <GetStartedBtn title="Create Your 4 Stages Plan Now" className="" /> */}
             <Button
               className={
-                "text-base md:text-lg py-5 px-6 bg-black text-white tracking-tight shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-px"
+                "text-2xl py-6 px-5 bg-black text-white tracking-tight"
               }
               variant={"outline"}
               onClick={(e) => scrollTo("waitlist")}
@@ -159,51 +180,17 @@ const Hero = () => {
             </Button>
             <Button
               className={
-                "text-base md:text-lg py-5 px-6 bg-card/40 text-neutral-700 backdrop-blur-lg tracking-tight"
+                "text-2xl py-6 px-5 bg-card/40 text-muted-foreground backdrop-blur-lg tracking-tight"
               }
               variant={"outline"}
-              onClick={(e) => scrollTo("howitworks")}
+              onClick={(e) => scrollTo("features")}
             >
-              See how it works
+              How it works
             </Button>
           </div>
-          <p className="mt-5 font-mono text-[11px] md:text-xs tracking-[0.08em] text-neutral-500">
-            For founders tired of guessing what deserves the week.
+          <p className="font-number mt-4 text-xl up text-muted-foreground">
+            For founders who are tired of guessing what deserves the week.
           </p>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px] text-neutral-400">
-            <span className="flex items-center gap-1.5">
-              <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
-                <path
-                  d="m2.5 6.2 2.4 2.4 4.6-5"
-                  fill="none"
-                  stroke="#2563eb"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              17 of 50 founding spots claimed
-            </span>
-            <span className="hidden h-3 w-px bg-neutral-200 sm:block" />
-            <span className="flex items-center gap-1.5">
-              <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
-                <path
-                  d="m2.5 6.2 2.4 2.4 4.6-5"
-                  fill="none"
-                  stroke="#2563eb"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Nothing sent without your approval
-            </span>
-          </div>
-
-          {/* product reality — the weekly console */}
-          <div className="mt-14 flex w-full justify-center md:mt-16">
-            <WeeklyConsole />
-          </div>
 
           {/* <Card
           ref={cardRef}
@@ -219,9 +206,42 @@ const Hero = () => {
           />
         </Card> */}
         </div>
+
+        <div className="flex-1 z-2 mt-5 mr-5">
+          <Card className="px-4 py-3">
+            <div>
+              <h2 className="text-xl font-medium">This week's move</h2>
+              <h3 className="text-muted-foreground">
+                Interview 5 agency owners before building feature X
+              </h3>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-medium">Why now</h2>
+              <h2 className="text-muted-foreground">
+                Your onboarding feedback is weak, activation is unclear, and
+                recent market signals show buyers care more about workflow
+                automation than another dashboard.
+              </h2>
+            </div>
+
+            <div className="flex gap-2 items-center">
+              <h3 className="text-xl">Confidence:</h3>
+              <Badge className="rounded-sm text-sm px-4 py-3 bg-amber-100/50 text-orange-400">
+                Medium-High
+              </Badge>
+            </div>
+            <div>
+              <h3 className="text-xl font-medium">Evidence used</h3>
+              <p className="font-number">-Founder notes</p>
+              <p className="font-number">-Product metrics</p>
+              <p className="font-number">-6 live market sources</p>
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default Hero2;
