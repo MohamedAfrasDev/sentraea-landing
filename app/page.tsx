@@ -1,66 +1,46 @@
-"use client";
-
 import SmoothScroll from "@/components/SmoothScroll";
-import { Header } from "../components/Header";
-import Hero from "./sections/Hero/Hero";
-import StagesComp from "./sections/4-stages/stages-comp";
-import ShippingComponent from "./sections/shipping/shipping-component";
-import WhatIsSentraea from "./sections/whats-sentraea/What-Is-Sentraea";
-import Differentiators from "./sections/differentiators/differentiators";
-import Proofs from "./sections/proofs/proofs";
-import CTA from "./sections/cta/cta";
-import PricingSections from "./sections/pricing/pricing-sections";
-import Footer from "./sections/footer/footer";
-import ProblemSection from "./sections/problem-section/problem-section";
-import DifferentSection from "./sections/different/different-section";
-import ExecutionSystem from "./sections/exectuion-system-section/execution-system";
-import HowItWorks from "./sections/how-it-works/how-it-works";
-import ComparisonSection from "./sections/comparison/comparison-section";
-import JoinWaitlistSection from "./sections/join-waitlist/join-waitlist-section";
-import ProofSection from "./sections/proof/proof-section";
-import TrustSection from "./sections/trust/trust-section";
-import ExecutionGrid from "./sections/execution-grid/execution-grid";
-import FitSection from "./sections/fit/fit-section";
-import FaqSection from "./sections/faq/faq-section";
-import FinalCta from "./sections/final-cta/final-cta";
-import FooterAnchor from "./sections/footer-anchor/footer-anchor";
-import Hero2 from "./sections/Hero/Hero-2";
+import { Navbar } from "./sections/nav/navbar";
+import { Hero } from "./sections/hero/hero";
+import { Problem } from "./sections/problem/problem";
+import { Solution } from "./sections/solution/solution";
+import { HowSentraeaDecides } from "./sections/how-sentraea-decides/how-sentraea-decides";
+import { WhoItsFor } from "./sections/who-its-for/who-its-for";
+import { HowEarlyAccessWorks } from "./sections/how-it-works/how-early-access-works";
+import { Waitlist } from "./sections/waitlist/waitlist";
+import { Faq } from "./sections/faq/faq";
+import { Footer } from "./sections/footer/footer";
+import { Header } from "@/components/Header";
+import Image from "next/image";
+import BGOrange from "@/public/bg-cta-orange.jpg";
 
 export default function Home() {
   return (
-    <div className="min-h-full bg-white">
-      <SmoothScroll>
+    <SmoothScroll>
+      <div className="min-h-full bg-linear-to-b from-white via-[#fafbfe] to-white">
+        {/* <Navbar /> */}
         <Header />
-        <div className="">
+        <main className="flex flex-col gap-10">
           <Hero />
-          {/* <Hero2 /> */}
+          <Problem />
+          <Solution />
+          <HowSentraeaDecides />
 
-          <div className="">
-            <div className=" flex flex-col mt-10 border-muted-foreground/3">
-              <ProofSection />
-              <HowItWorks />
-              <TrustSection />
-              <ExecutionGrid />
-              <FitSection />
-              <FaqSection />
-              {/* <FinalCta /> */}
-              <JoinWaitlistSection />
-
-              <FooterAnchor />
-              {/* <ProblemSection />
-
-              <DifferentSection />
-              <ExecutionSystem />
-
-              <ComparisonSection />
-
-              <PricingSections />
-              <CTA />
-              <Footer /> */}
-            </div>
+          <WhoItsFor />
+          <div className="relative">
+            <Image
+              src={BGOrange}
+              alt="works"
+              width={1000}
+              height={1000}
+              className="absolute w-full h-full"
+            />
+            <HowEarlyAccessWorks />
+            <Waitlist />
           </div>
-        </div>
-      </SmoothScroll>
-    </div>
+          <Faq />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }

@@ -295,9 +295,26 @@ const manropeFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Sentraea | An Execution System for Bootstrapped Startup Founders",
+  title:
+    "Sentraea — Know the One Highest-Leverage Move for Your SaaS Every Week",
   description:
-    "Guide your bootstrapped startup with an AI execution system from idea to scale.",
+    "Sentraea helps early-stage B2B SaaS founders identify the single highest-leverage move every week by analyzing business context, bottlenecks, and growth signals.",
+  openGraph: {
+    title:
+      "Sentraea — Know the One Highest-Leverage Move for Your SaaS Every Week",
+    description:
+      "Sentraea helps early-stage B2B SaaS founders identify the single highest-leverage move every week by analyzing business context, bottlenecks, and growth signals.",
+    type: "website",
+    siteName: "Sentraea",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Sentraea — Know the One Highest-Leverage Move for Your SaaS Every Week",
+    description:
+      "Sentraea helps early-stage B2B SaaS founders identify the single highest-leverage move every week by analyzing business context, bottlenecks, and growth signals.",
+  },
 };
 
 export default function RootLayout({

@@ -1,0 +1,289 @@
+"use client";
+
+import { ArrowRight, Check, ChevronDown, Loader2 } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { toast } from "sonner";
+import { cn } from "@/lib/utils";
+import { Container, Section } from "../shared/section";
+import { Reveal } from "../shared/reveal";
+
+import CTABG from "@/public/cta-bg.jpg";
+import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+const MRR_BANDS = [
+  "Pre-revenue",
+  "$1–1k",
+  "$1–10k",
+  "$10–50k",
+  "$50k+",
+] as const;
+
+const inputClasses =
+  "w-full rounded-xl border border-black/[0.08] bg-white px-4 py-3 text-[15px] text-foreground placeholder:text-muted-foreground/60 transition-all duration-200 focus:border-primary/40 focus:outline-none focus:ring-3 focus:ring-primary/15";
+
+export function Waitlist() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [mrrBand, setMrrBand] = useState("");
+  const [decision, setDecision] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting || submitted) return;
+
+    if (!name.trim()) {
+      toast.error("Please enter your name.");
+      return;
+    }
+    if (!email.trim()) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+    if (!mrrBand) {
+      toast.error("Please select your current MRR band.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          company: company.trim(),
+          mrrBand,
+          decision: decision.trim(),
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        toast.error(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+      toast.success("Application received. We'll be in touch soon.");
+    } catch {
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <Section id="waitlist" className="py-20 md:py-28">
+      <Container>
+        <Reveal y={32}>
+          <Image
+            src={CTABG}
+            alt="cta"
+            width={1000}
+            height={1000}
+            className="absolute w-full h-full rounded-md"
+          />
+          <div
+            className="absolute inset-0 opacity-[0.3] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            }}
+          />
+          <div
+            className="absolute inset-0 opacity-[0.3] mix-blend-overlay pointer-events-none"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            }}
+          />
+
+          <div className="relative overflow-hidden rounded-[2rem]  px-6 py-16 md:px-10 md:py-10">
+            {/* Ambient glow + grid on the panel */}
+
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.15] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_20%,black,transparent)]"
+              aria-hidden
+            />
+
+            <div className="relative grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+              {/* Pitch */}
+              <div className="text-white">
+                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-white">
+                  Early access
+                </p>
+                <h2 className="mt-4 font-heading text-3xl text-black font-medium leading-[1.12] tracking-tight md:text-4xl lg:text-[3.5rem]">
+                  Get on the early access waitlist
+                </h2>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-white">
+                  We&apos;re building Sentraea with a small group of early-stage
+                  B2B SaaS founders.
+                </p>
+                <p className="mt-4 max-w-md text-base leading-relaxed text-white">
+                  If you want help deciding what matters this week instead of
+                  adding another dashboard, we&apos;d love to hear from you.
+                </p>
+              </div>
+
+              {/* Form card */}
+              <Card>
+                {submitted ? (
+                  <div className="flex flex-col items-center py-12 text-center">
+                    <span className="inline-flex size-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
+                      <Check className="size-7" strokeWidth={2.5} aria-hidden />
+                    </span>
+                    <h3 className="mt-5 font-heading text-xl font-semibold tracking-tight text-foreground">
+                      Application received
+                    </h3>
+                    <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                      Thanks for applying. We review applications and invite
+                      founders in small batches — we&apos;ll be in touch soon.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} noValidate>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <InputGroup>
+                        <InputGroupAddon align={"block-start"}>
+                          <InputGroupText>Name</InputGroupText>
+                        </InputGroupAddon>
+                        <InputGroupInput
+                          id="waitlist-name"
+                          name="name"
+                          type="text"
+                          autoComplete="name"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Alex Founder"
+                        />
+                      </InputGroup>
+                      <InputGroup>
+                        <InputGroupAddon align={"block-start"}>
+                          <InputGroupText>Email</InputGroupText>
+                        </InputGroupAddon>
+                        <InputGroupInput
+                          id="waitlist-email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="you@company.com"
+                        />
+                      </InputGroup>
+                      <InputGroup>
+                        <InputGroupAddon align={"block-start"}>
+                          <InputGroupText>Company</InputGroupText>
+                        </InputGroupAddon>
+                        <InputGroupInput
+                          id="waitlist-company"
+                          name="company"
+                          type="text"
+                          autoComplete="organization"
+                          value={company}
+                          onChange={(e) => setCompany(e.target.value)}
+                          placeholder="Acme SaaS"
+                        />
+                      </InputGroup>
+                      <InputGroup>
+                        <InputGroupAddon align={"block-start"}>
+                          <InputGroupText>Current MRR Band</InputGroupText>
+                        </InputGroupAddon>
+
+                        <DropdownMenu>
+                          <DropdownMenuTrigger
+                            className={"text-start w-full px-3"}
+                          >
+                            <h2>{mrrBand ? mrrBand : "Select one"}</h2>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            className={
+                              "rounded-sm border-none ring-muted-foreground/5 bg-card/40 backdrop-blur-md"
+                            }
+                          >
+                            {MRR_BANDS.map((band) => (
+                              <DropdownMenuItem
+                                key={band}
+                                onClick={() => setMrrBand(band)}
+                              >
+                                {band}
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </InputGroup>
+
+                      <InputGroup className="sm:col-span-2">
+                        <InputGroupAddon align={"block-start"}>
+                          <InputGroupText>
+                            Biggest weekly decision
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <InputGroupTextarea
+                          id="waitlist-decision"
+                          name="decision"
+                          rows={3}
+                          value={decision}
+                          onChange={(e) => setDecision(e.target.value)}
+                          placeholder="e.g. Should I focus on outbound or fix onboarding first?"
+                        />
+                      </InputGroup>
+                    </div>
+
+                    <Button
+                      className={"w-full mt-5 h-10 text-lg"}
+                      type="submit"
+                      disabled={submitting}
+                    >
+                      {submitting ? (
+                        <>
+                          Submitting application
+                          <Loader2
+                            className="size-4 animate-spin"
+                            aria-hidden
+                          />
+                        </>
+                      ) : (
+                        <>
+                          Apply for Early Access
+                          <ArrowRight
+                            className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                            aria-hidden
+                          />
+                        </>
+                      )}
+                    </Button>
+
+                    <p className="mt-4 text-center text-xs text-muted-foreground">
+                      We&apos;ll review applications and invite founders in
+                      small batches.
+                    </p>
+                  </form>
+                )}
+              </Card>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}

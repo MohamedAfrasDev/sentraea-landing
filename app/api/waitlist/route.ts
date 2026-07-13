@@ -3,11 +3,18 @@ import { NextRequest, NextResponse } from "next/server";
 // Basic RFC-5322-ish email check — good enough for a waitlist form.
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const MRR_BANDS = ["Pre-revenue", "$1–1k", "$1–10k", "$10–50k", "$50k+"];
+
 type WaitlistPayload = {
+  name?: unknown;
   email?: unknown;
-  stage?: unknown;
-  message?: unknown;
+  company?: unknown;
+  mrrBand?: unknown;
+  decision?: unknown;
 };
+
+const asTrimmedString = (value: unknown) =>
+  typeof value === "string" ? value.trim() : "";
 
 export async function POST(request: NextRequest) {
   let body: WaitlistPayload;
@@ -17,9 +24,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const email = typeof body.email === "string" ? body.email.trim() : "";
-  const stage = typeof body.stage === "string" ? body.stage.trim() : "";
-  const message = typeof body.message === "string" ? body.message.trim() : "";
+  const name = asTrimmedString(body.name);
+  const email = asTrimmedString(body.email);
+  const company = asTrimmedString(body.company);
+  const mrrBand = asTrimmedString(body.mrrBand);
+  const decision = asTrimmedString(body.decision);
+
+  if (!name) {
+    return NextResponse.json(
+      { error: "Please enter your name." },
+      { status: 400 },
+    );
+  }
 
   if (!EMAIL_REGEX.test(email)) {
     return NextResponse.json(
@@ -28,9 +44,9 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (!stage) {
+  if (!MRR_BANDS.includes(mrrBand)) {
     return NextResponse.json(
-      { error: "Please tell us where you are right now." },
+      { error: "Please select your current MRR band." },
       { status: 400 },
     );
   }
@@ -50,9 +66,11 @@ export async function POST(request: NextRequest) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        name,
         email,
-        stage,
-        message,
+        company,
+        mrrBand,
+        decision,
         timestamp: new Date().toISOString(),
       }),
       // Apps Script issues a 302 redirect to script.googleusercontent.com;
@@ -63,7 +81,7 @@ export async function POST(request: NextRequest) {
       const text = await res.text();
       console.error("Google Sheets webhook failed:", res.status, text);
       return NextResponse.json(
-        { error: "Could not save your spot. Please try again." },
+        { error: "Could not save your application. Please try again." },
         { status: 502 },
       );
     }
@@ -72,7 +90,7 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error("Error calling Google Sheets webhook:", err);
     return NextResponse.json(
-      { error: "Could not save your spot. Please try again." },
+      { error: "Could not save your application. Please try again." },
       { status: 502 },
     );
   }

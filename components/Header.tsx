@@ -80,6 +80,7 @@ export const Header = () => {
               className="dark:invert"
               height={60}
               width={200}
+              onClick={() => scrollTo("hero")}
             />
           </button>
 
