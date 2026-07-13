@@ -1,93 +1,94 @@
-import React from "react";
-import Link from "next/link";
-
-import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
 import Image from "next/image";
+import Link from "next/link";
+import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
+import { Container } from "../shared/section";
 
-const Footer = () => {
+import BGOrange from "@/public/bg-cta-orange.jpg";
+
+function XIcon({ className }: { className?: string }) {
   return (
-    <footer className="bg-primary border-t border-white/10 pt-10 pb-8 relative overflow-hidden">
-      {/* Subtle Background Glow */}
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
 
-      <div className="container mx-auto px-5 relative z-10">
-        <div className="">
-          {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-2 flex flex-col items-start">
-            <Link
-              href="/"
-              className="text-2xl font-bold text-white tracking-tighter mb-4 flex items-center gap-2"
-            >
-              <Image
-                src={HorizontalLogo}
-                alt="Sentraea"
-                width={1000}
-                height={1000}
-                className="invert w-[300px]"
-              />
-            </Link>
-          </div>
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+    </svg>
+  );
+}
 
-          {/* <div className="flex flex-col gap-4">
-            <h4 className="text-white font-medium mb-2 tracking-wide text-sm">
-              Company
-            </h4>
-            <Link
-              href="#"
-              className="text-gray-400 hover:text-white text-sm transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-400 hover:text-white text-sm transition-colors flex items-center gap-1 group"
-            >
-              Careers
-              <ArrowUpRight className="h-3 w-3 opacity-50 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-400 hover:text-white text-sm transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-400 hover:text-white text-sm transition-colors"
-            >
-              Partners
-            </Link>
-          </div> */}
-        </div>
+export function Footer() {
+  return (
+    <footer className="relative min-w-full">
+      <Image
+        src={BGOrange}
+        alt="works"
+        width={1000}
+        height={1000}
+        className="absolute z-0 w-full max-h-[calc(40vh)]"
+      />
+      <Container className="relative w-full items-center justify-center py-20">
+        <div className="flex flex-col relative z-1 items-center justify-between gap-6 md:flex-row">
+          <Image src={HorizontalLogo} alt="Sentraea" className="h-6 w-auto" />
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-white text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Sentraea Inc. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
+          <nav
+            className="flex items-center gap-6 text-sm text-muted-foreground"
+            aria-label="Footer"
+          >
             <Link
-              href="#"
-              className="text-white hover:text-white text-sm transition-colors"
+              href="/privacy"
+              className="transition-colors hover:text-foreground"
             >
-              Privacy Policy
+              Privacy
             </Link>
             <Link
-              href="#"
-              className="text-white hover:text-white text-sm transition-colors"
+              href="/terms"
+              className="transition-colors hover:text-foreground"
             >
-              Terms of Service
+              Terms
             </Link>
-            <Link
-              href="#"
-              className="text-white hover:text-white text-sm transition-colors"
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://twitter.com/sentraea"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sentraea on X (Twitter)"
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              Cookies
-            </Link>
+              <XIcon className="size-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/sentraea"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sentraea on LinkedIn"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <LinkedInIcon className="size-4" />
+            </a>
           </div>
         </div>
-      </div>
+
+        <p className="mt-8 text-center text-xs text-muted-foreground/70">
+          © {new Date().getFullYear()} Sentraea. All rights reserved.
+        </p>
+      </Container>
     </footer>
   );
-};
-
-export default Footer;
+}

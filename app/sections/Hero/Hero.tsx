@@ -1,229 +1,184 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import LoginPageImage from "@/public/illustrations/workspace-mockup.png";
-import LoginPageDark from "@/public/illustrations/hero-dark.png";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { useCallback } from "react";
+import { Container } from "../shared/section";
+import { HeroDashboard } from "./hero-dashboard";
+import HeroBG from "@/public/bg-hero.jpg";
 import Image from "next/image";
-import { useTheme } from "@/lib/theme";
-import HeroRightSideCard from "./components/hero-right-side-card";
-import WeeklyConsole from "./components/weekly-console";
-import BG from "@/public/bg-hero.jpg";
-import Label from "@/public/icons/text-label.png";
-const Hero = () => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+import { Button } from "@/components/ui/button";
+
+/** Tiny SVG noise tile, inlined so the hero needs no asset request. */
+const NOISE_TEXTURE = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E")`;
+
+function HeroBackground() {
+  const reducedMotion = useReducedMotion();
+  const enter = (delay: number) => ({
+    initial: { opacity: 0, y: reducedMotion ? 0 : 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.8,
+      delay,
+      ease: [0.21, 0.47, 0.32, 0.98] as const,
+    },
+  });
+
+  return (
+    <div
+      className="pointer-events-none absolute  inset-0 overflow-hidden"
+      aria-hidden
+    >
+      {/* Soft radial wash anchoring the headline */}
+      <div
+        className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <motion.p className="rounded-md " {...enter(0.2)}>
+        <Image
+          src={HeroBG}
+          alt="hero-bg"
+          width={1000}
+          height={1000}
+          className="w-full h-full px-5 py-4"
+          style={{
+            borderRadius: 25,
+          }}
+        />
+      </motion.p>
+      {/* Slow-drifting gradient orbs */}
+
+      {/* Subtle grid, faded toward the edges */}
+
+      {/* Grain */}
+      <div
+        className="absolute inset-0 opacity-[0.035] mix-blend-multiply"
+        style={{ backgroundImage: NOISE_TEXTURE }}
+      />
+    </div>
+  );
+}
+
+export function Hero() {
+  const reducedMotion = useReducedMotion();
 
   const scrollTo = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
-  useEffect(() => {
-    // Dynamic loader helper for script injection
-    const loadScript = (src: string): Promise<boolean> => {
-      return new Promise((resolve) => {
-        if (document.querySelector(`script[src="${src}"]`)) {
-          resolve(true);
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        script.onload = () => resolve(true);
-        script.onerror = () => resolve(false);
-        document.body.appendChild(script);
-      });
-    };
 
-    const initializeScrollTrigger = async () => {
-      try {
-        // Load GSAP & ScrollTrigger from high-performance cdnjs
-        const gsapLoaded = await loadScript(
-          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
-        );
-        const triggerLoaded = await loadScript(
-          "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
-        );
+  const enter = (delay: number) => ({
+    initial: { opacity: 0, y: reducedMotion ? 0 : 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: {
+      duration: 0.8,
+      delay,
+      ease: [0.21, 0.47, 0.32, 0.98] as const,
+    },
+  });
 
-        if (gsapLoaded && triggerLoaded) {
-          const win = window as any;
-          if (win.gsap && win.ScrollTrigger) {
-            win.gsap.registerPlugin(win.ScrollTrigger);
-
-            // Animate card up while scrolling down
-            win.gsap.fromTo(
-              cardRef.current,
-              { y: -10 },
-              {
-                y: 400,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: cardRef.current,
-                  start: "top bottom",
-                  end: "bottom top",
-                  scrub: 1, // Smooth scrub delay
-                },
-              },
-            );
-          }
-        }
-      } catch (error) {
-        console.error("GSAP ScrollTrigger setup failed:", error);
-      }
-    };
-
-    initializeScrollTrigger();
-  }, []);
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
-    <div
-      id="sentraea"
-      className="relative px- items-center justify-center w-full pb-40 md:pb-24 h-full md:min-h-screen bg-white flex flex-col"
-      style={{ overflow: "clip" }}
+    <section
+      id="hero"
+      className="relative overflow-hidden pb-20 pt-10 md:pb-28 md:pt-15"
     >
-      <Image
-        src={Label}
-        alt="label"
-        width={900}
-        height={200}
-        className="absolute z-1 opacity-30 left-1 -bottom-20"
-      />
-      <Image
-        src={Label}
-        alt="label"
-        width={900}
-        height={200}
-        className="absolute z-1 opacity-40 -right-100 -bottom-20"
-      />
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
-      <div className="absolute inset-0 p-2 pointer-events-none">
-        <div className="relative w-full h-full overflow-hidden rounded-md ">
-          <Image
-            src={BG}
-            alt="bg"
-            width={1000}
-            height={1000}
-            priority
-            className="w-full h-full object-"
-          />
-          {/* Visual noise overlay */}
-          <div
-            className="absolute inset-0 opacity-[0.3] mix-blend-overlay pointer-events-none"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            }}
-          />
-          {/* Subtle inner border for premium styling */}
-        </div>
-      </div>
-      {/* <div ref={cardRef} className="w-full h-full">
-        <BGOverlayHero />
-      </div> */}
-      {/* ── Grid-line background ── */}
-      <div aria-hidden="true" />
-      {/* ── Subtle corner glow so the grid "pops" slightly at the edges ── */}
+      <HeroBackground />
 
-      {/* ── Content sits above the grid ── */}
-      <div>
-        <div className="relative z-2 flex-2 bg-transparent w-full px-6 md:px-10 justify-center flex flex-col items-center mt-24 md:mt-32">
-          <Card className="px-4 py-1.5 shadow-sm border-white/10 text-white bg-card/10 backdrop-blur-2xl flex flex-row items-center gap-2 text-sm font-medium tracking-tight">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Weekly operating system for solo founders
-          </Card>
-          <h1 className="text-[46px] font-heading  text-foreground/85  md:text-[120px]   mt-3 tracking-[-2px]  md:tracking-[-7px]   text-center leading-[1.02]">
-            <span>Stop wasting weeks on</span>
-            <br />
-            <span className="text-primary     gap-2">the wrong work.</span>
-          </h1>
-          <p className="text-lg md:text-2xl px-3 text-center tracking-tight text-neutral-600 max-w-3xl mt-5 md:mt-7 leading-snug">
-            Sentraea reads your founder context, checks the live market, gives
-            you one highest-leverage move for the week — and handles the small
-            execution around it.
-          </p>
-
-          <div className="mt-9 gap-3 flex px-3">
-            <Button
-              className={
-                "text-base md:text-lg py-5 px-6 bg-black text-white tracking-tight shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-px"
-              }
-              variant={"outline"}
-              onClick={() => router.push("/sign-up")}
+      <Container className="relative">
+        <div className=" items- gap-7 flex flex-col md:flex-row">
+          {/* Copy */}
+          <div className="flex flex-col items-start flex-4">
+            <motion.p
+              {...enter(0)}
+              className="inline-flex items-center gap-2 bg-card/50 px-5 py-2 rounded-md border border-white/5 backdrop-blur-sm"
             >
-              Get Early Access
-            </Button>
-            <Button
-              className={
-                "text-base md:text-lg py-5 px-6 bg-card/40 text-neutral-700 backdrop-blur-lg tracking-tight"
-              }
-              variant={"outline"}
-              onClick={(e) => scrollTo("howitworks")}
+              <span className="size-1.5 rounded-full bg-primary" aria-hidden />
+              Weekly operating system for early-stage SaaS founders
+            </motion.p>
+
+            <motion.h1
+              {...enter(0.08)}
+              className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[4.5rem]"
             >
-              See how it works
-            </Button>
-          </div>
-          <p className="mt-5 font-mono text-[11px] md:text-xs tracking-[0.08em] text-neutral-500">
-            For founders tired of guessing what deserves the week.
-          </p>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px] text-neutral-400">
-            <span className="flex items-center gap-1.5">
-              <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
-                <path
-                  d="m2.5 6.2 2.4 2.4 4.6-5"
-                  fill="none"
-                  stroke="#2563eb"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              Know the one <br />
+              <span className="bg-linear-to-r from-black via-blue-800 to-blue-900 bg-clip-text text-transparent">
+                highest-leverage move
+              </span>{" "}
+              for your B2B SaaS every week.
+            </motion.h1>
+
+            <motion.p
+              {...enter(0.16)}
+              className="mt-6 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
+            >
+              Sentraea is a weekly decision layer for early-stage B2B SaaS
+              founders. It connects your tools, learns your business, detects
+              the bottleneck, and tells you where to focus next week.
+            </motion.p>
+
+            <motion.div
+              {...enter(0.24)}
+              className="mt-9 flex flex-wrap items-center gap-3"
+            >
+              <Button
+                onClick={() => scrollTo("waitlist")}
+                className={"text-md px-4 py-5 text-lg"}
+              >
+                Get Early Access
+                <ArrowRight
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                  aria-hidden
                 />
-              </svg>
-              17 of 50 founding spots claimed
-            </span>
-            <span className="hidden h-3 w-px bg-neutral-200 sm:block" />
-            <span className="flex items-center gap-1.5">
-              <svg viewBox="0 0 12 12" className="h-3 w-3" aria-hidden="true">
-                <path
-                  d="m2.5 6.2 2.4 2.4 4.6-5"
-                  fill="none"
-                  stroke="#2563eb"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              </Button>
+              <Button
+                onClick={() => scrollTo("how-it-works")}
+                variant={"outline_without_border"}
+                className={"text-md px-4 py-5 text-lg"}
+              >
+                See how it works
+                <ArrowDown
+                  className="size-4 text-muted-foreground transition-transform duration-300 group-hover:translate-y-0.5"
+                  aria-hidden
                 />
-              </svg>
-              Nothing sent without your approval
-            </span>
+              </Button>
+            </motion.div>
+
+            <motion.p
+              {...enter(0.32)}
+              className="mt-6 text-sm text-muted-foreground hidden md:block"
+            >
+              For B2B SaaS founders between first customers and repeatable
+              growth.
+            </motion.p>
+
+            <motion.div {...enter(0.4)} className=" pt-2 hidden md:block">
+              <p className="text-[13px] text-muted-foreground/80">
+                Built for founder-led B2B SaaS teams tired of busy weeks and
+                flat MRR.
+              </p>
+            </motion.div>
           </div>
 
-          {/* product reality — the weekly console */}
-          <div className="mt-14 flex w-full justify-center md:mt-16">
-            <WeeklyConsole />
+          {/* Product mockup */}
+          <div className="scale-95 flex-3">
+            <HeroDashboard />
           </div>
-
-          {/* <Card
-          ref={cardRef}
-          className="flex border transition-none shadow-[100px_100px_200px_rgba(105, 105, 105,0.001)]  shadow-gray-500/50  bg-gray-600 dark:bg-card flex-col px-1 py-1 justify-center items-center mt-10 w-[90%] h-fit overflow-hidden rounded-md"
-        >
-          <Image
-            src={LoginPageImage}
-            alt="a"
-            width={2100}
-            height={2100}
-            className="w-full items-center justify-center mt-1 h-full object-cover"
-            suppressHydrationWarning
-          />
-        </Card> */}
         </div>
-      </div>
-    </div>
+      </Container>
+    </section>
   );
-};
-
-export default Hero;
+}

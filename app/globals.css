@@ -13,6 +13,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sfpro), sans-serif;
   --font-heading: var(--font-satoshi), sans-serif;
+    --font-heading-high: var(--font-instrument-serif), serif;
+
   --font-arizona: var(--font-arizona-flare), sans-serif;
   --font-body: var(--font-sfpro), sans-serif;
   --font-number: var(--font-number), monospace;
@@ -61,6 +63,7 @@
 }
 
 /* oklch(99.55% 0.00011 271.152) */
+/* #ff9029 */
 :root {
   --background: oklch(97.58% 0.006 264.53);
   --foreground: oklch(0.145 0 0);
@@ -68,6 +71,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
+  /* Deep blue #2563EB */
   --primary: oklch(64.559% 0.19149 257.011);
   --hover: oklch(64.559% 0.19149 257.011);
   --primary-foreground: oklch(0.985 0 0);
