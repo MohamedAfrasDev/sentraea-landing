@@ -9,7 +9,7 @@ import { useIsMobile } from "./Responsive";
 import Link from "next/link";
 import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
 import VerticalLogo from "@/public/logos/SENTRAEA_LOGO_ICON.svg";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import GetStartedBtn from "./getstarted-btn";
 import { motion } from "framer-motion";
@@ -97,6 +97,15 @@ export const Header = () => {
             >
               Pricing
             </button>
+            <Link href="/sign-in" className="cursor-pointer">
+              Sign in
+            </Link>
+            <Link
+              href="/sign-up"
+              className="cursor-pointer rounded-sm bg-black px-4 py-2 text-sm font-medium text-white transition-transform hover:-translate-y-px dark:bg-white dark:text-black"
+            >
+              Get started
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -132,6 +141,15 @@ export const Header = () => {
             >
               Pricing
             </button>
+            <Link href="/sign-in" className="cursor-pointer">
+              Sign in
+            </Link>
+            <Link
+              href="/sign-up"
+              className="cursor-pointer rounded-sm bg-black px-4 py-1.5 text-sm font-medium text-white"
+            >
+              Get started
+            </Link>
           </nav>
         </div>
       )}

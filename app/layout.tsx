@@ -12,7 +12,7 @@ import {
   Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/lib/theme";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "sonner";
 import { Suspense } from "react";
@@ -312,13 +312,7 @@ export default function RootLayout({
       className={` ${inter.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${clashDisplay.variable} ${satoshi.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
       <body className="">
-        <ThemeProvider
-          attribute="class"
-          storageKey="theme"
-          defaultTheme="light"
-          forcedTheme="light"
-          enableSystem={false}
-        >
+        <ThemeProvider>
           <Analytics />
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster />

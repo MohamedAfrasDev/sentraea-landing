@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -8,13 +9,14 @@ import { Card } from "@/components/ui/card";
 import LoginPageImage from "@/public/illustrations/workspace-mockup.png";
 import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 import HeroRightSideCard from "./components/hero-right-side-card";
 import WeeklyConsole from "./components/weekly-console";
 import BG from "@/public/bg-hero.jpg";
 import Label from "@/public/icons/text-label.png";
 const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const scrollTo = useCallback((id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -153,7 +155,7 @@ const Hero = () => {
                 "text-base md:text-lg py-5 px-6 bg-black text-white tracking-tight shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-px"
               }
               variant={"outline"}
-              onClick={(e) => scrollTo("waitlist")}
+              onClick={() => router.push("/sign-up")}
             >
               Get Early Access
             </Button>
