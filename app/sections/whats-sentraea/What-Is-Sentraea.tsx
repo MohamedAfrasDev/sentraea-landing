@@ -5,7 +5,7 @@ import GridCard from "./components/grid-card";
 import WorkspaceUi from "@/public/icons/WORKSPACE-UI.svg";
 import WorkspaceUIDARK from "@/public/icons/WORKSPACE-UI-DARK.svg";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 
 const WhatIsSentraea = () => {
   const { theme } = useTheme();

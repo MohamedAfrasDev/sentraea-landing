@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import LoginPageImage from "@/public/illustrations/workspace-mockup.png";
 import LoginPageDark from "@/public/illustrations/hero-dark.png";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/lib/theme";
 import HeroRightSideCard from "./components/hero-right-side-card";
 import BG from "@/public/bg-hero.jpg";
 import Label from "@/public/icons/text-label.png";
