@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="relative min-w-full">
       <Image
         src={BGOrange}
-        alt="works"
+        alt="work"
         width={1000}
         height={1000}
         className="absolute z-0 w-full max-h-[calc(40vh)]"
