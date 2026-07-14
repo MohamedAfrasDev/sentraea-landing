@@ -155,7 +155,7 @@ export function Hero() {
           </div>
 
           {/* Product mockup */}
-          <div className="scale-95 flex-3">
+          <div className="md:scale-95 flex-3">
             <HeroDashboard />
           </div>
         </div>

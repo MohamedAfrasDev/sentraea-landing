@@ -73,11 +73,11 @@ export function HowSentraeaDecides() {
             <p className="uppercase font-number text-black">How it works</p>
 
             <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-white via-blue-50  to-blue-100 font-heading tracking-[-2px] md:tracking-[-3px]">
-              How does Sentraea choose the one move?
+              How does Sentraea choose your weekly move?
             </h2>
             <p className="text-white mt-5 md:mt-0">
-              It&apos;s not magic. It&apos;s a structured weekly decision
-              system.
+              It&apos;s not magic. It&apos;s a simple loop built for early‑stage
+              B2B SaaS.
             </p>
           </div>
         </Reveal>

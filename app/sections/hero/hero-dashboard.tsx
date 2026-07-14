@@ -246,13 +246,6 @@ export function HeroDashboard() {
         <motion.p className="mt-6 text-sm text-muted-foreground  ">
           For B2B SaaS founders between first customers and repeatable growth.
         </motion.p>
-
-        <motion.div className=" border-t border-black/[0.06] pt-5  ">
-          <p className="text-[13px] text-muted-foreground/80">
-            Built for founder-led B2B SaaS teams tired of busy weeks and flat
-            MRR.
-          </p>
-        </motion.div>
       </div>
     </motion.div>
   );
