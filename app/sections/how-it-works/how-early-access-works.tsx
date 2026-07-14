@@ -34,7 +34,7 @@ export function HowEarlyAccessWorks() {
           <div className="text-center items-center mt-20">
             <p className="uppercase font-number text-black">Early Access</p>
 
-            <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-black/60  to-white font-heading tracking-[-2px] md:tracking-[-3px]">
+            <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-orange-800/80  to-orange-700/80 font-heading tracking-[-2px] md:tracking-[-3px]">
               How Early Access Works
             </h2>
             <p className="text-white">

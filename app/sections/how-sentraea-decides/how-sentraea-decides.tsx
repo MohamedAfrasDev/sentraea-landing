@@ -72,10 +72,10 @@ export function HowSentraeaDecides() {
           <div className="text-center items-center mt-15">
             <p className="uppercase font-number text-black">How it works</p>
 
-            <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-white via-blue-50  to-blue-100 font-heading tracking-[-2px] md:tracking-[-3px]">
+            <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-white via-blue-50  to-blue-100 font-heading tracking-[-2px] md:tracking-[-3px]">
               How does Sentraea choose the one move?
             </h2>
-            <p className="text-white">
+            <p className="text-white mt-5 md:mt-0">
               It&apos;s not magic. It&apos;s a structured weekly decision
               system.
             </p>
