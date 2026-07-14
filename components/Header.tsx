@@ -87,16 +87,13 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-foreground ">
             <button
-              onClick={() => scrollTo("howitworks")}
+              onClick={() => scrollTo("how-it-works")}
               className="cursor-pointer"
             >
               How it works
             </button>
-            <button
-              onClick={() => scrollTo("pricing")}
-              className="cursor-pointer"
-            >
-              Pricing
+            <button onClick={() => scrollTo("faq")} className="cursor-pointer">
+              FAQ
             </button>
             {/* <Link href="/sign-in" className="cursor-pointer">
               Sign in

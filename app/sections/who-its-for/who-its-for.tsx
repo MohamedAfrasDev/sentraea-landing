@@ -4,37 +4,34 @@ import { Reveal } from "../shared/reveal";
 import { Card } from "@/components/ui/card";
 
 const GREAT_FIT = [
-  "1–200 customers",
-  "$1k–50k MRR",
-  "Founder-led",
-  "Uses Stripe, HubSpot, Notion, Linear, Jira",
-  "Wants one priority every week",
+  "You’re between 1–200 customers or roughly $1k–$50k MRR.",
+  "You still make most decisions yourself as founder.",
+  "You use tools like Stripe, HubSpot, Notion, Linear, Jira, but your weekly focus still feels fuzzy.",
+  "You want one clear, honest priority per week — not more tasks.",
 ];
 
 const NOT_A_FIT = [
-  "Pre-idea",
-  "No customer conversations",
-  "Only collecting ideas",
-  "Large executive teams",
-  "Established operating cadence",
+  "You’re pre‑product and haven’t talked to customers yet.",
+  "You’re at a large team with established ops and planning cycles.",
+  "You want a generic “AI cofounder” instead of a focused decision tool.",
 ];
 
 export function WhoItsFor() {
   return (
     <Section
       id="who-its-for"
-      className="bg-gradient-to-b from-transparent via-primary/[0.025] to-transparent"
+      className="bg-linear-to-b min-h-screen items-center justify-center flex flex-col from-transparent via-primary/[0.025] to-transparent"
     >
       <Container>
         <div className="items-center text-center">
           <p className="uppercase font-number text-primary">Who it's for</p>
 
-          <h2 className=" text-4xl md:text-[3.5rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-orange-900/90  to-orange-200/90 font-heading tracking-[-2px] md:tracking-[-3px]">
+          <h2 className=" text-4xl md:text-[3.5rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-500/90  to-blue-200/90 font-heading tracking-[-2px] md:tracking-[-3px]">
             Who Sentraea is built for
           </h2>
-          <p>
-            Sentraea is designed for founders between first customers and
-            repeatable growth.
+          <p className="text-xl">
+            Sentraea is designed for founder‑led B2B SaaS teams who already have
+            customers but don’t yet have repeatable growth.
           </p>
         </div>
 

@@ -100,7 +100,7 @@ export function Waitlist() {
             alt="cta"
             width={1000}
             height={1000}
-            className="absolute w-full h-full rounded-md"
+            className="absolute w-full h-full rounded-md shadow-2xl"
           />
           <div
             className="absolute inset-0 opacity-[0.3] mix-blend-overlay pointer-events-none"
@@ -118,32 +118,24 @@ export function Waitlist() {
           <div className="relative overflow-hidden rounded-[2rem]  px-6 py-16 md:px-10 md:py-10">
             {/* Ambient glow + grid on the panel */}
 
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.15] [mask-image:radial-gradient(ellipse_80%_70%_at_50%_20%,black,transparent)]"
-              aria-hidden
-            />
-
-            <div className="relative grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+            <div className="relative flex flex-col md:flex-row  items-center gap-10">
               {/* Pitch */}
-              <div className="text-white">
+              <div className="text-white flex-3">
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-white">
                   Early access
                 </p>
-                <h2 className="mt-4 font-heading text-3xl text-black font-medium leading-none tracking-tighter md:text-4xl lg:text-[3.5rem]">
+                <h2 className="mt-4 font-heading text-5xl font-medium leading-none tracking-tighter md:text-4xl lg:text-[3.5rem] bg-clip-text text-transparent bg-linear-to-r from-black via-blue-950/90 to-blue-700">
                   Get on the early access waitlist
                 </h2>
-                <p className="mt-5 max-w-md text-base leading-relaxed text-white">
-                  We&apos;re building Sentraea with a small group of early-stage
-                  B2B SaaS founders.
-                </p>
-                <p className="mt-4 max-w-md text-base leading-relaxed text-white">
-                  If you want help deciding what matters this week instead of
-                  adding another dashboard, we&apos;d love to hear from you.
+                <p className="mt-5 max-w-md text-xl leading-relaxed text-white">
+                  We&apos;re inviting a small cohort of early-stage B2B SaaS
+                  founders to help shape Sentraea. If you want clearer weekly
+                  focus, not more noise, leave your email below.
                 </p>
               </div>
 
               {/* Form card */}
-              <Card>
+              <Card className="flex-3 p-4">
                 {submitted ? (
                   <div className="flex flex-col items-center py-12 text-center">
                     <span className="inline-flex size-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
@@ -159,23 +151,8 @@ export function Waitlist() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} noValidate>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <InputGroup>
-                        <InputGroupAddon align={"block-start"}>
-                          <InputGroupText>Name</InputGroupText>
-                        </InputGroupAddon>
-                        <InputGroupInput
-                          id="waitlist-name"
-                          name="name"
-                          type="text"
-                          autoComplete="name"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="Alex Founder"
-                        />
-                      </InputGroup>
-                      <InputGroup>
+                    <div className="grid gap-4 sm:grid-cols-1">
+                      <InputGroup className="bg-muted-foreground/5 shadow-none border-none">
                         <InputGroupAddon align={"block-start"}>
                           <InputGroupText>Email</InputGroupText>
                         </InputGroupAddon>
@@ -188,63 +165,6 @@ export function Waitlist() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="you@company.com"
-                        />
-                      </InputGroup>
-                      <InputGroup>
-                        <InputGroupAddon align={"block-start"}>
-                          <InputGroupText>Company</InputGroupText>
-                        </InputGroupAddon>
-                        <InputGroupInput
-                          id="waitlist-company"
-                          name="company"
-                          type="text"
-                          autoComplete="organization"
-                          value={company}
-                          onChange={(e) => setCompany(e.target.value)}
-                          placeholder="Acme SaaS"
-                        />
-                      </InputGroup>
-                      <InputGroup>
-                        <InputGroupAddon align={"block-start"}>
-                          <InputGroupText>Current MRR Band</InputGroupText>
-                        </InputGroupAddon>
-
-                        <DropdownMenu>
-                          <DropdownMenuTrigger
-                            className={"text-start w-full px-3"}
-                          >
-                            <h2>{mrrBand ? mrrBand : "Select one"}</h2>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent
-                            className={
-                              "rounded-sm border-none ring-muted-foreground/5 bg-card/40 backdrop-blur-md"
-                            }
-                          >
-                            {MRR_BANDS.map((band) => (
-                              <DropdownMenuItem
-                                key={band}
-                                onClick={() => setMrrBand(band)}
-                              >
-                                {band}
-                              </DropdownMenuItem>
-                            ))}
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </InputGroup>
-
-                      <InputGroup className="sm:col-span-2">
-                        <InputGroupAddon align={"block-start"}>
-                          <InputGroupText>
-                            Biggest weekly decision
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <InputGroupTextarea
-                          id="waitlist-decision"
-                          name="decision"
-                          rows={3}
-                          value={decision}
-                          onChange={(e) => setDecision(e.target.value)}
-                          placeholder="e.g. Should I focus on outbound or fix onboarding first?"
                         />
                       </InputGroup>
                     </div>

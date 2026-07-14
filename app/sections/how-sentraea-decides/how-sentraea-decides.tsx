@@ -10,7 +10,7 @@ const STEPS = [
     icon: Cable,
     step: "01",
     title: "Connect your tools",
-    body: "Pull in the signals that describe your week — no setup marathon.",
+    body: "Start with a few basics: MRR band, customers, main channel, demo→close rate, churn / retention. Connect Stripe/HubSpot/analytics if you want — or just paste snapshots in.",
     chips: ["MRR", "Customers", "Demo rate", "Stripe", "HubSpot", "Segment"],
     footnote: "Manual input supported.",
   },
@@ -18,7 +18,7 @@ const STEPS = [
     icon: Brain,
     step: "02",
     title: "Build SaaS Context",
-    body: "Sentraea learns what stage you're at and what you've already tried.",
+    body: "Sentraea keeps a running model of your business: stage, ICP, key metrics, past experiments, and weekly outcomes. It remembers what you tried and what happened.",
     chips: [
       "Stage",
       "ICP",
@@ -33,7 +33,7 @@ const STEPS = [
     icon: Compass,
     step: "03",
     title: "Bottleneck Engine",
-    body: "A structured pass over the five places SaaS growth stalls.",
+    body: "Using early‑stage SaaS patterns, Sentraea detects your current constraint (demand, conversion, activation, retention, or systems) and picks the one move with the most leverage for this week.",
     chips: [
       "Demand",
       "Conversion",
@@ -53,7 +53,7 @@ export function HowSentraeaDecides() {
         alt="cta"
         width={1000}
         height={1000}
-        className="absolute w-full min-h-screen h-full  px-5 py-5 rounded-4xl"
+        className="absolute w-full min-h-screen h-full  px-5 py-5  rounded-4xl"
       />
       <div
         className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
@@ -100,7 +100,7 @@ export function HowSentraeaDecides() {
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground group-hover:text-white">
                     {body}
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+                  {/* <div className="mt-4 flex flex-wrap gap-1.5">
                     {chips.map((chip) => (
                       <span
                         key={chip}
@@ -109,7 +109,7 @@ export function HowSentraeaDecides() {
                         {chip}
                       </span>
                     ))}
-                  </div>
+                  </div> */}
                   <p className="mt-auto pt-5 text-xs font-medium text-primary">
                     {footnote}
                   </p>

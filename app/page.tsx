@@ -12,6 +12,7 @@ import { Footer } from "./sections/footer/footer";
 import { Header } from "@/components/Header";
 import Image from "next/image";
 import BGOrange from "@/public/bg-cta-orange.jpg";
+import { ProblemAlt } from "./sections/problem/problem-alt";
 
 export default function Home() {
   return (
@@ -21,7 +22,8 @@ export default function Home() {
         <Header />
         <main className="flex flex-col gap-10">
           <Hero />
-          <Problem />
+          <ProblemAlt />
+          {/* <Problem /> */}
           <Solution />
           <HowSentraeaDecides />
 
@@ -32,7 +34,13 @@ export default function Home() {
               alt="works"
               width={1000}
               height={1000}
-              className="absolute w-full h-full"
+              className="absolute w-full h-full shadow-xl"
+            />
+            <div
+              className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              }}
             />
             <HowEarlyAccessWorks />
             <Waitlist />

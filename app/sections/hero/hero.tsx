@@ -107,27 +107,26 @@ export function Hero() {
               className="inline-flex items-center gap-2 bg-card/50 px-5 py-2 rounded-md border border-white/5 backdrop-blur-sm"
             >
               <span className="size-1.5 rounded-full bg-primary" aria-hidden />
-              Weekly operating system for early-stage SaaS founders
+              Weekly operating system for early-stage B2B SaaS founders
             </motion.p>
 
             <motion.h1
               {...enter(0.08)}
-              className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[4.5rem]"
+              className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[4.9rem]"
             >
-              Know the one <br />
-              <span className="bg-linear-to-r from-black via-blue-800 to-blue-900 bg-clip-text text-transparent">
-                highest-leverage move
+              Stop guessing <br />
+              <span className="bg-linear-to-r pr-1 from-black via-blue-800 to-blue-900 bg-clip-text text-transparent">
+                what matters this week{" "}
               </span>{" "}
-              for your B2B SaaS every week.
             </motion.h1>
 
             <motion.p
               {...enter(0.16)}
               className="mt-6 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
             >
-              Sentraea is a weekly decision layer for early-stage B2B SaaS
-              founders. It connects your tools, learns your business, detects
-              the bottleneck, and tells you where to focus next week.
+              Sentraea tells early‑stage B2B SaaS founders the one
+              highest‑leverage move to focus on every week, based on their real
+              data and context.
             </motion.p>
 
             <motion.div
@@ -144,33 +143,15 @@ export function Hero() {
                   aria-hidden
                 />
               </Button>
-              <Button
-                onClick={() => scrollTo("how-it-works")}
-                variant={"outline_without_border"}
-                className={"text-md px-4 py-5 text-lg"}
-              >
-                See how it works
-                <ArrowDown
-                  className="size-4 text-muted-foreground transition-transform duration-300 group-hover:translate-y-0.5"
-                  aria-hidden
-                />
-              </Button>
             </motion.div>
 
             <motion.p
               {...enter(0.32)}
               className="mt-6 text-sm text-muted-foreground hidden md:block"
             >
-              For B2B SaaS founders between first customers and repeatable
-              growth.
+              For B2B SaaS founders with some customers, but no repeatable
+              growth yet.
             </motion.p>
-
-            <motion.div {...enter(0.4)} className=" pt-2 hidden md:block">
-              <p className="text-[13px] text-muted-foreground/80">
-                Built for founder-led B2B SaaS teams tired of busy weeks and
-                flat MRR.
-              </p>
-            </motion.div>
           </div>
 
           {/* Product mockup */}

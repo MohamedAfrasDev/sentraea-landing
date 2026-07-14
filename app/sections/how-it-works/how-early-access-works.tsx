@@ -10,19 +10,19 @@ const STEPS = [
     icon: Send,
     step: "Step 1",
     title: "Apply",
-    body: "Tell us about your SaaS.",
+    body: "Tell us briefly about your SaaS and current stage. We’ll start with a small group of serious founders.",
   },
   {
     icon: Cable,
     step: "Step 2",
     title: "Connect",
-    body: "Connect tools or upload a simple weekly snapshot.",
+    body: "Share a simple weekly snapshot (MRR, customers, pipeline, key metrics). Integrations will follow later — we’re starting lean.",
   },
   {
     icon: FileText,
     step: "Step 3",
     title: "Receive",
-    body: "Receive your weekly founder brief.",
+    body: "Each week, get a compact founder brief: what changed, where the bottleneck is, and the one move to prioritize.",
   },
 ] as const;
 
@@ -34,7 +34,7 @@ export function HowEarlyAccessWorks() {
           <div className="text-center items-center mt-20">
             <p className="uppercase font-number text-black">Early Access</p>
 
-            <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-orange-800/80  to-orange-700/80 font-heading tracking-[-2px] md:tracking-[-3px]">
+            <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px]">
               How Early Access Works
             </h2>
             <p className="text-white">
@@ -77,9 +77,8 @@ export function HowEarlyAccessWorks() {
         <Reveal delay={0.25} className="mt-10">
           <Card className="bg-card/10 p-0 text-center">
             <div className="bg-linear-to-r from-orange-500/30 via-orange-400/40 to-orange-200/30 px-6 py-6 ">
-              <p className="mx-auto  text-xl leading-relaxed text-white">
-                <span className="font-semibold">Early users</span> receive
-                hands-on support and directly shape the roadmap.
+              <p className="mx-auto  text-xl leading-relaxed text-black">
+                Early users get hands‑on support and help shape the roadmap.
               </p>
             </div>
           </Card>

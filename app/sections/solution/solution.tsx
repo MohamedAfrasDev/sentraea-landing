@@ -9,6 +9,10 @@ import { Container, Section, SectionHeading } from "../shared/section";
 import { Reveal } from "../shared/reveal";
 import { Card } from "@/components/ui/card";
 
+import DARKBG from "@/public/dark-blue-bg.jpg";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
 const FEATURES = [
   {
     icon: CalendarCheck,
@@ -32,129 +36,76 @@ const FEATURES = [
   },
 ] as const;
 
-/** Larger analytics-style brief card shown beside the feature list. */
-function SolutionDashboard() {
-  return (
-    <div className="relative">
-      <div
-        className="absolute -inset-6 rounded-[2rem] bg-linear-to-br from-primary/10 via-cyan-400/5 to-indigo-500/10 blur-2xl"
-        aria-hidden
-      />
-      <Card className="relative bg-card/80 backdrop-blur-sm p-6 gap-0 shadow-[0_32px_80px_-28px_rgba(30,58,138,0.28)] md:p-8">
-        <div className="flex items-center justify-between pb-4">
-          <p className="font-heading text-sm font-medium tracking-tight text-foreground">
-            This week&apos;s brief
-          </p>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            Sentraea
-          </span>
-        </div>
-
-        <div className="mt-5 space-y-5">
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-              This week&apos;s bottleneck
-            </p>
-            <p className="mt-1.5 inline-flex items-center gap-2 rounded-sm border border-amber-200/40 shadow-sm bg-amber-50/80 px-3 py-1.5 font-heading text-base font-semibold tracking-tight text-amber-900">
-              Conversion
-            </p>
-          </div>
-
-          <Card className=" gap-2 bg-linear-to-br from-primary/6 to-indigo-500/4 p-4">
-            <p className="text-[11px] font-medium uppercase tracking-wider text-primary">
-              Recommended move
-            </p>
-            <p className="mt-1.5 font-heading text-lg font-semibold leading-snug tracking-tight text-foreground">
-              Rewrite demo flow for ICP X
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Test on 5 calls
-            </p>
-          </Card>
-
-          <Card className="bg-card/30 p-4">
-            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-              Reason
-            </p>
-            <p className="mt-1.5 text-sm leading-relaxed text-foreground">
-              Demo-to-close dropped from{" "}
-              <span className="font-number font-medium">28%</span> to{" "}
-              <span className="font-number font-medium text-rose-600">14%</span>
-            </p>
-          </Card>
-
-          <div>
-            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-              Ignore
-            </p>
-            <ul className="mt-2 space-y-1.5">
-              {["Blog series", "Side integration", "Untested outbound"].map(
-                (item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
-                  >
-                    <Minus className="size-3.5 text-black/25" aria-hidden />
-                    <span className="line-through decoration-black/20">
-                      {item}
-                    </span>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-        </div>
-      </Card>
-    </div>
-  );
-}
-
 export function Solution() {
   return (
     <Section
       id="solution"
-      className="bg-linear-to-b from-transparent via-primary/2.5 to-transparent"
+      className="min-h-screen bg-linear-to-b relative from-transparent via-primary/2.5 to-transparent "
     >
-      <Container>
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+      {/* <Image
+        src={DARKBG}
+        alt="BG"
+        width={10000}
+        height={1000}
+        className="absolute z-0 h-full px-5 rounded-4xl py-4"
+      /> */}
+      <div
+        className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />{" "}
+      <div
+        className="absolute inset-0 opacity-[0.2] mix-blend-overlay pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      <Container className="relative h-full justify-center flex flex-col items-center">
         <div className="text-center items-center">
           <p className="uppercase font-number text-primary">The Solution</p>
 
-          <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-500 font-heading tracking-[-2px] md:tracking-[-3px]">
-            Sentraea is your weekly decision layer.
+          <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-800 font-heading tracking-[-2px] md:tracking-[-3px]">
+            Sentraea is your weekly focus system.
           </h2>
-          <p className="mt-5 md:mt-0">
+          <p className="mt-5 md:mt-0 text-xl">
             {" "}
-            Sentraea doesn&apos;t replace your tools. It sits on top of them.
-            Every week it analyzes your context, finds your bottleneck, and
-            recommends the one highest-leverage move.
+            Sentraea sits on top of your existing tools and data. Once a week,
+            it looks at what’s happening in your SaaS and tells you <br />
+            <span className="font-medium">
+              the one move most likely to create leverage now.
+            </span>
           </p>
         </div>
+        <Card className="p-0 bg-card/10 border border-gray-200 mt-10">
+          <div className="grid rounded-none bg-linear-to-br from-white via-blue-100/10 to-blue-100/40  grid-cols-1 md:grid-cols-2     p-0 gap-0">
+            {FEATURES.map((feature, index) => {
+              return (
+                <div
+                  key={index}
+                  className={cn(
+                    "p-12 text-center flex flex-col items-start",
 
-        <div className="mt-16 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col gap-3">
-            {FEATURES.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={0.08 * i}>
-                <div className="group flex gap-4 rounded-md border border-transparent p-4 transition-all duration-300 hover:border-black/6 hover:bg-white/70 hover:shadow-[0_16px_40px_-24px_rgba(30,58,138,0.25)]">
-                  <div className="inline-flex size-11 shrink-0 items-center justify-center rounded-md bg-primary/6 text-primary">
-                    <Icon className="size-5" aria-hidden />
+                    index <= 1 && "border-b",
+                    index == 0 && "border-r",
+                    index == 2 && "border-r",
+                  )}
+                >
+                  <div className="bg-primary/10 p-2 mb-4 rounded-xl">
+                    <feature.icon className="text-primary text-xl" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-medium text-xl tracking-tight text-foreground">
-                      {title}
-                    </h3>
-                    <p className="mt-0 text-sm leading-relaxed text-muted-foreground">
-                      {body}
-                    </p>
-                  </div>
+                  <h3 className="text-3xl  font-heading font-medium tracking-[-1px]">
+                    {feature.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground">
+                    {feature.body}
+                  </p>
                 </div>
-              </Reveal>
-            ))}
+              );
+            })}
           </div>
-
-          <Reveal delay={0.15} y={32}>
-            <SolutionDashboard />
-          </Reveal>
-        </div>
+        </Card>
       </Container>
     </Section>
   );
