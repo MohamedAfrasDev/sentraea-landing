@@ -129,7 +129,7 @@ export function Waitlist() {
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-white">
                   Early access
                 </p>
-                <h2 className="mt-4 font-heading text-3xl text-black font-medium leading-[1.12] tracking-tight md:text-4xl lg:text-[3.5rem]">
+                <h2 className="mt-4 font-heading text-3xl text-black font-medium leading-none tracking-tighter md:text-4xl lg:text-[3.5rem]">
                   Get on the early access waitlist
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-white">
