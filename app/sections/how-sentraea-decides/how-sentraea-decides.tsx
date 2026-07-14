@@ -122,7 +122,7 @@ export function HowSentraeaDecides() {
         <Reveal delay={0.2} className="mt-10 w-full">
           <Card className="relative overflow-hidden backdrop-blur-lg p-0 w-full border-none bg-card/5">
             <div
-              className="bg-linear-to-r from-primary/30 via-indigo-300/40 to-blue-200/60 backdrop-blur-lg   px-6 py-8 text-center md:px-10
+              className="bg-linear-to-r from-primary/30 via-indigo-300/40 to-blue-200/60 backdrop-blur-lg   px-6 py-6 text-center md:px-10
 "
             >
               <div

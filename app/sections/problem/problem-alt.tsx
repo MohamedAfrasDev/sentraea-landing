@@ -81,10 +81,10 @@ export function ProblemAlt() {
           </Card>
           <Card className="p-0 bg-card/10 mt-5 h-fit">
             <div className="px-5 py-3 bg-linear-to-r   from white via-blue-100/50 to-blue-200/40 backdrop-blur-lg">
-              <p className="text-4xl text-center font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-900/80  to-blue-600 font-heading tracking-[-2px] md:tracking-[-2px] md:leading-[70px]">
+              <p className="text-3xl md:text-4xl text-center font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-900/80  to-blue-600 font-heading tracking-[-2px] md:tracking-[-2px] md:leading-[70px]">
                 {" "}
                 You want a clear answer to:{" "}
-                <span className="text-5xl">
+                <span className="text-4xl md:text-5xl leading-[45px]">
                   “Where should we focus right now?”
                 </span>
               </p>
