@@ -36,11 +36,7 @@ const inputClasses =
   "w-full rounded-xl border border-black/[0.08] bg-white px-4 py-3 text-[15px] text-foreground placeholder:text-muted-foreground/60 transition-all duration-200 focus:border-primary/40 focus:outline-none focus:ring-3 focus:ring-primary/15";
 
 export function Waitlist() {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
-  const [mrrBand, setMrrBand] = useState("");
-  const [decision, setDecision] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -48,16 +44,8 @@ export function Waitlist() {
     e.preventDefault();
     if (submitting || submitted) return;
 
-    if (!name.trim()) {
-      toast.error("Please enter your name.");
-      return;
-    }
     if (!email.trim()) {
       toast.error("Please enter your email address.");
-      return;
-    }
-    if (!mrrBand) {
-      toast.error("Please select your current MRR band.");
       return;
     }
 
@@ -67,11 +55,7 @@ export function Waitlist() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: name.trim(),
           email: email.trim(),
-          company: company.trim(),
-          mrrBand,
-          decision: decision.trim(),
         }),
       });
 
@@ -83,7 +67,7 @@ export function Waitlist() {
       }
 
       setSubmitted(true);
-      toast.success("Application received. We'll be in touch soon.");
+      toast.success("Waitlist joined. We'll be in touch soon.");
     } catch {
       toast.error("Network error. Please check your connection and try again.");
     } finally {
@@ -142,11 +126,12 @@ export function Waitlist() {
                       <Check className="size-7" strokeWidth={2.5} aria-hidden />
                     </span>
                     <h3 className="mt-5 font-heading text-xl font-semibold tracking-tight text-foreground">
-                      Application received
+                      Waitlist joined!
                     </h3>
                     <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                      Thanks for applying. We review applications and invite
-                      founders in small batches — we&apos;ll be in touch soon.
+                      Thanks for joining the waitlist! We review applications
+                      and invite founders in small batches — we&apos;ll be in
+                      touch soon.
                     </p>
                   </div>
                 ) : (

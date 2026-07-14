@@ -30,13 +30,6 @@ export async function POST(request: NextRequest) {
   const mrrBand = asTrimmedString(body.mrrBand);
   const decision = asTrimmedString(body.decision);
 
-  if (!name) {
-    return NextResponse.json(
-      { error: "Please enter your name." },
-      { status: 400 },
-    );
-  }
-
   if (!EMAIL_REGEX.test(email)) {
     return NextResponse.json(
       { error: "Please enter a valid email address." },
@@ -44,13 +37,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (!MRR_BANDS.includes(mrrBand)) {
-    return NextResponse.json(
-      { error: "Please select your current MRR band." },
-      { status: 400 },
-    );
-  }
-
+  
   const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 
   if (!webhookUrl) {
