@@ -98,15 +98,15 @@ export const Header = () => {
             >
               Pricing
             </button>
-            <Link href="/sign-in" className="cursor-pointer">
+            {/* <Link href="/sign-in" className="cursor-pointer">
               Sign in
-            </Link>
-            <Link
-              href="/sign-up"
+            </Link> */}
+            <button
+              onClick={() => scrollTo("waitlist")}
               className="cursor-pointer rounded-sm bg-black px-4 py-2 text-sm font-medium text-white transition-transform hover:-translate-y-px dark:bg-white dark:text-black"
             >
-              Get started
-            </Link>
+              Join waitlist
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
