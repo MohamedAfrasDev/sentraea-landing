@@ -95,10 +95,10 @@ export function Solution() {
                   <div className="bg-primary/10 p-2 mb-4 rounded-xl">
                     <feature.icon className="text-primary text-xl" />
                   </div>
-                  <h3 className="text-3xl  font-heading font-medium tracking-[-1px]">
+                  <h3 className="text-3xl text-start font-heading font-medium tracking-[-1px]">
                     {feature.title}
                   </h3>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-lg text-start text-muted-foreground">
                     {feature.body}
                   </p>
                 </div>

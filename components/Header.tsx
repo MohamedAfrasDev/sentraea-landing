@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils";
 import GetStartedBtn from "./getstarted-btn";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import JoinWaitlistDialog from "@/app/components/join-waitlist-dialog";
+import { Button } from "./ui/button";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,116 +43,128 @@ export const Header = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [theme]);
+
+  const [dialogOpen, setDialogOpen] = useState(false);
   return (
     //  FIX 1: Changed "flex justify-center" to "flex flex-col items-center"
     //         This stacks the children (navbar and mobile menu) vertically.
-    <header
-      className="sticky z-50 w-full flex flex-col items-center transition-all duration-500 ease-in-out"
-      style={{
-        top: useIsMobile() ? 0 : isShrunk ? 10 : 0,
-      }}
-    >
-      {/* Outer container for width animation */}
-      <div
-        className={`transition-all w-full flex justify-center ease-in-out duration-500`}
+    <>
+      <JoinWaitlistDialog open={dialogOpen} setOpen={setDialogOpen} />
+      <header
+        className="sticky z-50 w-full flex flex-col items-center transition-all duration-500 ease-in-out"
         style={{
-          maxWidth: useIsMobile() ? "100%" : isShrunk ? "89%" : "100%",
-          minWidth: "100px",
+          top: useIsMobile() ? 0 : isShrunk ? 10 : 0,
         }}
       >
-        {/* Inner navbar */}
+        {/* Outer container for width animation */}
         <div
-          className={cn(
-            " backdrop-blur-lg dark:backdrop-blur-5xl bg-white dark:bg-black  rounded-lg   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
-            isShrunk &&
-              "bg-white/70 dark:bg-black/70 border-muted-foreground/5  shadow-none shadow-gray-200/90 dark:shadow-gray-950/60 ",
-          )}
+          className={`transition-all w-full flex justify-center ease-in-out duration-500`}
           style={{
-            borderRadius: isShrunk ? 5 : 0,
+            maxWidth: useIsMobile() ? "100%" : isShrunk ? "89%" : "100%",
+            minWidth: "100px",
           }}
         >
-          {/* Logo */}
-          <button
-            onClick={() => scrollTo("sentraea")}
-            className="flex items-center gap-2 cursor-pointer"
+          {/* Inner navbar */}
+          <div
+            className={cn(
+              " backdrop-blur-lg dark:backdrop-blur-5xl bg-white dark:bg-black  rounded-lg   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
+              isShrunk &&
+                "bg-white/70 dark:bg-black/70 border-muted-foreground/5  shadow-none shadow-gray-200/90 dark:shadow-gray-950/60 ",
+            )}
+            style={{
+              borderRadius: isShrunk ? 5 : 0,
+            }}
           >
-            <Image
-              src={HorizontalLogo}
-              alt="Sentraea Logo"
-              className="dark:invert"
-              height={60}
-              width={200}
-              onClick={() => scrollTo("hero")}
-            />
-          </button>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-foreground ">
+            {/* Logo */}
             <button
-              onClick={() => scrollTo("how-it-works")}
-              className="cursor-pointer"
+              onClick={() => scrollTo("sentraea")}
+              className="flex items-center gap-2 cursor-pointer"
             >
-              How it works
+              <Image
+                src={HorizontalLogo}
+                alt="Sentraea Logo"
+                className="dark:invert"
+                height={60}
+                width={200}
+                onClick={() => scrollTo("hero")}
+              />
             </button>
-            <button onClick={() => scrollTo("faq")} className="cursor-pointer">
-              FAQ
-            </button>
-            {/* <Link href="/sign-in" className="cursor-pointer">
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8 text-foreground ">
+              <button
+                onClick={() => scrollTo("how-it-works")}
+                className="cursor-pointer"
+              >
+                How it works
+              </button>
+              <button
+                onClick={() => scrollTo("faq")}
+                className="cursor-pointer"
+              >
+                FAQ
+              </button>
+              {/* <Link href="/sign-in" className="cursor-pointer">
               Sign in
             </Link> */}
-            <button
-              onClick={() => scrollTo("waitlist")}
-              className="cursor-pointer rounded-sm bg-black px-4 py-2 text-sm font-medium text-white transition-transform hover:-translate-y-px dark:bg-white dark:text-black"
-            >
-              Join waitlist
-            </button>
-          </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X />
-            ) : (
-              // FIX 2: Changed from <MenuIcon /> to <Image /> for consistency
-              // <MenuIcon className="h-5 w-5" />
-              <Menu />
-            )}
-          </button>
-        </div>
-      </div>
+              <Button
+                variant={"outline_without_border"}
+                onClick={() => setDialogOpen(true)}
+                className={
+                  "items-center justify-center text-lg px-3 py-5 shadow-none bg-black text-white"
+                }
+              >
+                Get early access
+              </Button>
+            </nav>
 
-      {/* Mobile Menu */}
-      {/* This will now render *below* the div above, which is correct */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
-          <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
+            {/* Mobile Menu Button */}
             <button
-              onClick={() => scrollTo("howitworks")}
-              className="cursor-pointer"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              How it works
+              {isMenuOpen ? (
+                <X />
+              ) : (
+                // FIX 2: Changed from <MenuIcon /> to <Image /> for consistency
+                // <MenuIcon className="h-5 w-5" />
+                <Menu />
+              )}
             </button>
-            <button
-              onClick={() => scrollTo("pricing")}
-              className="cursor-pointer"
-            >
-              Pricing
-            </button>
-            <Link href="/sign-in" className="cursor-pointer">
-              Sign in
-            </Link>
-            <Link
-              href="/sign-up"
-              className="cursor-pointer rounded-sm bg-black px-4 py-1.5 text-sm font-medium text-white"
-            >
-              Get started
-            </Link>
-          </nav>
+          </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Menu */}
+        {/* This will now render *below* the div above, which is correct */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
+            <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
+              <button
+                onClick={() => scrollTo("howitworks")}
+                className="cursor-pointer"
+              >
+                How it works
+              </button>
+              <button
+                onClick={() => scrollTo("pricing")}
+                className="cursor-pointer"
+              >
+                Pricing
+              </button>
+              <Link href="/sign-in" className="cursor-pointer">
+                Sign in
+              </Link>
+              <Link
+                href="/sign-up"
+                className="cursor-pointer rounded-sm bg-black px-4 py-1.5 text-sm font-medium text-white"
+              >
+                Get started
+              </Link>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   );
 };
