@@ -7,7 +7,7 @@ import MenuIcon from "@/public/file.svg";
 import CloseIcon from "@/public/file.svg";
 import { useIsMobile } from "./Responsive";
 import Link from "next/link";
-import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
+import HorizontalLogo from "@/public/logos/SENTRAEA-FULL-LOGO.svg";
 import VerticalLogo from "@/public/logos/SENTRAEA_LOGO_ICON.svg";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
@@ -76,7 +76,7 @@ export const Header = () => {
           >
             <Image
               src={HorizontalLogo}
-              alt="Studinity Logo"
+              alt="Sentraea Logo"
               className="dark:invert"
               height={60}
               width={200}
