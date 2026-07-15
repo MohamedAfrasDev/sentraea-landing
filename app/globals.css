@@ -183,6 +183,24 @@
   }
 }
 
+/* Hero float — GPU-composited (transform only), replaces JS-driven Framer Motion loop */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Companion chip floats slightly more and out of phase */
+@keyframes hero-float-chip {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Opacity-only pulse for StatusDot — avoids scale/layout recalc from animate-ping */
+@keyframes status-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 0.1; }
+}
+
 
 
 @layer utilities {

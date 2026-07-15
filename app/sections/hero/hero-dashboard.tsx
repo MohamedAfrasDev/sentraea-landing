@@ -62,8 +62,10 @@ function StatusDot({ tone }: { tone: "green" | "red" | "blue" }) {
         : "bg-primary";
   return (
     <span className="relative inline-flex size-1.5">
+      {/* opacity-only pulse — avoids layout/paint, runs on GPU */}
       <span
-        className={`absolute inline-flex size-full animate-ping rounded-full opacity-50 ${color}`}
+        className={`absolute inline-flex size-full rounded-full opacity-50 ${color}`}
+        style={{ animation: "status-pulse 2s cubic-bezier(0.4,0,0.6,1) infinite" }}
       />
       <span className={`relative inline-flex size-1.5 rounded-full ${color}`} />
     </span>
@@ -85,9 +87,12 @@ export function HeroDashboard() {
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
     >
-      <motion.div
-        animate={reducedMotion ? undefined : { y: [0, -10, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      {/* CSS float — GPU-composited transform, zero JS per frame */}
+      <div
+        style={{
+          animation: reducedMotion ? undefined : "hero-float 7s ease-in-out infinite",
+          willChange: "transform",
+        }}
       >
         {/* Main brief card */}
         <Card className="relative bg-card/80 p-6 shadow-[0_32px_80px_-24px_rgba(30,58,138,0.25),0_8px_24px_-12px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-7">
@@ -222,17 +227,14 @@ export function HeroDashboard() {
             </div>
           </Card>
         </Card>
-      </motion.div>
+      </div>
 
       {/* Companion chip floating behind the card */}
-      <motion.div
+      <div
         className="absolute -right-3 -top-6 hidden rounded-lg border border-white/60 bg-white/80 px-4 py-3 shadow-[0_16px_40px_-16px_rgba(30,58,138,0.25)] backdrop-blur-xl md:block"
-        animate={reducedMotion ? undefined : { y: [0, -14, 0] }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
+        style={{
+          animation: reducedMotion ? undefined : "hero-float-chip 9s ease-in-out 1s infinite",
+          willChange: "transform",
         }}
       >
         <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -241,7 +243,7 @@ export function HeroDashboard() {
         <p className="mt-0.5 font-heading text-sm font-semibold tracking-tight text-foreground">
           Monday, 8:00 AM
         </p>
-      </motion.div>
+      </div>
       <div className="block md:hidden">
         <motion.p className="mt-6 text-sm text-muted-foreground  ">
           For B2B SaaS founders between first customers and repeatable growth.

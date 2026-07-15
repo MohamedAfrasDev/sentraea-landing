@@ -55,10 +55,6 @@ function HeroBackground() {
       {/* Subtle grid, faded toward the edges */}
 
       {/* Grain */}
-      <div
-        className="absolute inset-0 opacity-[0.035] mix-blend-multiply"
-        style={{ backgroundImage: NOISE_TEXTURE }}
-      />
     </div>
   );
 }
@@ -149,7 +145,7 @@ export function Hero() {
             </div>
 
             {/* Product mockup */}
-            <div className="md:scale-95 flex-3">
+            <div className=" flex-3">
               <HeroDashboard />
             </div>
           </div>
