@@ -20,13 +20,13 @@ export function WhoItsFor() {
   return (
     <Section
       id="who-its-for"
-      className="bg-linear-to-b min-h-screen items-center justify-center flex flex-col from-transparent via-primary/[0.025] to-transparent"
+      className="bg-linear-to-b min-h-screen items-center justify-center flex flex-col from-transparent via-primary/2.5 to-transparent"
     >
       <Container>
         <div className="items-center text-center">
           <p className="uppercase font-number text-primary">Who it's for</p>
 
-          <h2 className=" text-4xl md:text-[3.5rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-500/90  to-blue-200/90 font-heading tracking-[-2px] md:tracking-[-3px]">
+          <h2 className=" text-4xl md:text-[3.5rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-orange-700/90  to-orange-400/90 font-heading tracking-[-2px] md:tracking-[-3px]">
             Who Sentraea is built for
           </h2>
           <p className="text-xl">

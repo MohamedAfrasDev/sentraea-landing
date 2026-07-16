@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import HorizontalLogo from "@/public/logos/SENTRAEA.svg";
+import HorizontalLogo from "@/public/logos/SENTRAEA-FULL-LOGO.svg";
 import { Container } from "../shared/section";
 
 import BGOrange from "@/public/bg-cta-orange.jpg";
+import { IconBrandYoutube } from "@tabler/icons-react";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -39,12 +40,45 @@ export function Footer() {
         alt="work"
         width={1000}
         height={1000}
-        className="absolute z-0 w-full max-h-[calc(40vh)]"
+        className="absolute z-0 w-full max-h-[calc(60vh)]"
       />
       <Container className="relative w-full items-center justify-center py-20">
         <div className="flex flex-col relative z-1 items-center justify-between gap-6 md:flex-row">
-          <Image src={HorizontalLogo} alt="Sentraea" className="h-6 w-auto" />
+          <div>
+            <Image
+              src={HorizontalLogo}
+              alt="Sentraea"
+              className="h-20 w-auto"
+            />
+            <div className="flex gap-5 justify-start mt-5">
+              <a href="https://x.com/sentraea" target="_blank">
+                <Image
+                  src={"https://img.icons8.com/ios-glyphs/120/twitterx--v2.png"}
+                  alt="X"
+                  width={25}
+                  height={25}
+                />
+              </a>
+              <a href="https://instagram.com/sentraea.ai" target="_blank">
+                <Image
+                  src={
+                    "https://img.icons8.com/fluency-systems-regular/96/instagram-new--v1.png"
+                  }
+                  alt="Instagram"
+                  width={25}
+                  height={25}
+                />
+              </a>
+              <Image
+                src={"https://img.icons8.com/ios/100/youtube-play--v1.png"}
+                alt="Youtube"
+                width={25}
+                height={25}
+              />
+            </div>
 
+            <a href="mailto:sentraea.ai@gmail.com">sentraea.ai@gmail.com</a>
+          </div>
           <nav
             className="flex items-center gap-6 text-sm text-muted-foreground"
             aria-label="Footer"
@@ -62,27 +96,6 @@ export function Footer() {
               Terms
             </Link>
           </nav>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="https://twitter.com/sentraea"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Sentraea on X (Twitter)"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <XIcon className="size-4" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/sentraea"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Sentraea on LinkedIn"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <LinkedInIcon className="size-4" />
-            </a>
-          </div>
         </div>
 
         <p className="mt-8 text-center text-xs text-muted-foreground/70">
