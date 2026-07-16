@@ -62,8 +62,8 @@ export function Solution() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-      <Container className="relative h-full justify-center flex flex-col items-center">
-        <div className="text-center items-center">
+      <Container className="relative px-5 h-full justify-center flex flex-col items-center">
+        <div className="text-center items-center px-5">
           <p className="uppercase font-number text-primary">The Solution</p>
 
           <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-800 font-heading tracking-[-2px] md:tracking-[-3px]">

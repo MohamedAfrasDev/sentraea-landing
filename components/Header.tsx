@@ -141,26 +141,36 @@ export const Header = () => {
           <div className="md:hidden bg-white w-full border-t shadow animate-slide-down">
             <nav className="flex flex-col items-center gap-4 py-4 text-black/70">
               <button
-                onClick={() => scrollTo("howitworks")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollTo("how-it-works");
+                }}
                 className="cursor-pointer"
               >
                 How it works
               </button>
               <button
-                onClick={() => scrollTo("pricing")}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollTo("faq");
+                }}
                 className="cursor-pointer"
               >
-                Pricing
+                FAQ
               </button>
-              <Link href="/sign-in" className="cursor-pointer">
-                Sign in
-              </Link>
-              <Link
-                href="/sign-up"
-                className="cursor-pointer rounded-sm bg-black px-4 py-1.5 text-sm font-medium text-white"
+              {/* <Link href="/sign-in" className="cursor-pointer">
+              Sign in
+            </Link> */}
+
+              <Button
+                variant={"outline_without_border"}
+                onClick={() => setDialogOpen(true)}
+                className={
+                  "items-center justify-center text-lg px-3 py-5 shadow-none bg-black text-white"
+                }
               >
-                Get started
-              </Link>
+                Join the waitlist
+              </Button>
             </nav>
           </div>
         )}

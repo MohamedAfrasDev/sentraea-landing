@@ -65,7 +65,9 @@ function StatusDot({ tone }: { tone: "green" | "red" | "blue" }) {
       {/* opacity-only pulse — avoids layout/paint, runs on GPU */}
       <span
         className={`absolute inline-flex size-full rounded-full opacity-50 ${color}`}
-        style={{ animation: "status-pulse 2s cubic-bezier(0.4,0,0.6,1) infinite" }}
+        style={{
+          animation: "status-pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+        }}
       />
       <span className={`relative inline-flex size-1.5 rounded-full ${color}`} />
     </span>
@@ -78,7 +80,7 @@ export function HeroDashboard() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-md lg:max-w-none"
+      className="relative mx-auto w-full  lg:max-w-none"
       initial={{ opacity: 0, y: reducedMotion ? 0 : 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -90,7 +92,9 @@ export function HeroDashboard() {
       {/* CSS float — GPU-composited transform, zero JS per frame */}
       <div
         style={{
-          animation: reducedMotion ? undefined : "hero-float 7s ease-in-out infinite",
+          animation: reducedMotion
+            ? undefined
+            : "hero-float 7s ease-in-out infinite",
           willChange: "transform",
         }}
       >
@@ -233,7 +237,9 @@ export function HeroDashboard() {
       <div
         className="absolute -right-3 -top-6 hidden rounded-lg border border-white/60 bg-white/80 px-4 py-3 shadow-[0_16px_40px_-16px_rgba(30,58,138,0.25)] backdrop-blur-xl md:block"
         style={{
-          animation: reducedMotion ? undefined : "hero-float-chip 9s ease-in-out 1s infinite",
+          animation: reducedMotion
+            ? undefined
+            : "hero-float-chip 9s ease-in-out 1s infinite",
           willChange: "transform",
         }}
       >

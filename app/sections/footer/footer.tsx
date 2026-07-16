@@ -40,10 +40,10 @@ export function Footer() {
         alt="work"
         width={1000}
         height={1000}
-        className="absolute z-0 w-full max-h-[calc(60vh)]"
+        className="absolute z-0 w-full max-h-[calc(40vh)]"
       />
-      <Container className="relative w-full items-center justify-center py-20">
-        <div className="flex flex-col relative z-1 items-center justify-between gap-6 md:flex-row">
+      <Container className="relative w-full items-center justify-center py-10">
+        <div className="flex flex-col relative z-1  items-center justify-between gap-6 md:flex-row">
           <div>
             <Image
               src={HorizontalLogo}
