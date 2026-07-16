@@ -37,7 +37,7 @@ export function HowEarlyAccessWorks() {
       <Section id="early-access">
         <Container className="items-center flex flex-col">
           <Reveal>
-            <div className="text-center items-center mt-20">
+            <div className="text-center items-center mt-0">
               <p className="uppercase font-number text-black">Early Access</p>
 
               <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px]">
@@ -61,7 +61,7 @@ export function HowEarlyAccessWorks() {
                   </div>
                 )}
                 <Reveal delay={0.1 * i}>
-                  <Card className="group relative h-full bg-card gap-0 p-7 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_24px_56px_-24px_rgba(30,58,138,0.25)]">
+                  <Card className="group bg-card/50 relative h-full gap-0 p-7 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_24px_56px_-24px_rgba(30,58,138,0.25)]">
                     <div className="mx-auto inline-flex size-12 items-center justify-center rounded-sm bg-linear-to-br from-primary/8 to-indigo-500/5 text-primary">
                       <Icon className="size-5" aria-hidden />
                     </div>
