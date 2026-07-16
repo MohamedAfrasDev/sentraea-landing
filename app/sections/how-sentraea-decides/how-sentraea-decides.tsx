@@ -54,13 +54,13 @@ export function HowSentraeaDecides() {
   return (
     <>
       <JoinWaitlistDialog open={open} setOpen={setOpen} />
-      <Section id="how-it-works" className="relative min-h-screen ">
+      <Section id="how-it-works" className="relative min-h-fit ">
         <Image
           src={CTABG}
           alt="cta"
           width={1000}
           height={1000}
-          className="absolute w-full min-h-screen h-full  px-5 py-5  rounded-4xl"
+          className="absolute w-full  h-full  px-5 py-5  rounded-4xl"
         />
         <div
           className="absolute inset-0 opacity-[0.4] mix-blend-overlay pointer-events-none"
