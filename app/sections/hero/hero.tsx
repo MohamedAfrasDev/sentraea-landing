@@ -97,7 +97,7 @@ export function Hero() {
                   className="size-1.5 rounded-full bg-primary"
                   aria-hidden
                 />
-                Weekly operating system for early-stage B2B SaaS founders
+                Weekly growth priority for early-stage B2B SaaS founders
               </motion.p>
 
               <motion.h1
@@ -114,9 +114,8 @@ export function Hero() {
                 {...enter(0.16)}
                 className="mt-6 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
               >
-                Sentraea tells early‑stage B2B SaaS founders the one
-                highest‑leverage move to focus on every week, based on their
-                real data and context.
+                Each week, Sentraea helps founder-led SaaS teams see where
+                growth is stuck and what to do next
               </motion.p>
 
               <motion.div
@@ -127,7 +126,7 @@ export function Hero() {
                   onClick={() => setDialogOpen(true)}
                   className={"text-md px-4 py-5 text-lg shadow-primary/10"}
                 >
-                  Get Early Access
+                  Join the waitlist
                   <ArrowRight
                     className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
                     aria-hidden
@@ -139,8 +138,8 @@ export function Hero() {
                 {...enter(0.32)}
                 className="mt-3 text-sm text-muted-foreground hidden md:block"
               >
-                For B2B SaaS founders with some customers, but no repeatable
-                growth yet.
+                Join the first early-access cohort and get direct founder
+                support as we shape the product together.
               </motion.p>
             </div>
 

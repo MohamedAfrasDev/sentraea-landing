@@ -16,23 +16,23 @@ import { cn } from "@/lib/utils";
 const FEATURES = [
   {
     icon: CalendarCheck,
-    title: "Weekly Founder Brief",
-    body: "One compact summary of where your business actually stands.",
+    title: "Weekly Growth Summary",
+    body: "A simple weekly readout of what changed, what stands out, and what deserves attention.",
   },
   {
     icon: ScanSearch,
-    title: "Bottleneck Diagnosis",
-    body: "Demand, conversion, activation, retention, or systems — pinpointed.",
+    title: "What’s Slowing Growth",
+    body: "Sentraea highlights the constraint most likely holding back progress right now.",
   },
   {
     icon: Sparkles,
     title: "One Recommended Move",
-    body: "One focus for the week, backed by your own numbers.",
+    body: "One clear action to focus on this week, chosen from your actual numbers and business context.",
   },
   {
     icon: ShieldCheck,
-    title: "What NOT To Do",
-    body: "Ignore distractions with confidence, not guilt.",
+    title: "What to Ignore for Now",
+    body: "Avoid low-impact distractions so your team can stay focused on what matters.",
   },
 ] as const;
 
@@ -67,15 +67,13 @@ export function Solution() {
           <p className="uppercase font-number text-primary">The Solution</p>
 
           <h2 className=" text-4xl md:text-[3.5rem] md:leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-800 font-heading tracking-[-2px] md:tracking-[-3px]">
-            Sentraea is your weekly focus system.
+            Sentraea helps you decide what matters most this week.{" "}
           </h2>
           <p className="mt-5 md:mt-0 text-xl">
             {" "}
-            Sentraea sits on top of your existing tools and data. Once a week,
-            it looks at what’s happening in your SaaS and tells you <br />
-            <span className="font-medium">
-              the one move most likely to create leverage now.
-            </span>
+            Once a week, Sentraea reviews your growth signals and gives you a
+            focused recommendation based on what is happening in your business
+            right now.
           </p>
         </div>
         <Card className="p-0 bg-card/10 border border-gray-200 mt-10">

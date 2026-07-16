@@ -12,20 +12,20 @@ const STEPS = [
   {
     icon: Send,
     step: "Step 1",
-    title: "Apply",
-    body: "Tell us briefly about your SaaS and current stage. We’ll start with a small group of serious founders.",
+    title: "Join the waitlist",
+    body: "Tell us a bit about your SaaS and current growth stage.",
   },
   {
     icon: Cable,
     step: "Step 2",
-    title: "Connect",
-    body: "Share a simple weekly snapshot (MRR, customers, pipeline, key metrics). Integrations will follow later — we’re starting lean.",
+    title: "Get selected for early access",
+    body: "We’ll invite teams that are a strong fit and can benefit most from weekly guidance.",
   },
   {
     icon: FileText,
     step: "Step 3",
-    title: "Receive",
-    body: "Each week, get a compact founder brief: what changed, where the bottleneck is, and the one move to prioritize.",
+    title: "Get founder-led support",
+    body: "Early users get hands-on onboarding, direct support, and a chance to shape the roadmap.",
   },
 ] as const;
 
@@ -41,11 +41,11 @@ export function HowEarlyAccessWorks() {
               <p className="uppercase font-number text-black">Early Access</p>
 
               <h2 className=" text-4xl md:text-[3.5rem] leading-[80px] font-medium bg-linear-to-r bg-clip-text text-transparent from-black via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px]">
-                How Early Access Works
+                Join the first Sentraea cohort{" "}
               </h2>
               <p className="text-white">
-                It&apos;s not magic. It&apos;s a structured weekly decision
-                system.
+                We’re inviting a small group of founder-led SaaS teams to shape
+                the product before public launch.
               </p>
             </div>
           </Reveal>
@@ -83,7 +83,8 @@ export function HowEarlyAccessWorks() {
             <Card className="bg-card/10 p-0 text-start">
               <div className="bg-linear-to-r flex flex-col md:flex-row gap-5 items-center text-start justify-between from-orange-500/30 via-orange-400/40 to-orange-200/30 px-6 py-5 ">
                 <p className=" text-xl text-center md:text-start leading-relaxed text-black">
-                  Early users get hands‑on support and help shape the roadmap.
+                  Early-access spots are limited. Join now to be part of the
+                  first cohort.{" "}
                 </p>
                 <Button
                   variant={"outline_without_border"}
@@ -92,7 +93,7 @@ export function HowEarlyAccessWorks() {
                     "items-center justify-center text-xl px-4 py-5 shadow-none bg-black text-white"
                   }
                 >
-                  Get early access
+                  Join the waitlist
                 </Button>
               </div>
             </Card>

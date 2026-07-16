@@ -13,16 +13,16 @@ const STEPS = [
   {
     icon: Cable,
     step: "01",
-    title: "Connect your tools",
-    body: "Start with a few basics: MRR band, customers, main channel, demo→close rate, churn / retention. Connect Stripe/HubSpot/analytics if you want — or just paste snapshots in.",
+    title: "Share your current setup",
+    body: "Tell us which tools you use and how you track growth today. We use that to understand your business context.",
     chips: ["MRR", "Customers", "Demo rate", "Stripe", "HubSpot", "Segment"],
     footnote: "Manual input supported.",
   },
   {
     icon: Brain,
     step: "02",
-    title: "Build SaaS Context",
-    body: "Sentraea keeps a running model of your business: stage, ICP, key metrics, past experiments, and weekly outcomes. It remembers what you tried and what happened.",
+    title: "Understand your growth pattern",
+    body: "Sentraea looks at the signals behind pipeline, conversion, activation, and retention to see where progress is getting stuck.",
     chips: [
       "Stage",
       "ICP",
@@ -36,8 +36,8 @@ const STEPS = [
   {
     icon: Compass,
     step: "03",
-    title: "Bottleneck Engine",
-    body: "Using early‑stage SaaS patterns, Sentraea detects your current constraint (demand, conversion, activation, retention, or systems) and picks the one move with the most leverage for this week.",
+    title: "Recommend the next best move",
+    body: "Each week, you get one clear recommendation on where to focus next and what to deprioritize.",
     chips: [
       "Demand",
       "Conversion",
@@ -78,8 +78,8 @@ export function HowSentraeaDecides() {
                 How does Sentraea choose your weekly move?
               </h2>
               <p className="text-white mt-5 md:mt-0">
-                It&apos;s not magic. It&apos;s a simple loop built for
-                early‑stage B2B SaaS.
+                It looks at your signals, finds the constraint, and suggests the
+                next best move.
               </p>
             </div>
           </Reveal>
@@ -136,10 +136,11 @@ export function HowSentraeaDecides() {
                 className="bg-linear-to-r flex flex-col md:flex-row gap-5 justify-between from-primary/30 via-indigo-300/40 to-blue-200/60 backdrop-blur-lg   px-6 py-4 text-center md:px-10
 "
               >
-                <p className="relative  font-heading text-xl font-medium leading-snug tracking-tight text-foreground md:text-2xl">
-                  You always stay in control.{" "}
-                  <span className="text-white">Sentraea suggests.</span> You
-                  decide.
+                <p className="relative  font-semibold font-heading text-xl leading-snug tracking-tight text-foreground md:text-2xl">
+                  Keep this, or tighten to:
+                  <span className="font-medium">
+                    Sentraea recommends. You decide what to do.
+                  </span>{" "}
                 </p>
                 <Button
                   variant={"outline_without_border"}
@@ -148,7 +149,7 @@ export function HowSentraeaDecides() {
                     "items-center justify-center text-xl px-4 py-5 shadow-none bg-black text-white"
                   }
                 >
-                  Get early access
+                  Join the waitlist
                 </Button>
               </div>
             </Card>
