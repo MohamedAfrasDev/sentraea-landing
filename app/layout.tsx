@@ -331,6 +331,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={` ${inter.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${clashDisplay.variable} ${satoshi.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
+      <script
+        src="https://t.contentsquare.net/uxa/371ddd7dd5838.js"
+        defer
+      ></script>
+
       <body className="">
         <ThemeProvider>
           <Analytics />
