@@ -11,6 +11,8 @@ import {
   Instrument_Serif,
   Plus_Jakarta_Sans,
 } from "next/font/google";
+import Clarity from "@microsoft/clarity";
+
 import twImage from "@/public/bg-cta-orange.jpg";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
@@ -325,17 +327,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const projectId = "xnx58sbgky";
+
+  Clarity.init(projectId);
   return (
     <html
       lang="en"
       suppressHydrationWarning
       className={` ${inter.variable} ${instrumentSerif.variable} ${playfairDisplay.variable} ${gtsuper.variable} ${overcame.variable} ${manropeFont.variable} ${heming.variable} ${arizonaFlare.variable} ${sfproDisplay.variable} ${clashDisplay.variable} ${satoshi.variable} ${geistMono.variable} ${jetbrainsMono.variable}  ${lato.variable} ${raleway.variable} h-full antialiased custom-scroll scroll-smooth`}
     >
-      <script
-        src="https://t.contentsquare.net/uxa/371ddd7dd5838.js"
-        defer
-      ></script>
-
       <body className="">
         <ThemeProvider>
           <Analytics />
