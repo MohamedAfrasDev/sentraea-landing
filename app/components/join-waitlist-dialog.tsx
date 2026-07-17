@@ -4,6 +4,7 @@ import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { Check, Loader2 } from "lucide-react";
 import React, { FormEvent, useState } from "react";
 import { toast } from "sonner";
+import { WAITLIST_JOINED_EVENT } from "@/app/components/waitlist-counter";
 
 const JoinWaitlistDialog = ({
   open,
@@ -46,6 +47,7 @@ const JoinWaitlistDialog = ({
       }
 
       setSubmitted(true);
+      window.dispatchEvent(new Event(WAITLIST_JOINED_EVENT));
       toast.success("Waitlist joined. We'll be in touch soon.");
     } catch {
       toast.error("Network error. Please check your connection and try again.");

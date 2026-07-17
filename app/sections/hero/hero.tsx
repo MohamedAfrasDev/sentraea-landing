@@ -9,6 +9,7 @@ import HeroBG from "@/public/bg-hero.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import JoinWaitlistDialog from "@/app/components/join-waitlist-dialog";
+import { WaitlistCounter } from "@/app/components/waitlist-counter";
 
 /** Tiny SVG noise tile, inlined so the hero needs no asset request. */
 const NOISE_TEXTURE = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E")`;
@@ -134,13 +135,13 @@ export function Hero() {
                 </Button>
               </motion.div>
 
-              <motion.p
-                {...enter(0.32)}
-                className="mt-3 text-sm text-muted-foreground hidden md:block"
-              >
-                Join the first early-access cohort and get direct founder
-                support as we shape the product together.
-              </motion.p>
+              <motion.div {...enter(0.32)}>
+                <WaitlistCounter className="mt-5" />
+                <p className="mt-3 text-sm text-muted-foreground hidden md:block">
+                  Join the first early-access cohort and get direct founder
+                  support as we shape the product together.
+                </p>
+              </motion.div>
             </div>
 
             {/* Product mockup */}

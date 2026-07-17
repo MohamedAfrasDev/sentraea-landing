@@ -5,6 +5,10 @@ import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Container, Section } from "../shared/section";
+import {
+  WaitlistCounter,
+  WAITLIST_JOINED_EVENT,
+} from "@/app/components/waitlist-counter";
 import { Reveal } from "../shared/reveal";
 
 import CTABG from "@/public/cta-bg.jpg";
@@ -67,6 +71,7 @@ export function Waitlist() {
       }
 
       setSubmitted(true);
+      window.dispatchEvent(new Event(WAITLIST_JOINED_EVENT));
       toast.success("Waitlist joined. We'll be in touch soon.");
     } catch {
       toast.error("Network error. Please check your connection and try again.");
@@ -116,6 +121,7 @@ export function Waitlist() {
                   founders to help shape Sentraea. If you want clearer weekly
                   focus, not more noise, leave your email below.
                 </p>
+                <WaitlistCounter className="mt-6" light />
               </div>
 
               {/* Form card */}

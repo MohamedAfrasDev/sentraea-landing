@@ -6,7 +6,7 @@ the submission to a Google Apps Script Web App that appends a row to your Google
 ## 1. Create the Google Sheet
 
 1. Go to <https://sheets.google.com> and create a new spreadsheet (e.g. "Sentraea Waitlist").
-2. Optionally add a header row in row 1: `Timestamp | Email | Stage | Message`.
+2. Optionally add a header row in row 1: `Timestamp | Name | Email | Company | MRR Band | Decision`.
    (The script below creates it automatically if the sheet is empty.)
 
 ## 2. Add the Apps Script
@@ -16,24 +16,33 @@ the submission to a Google Apps Script Web App that appends a row to your Google
 3. Click **Save**.
 
 ```javascript
+var HEADERS = ["Timestamp", "Name", "Email", "Company", "MRR Band", "Decision"];
+
+function getSheet() {
+  return SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+}
+
+// POST — append a signup row.
 function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000); // avoid race conditions on concurrent submits
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    var sheet = getSheet();
 
     // Create a header row if the sheet is empty.
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Email", "Stage", "Message"]);
+      sheet.appendRow(HEADERS);
     }
 
     var data = JSON.parse(e.postData.contents);
 
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
+      data.name || "",
       data.email || "",
-      data.stage || "",
-      data.message || "",
+      data.company || "",
+      data.mrrBand || "",
+      data.decision || "",
     ]);
 
     return ContentService
@@ -46,6 +55,16 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// GET — return the live signup count (rows minus the header).
+function doGet() {
+  var lastRow = getSheet().getLastRow();
+  var count = Math.max(lastRow - 1, 0);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ ok: true, count: count }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 ```
 
@@ -70,9 +89,18 @@ function doPost(e) {
 
 3. Restart the dev server (`npm run dev`) so the env var is picked up.
 
+> **Already deployed an older version of the script?** After pasting the new
+> script, go to **Deploy → Manage deployments → ✏️ Edit → Version: New version →
+> Deploy**. The `/exec` URL stays the same, so no env-var change is needed.
+
 ## 5. Test
 
 Fill out the waitlist form and submit. A new row should appear in your Google Sheet.
+
+The live counter reads the same Web App via `GET /api/waitlist`, which returns
+`{ count }` (number of data rows in the sheet). The count is cached for 60
+seconds on the server, so new signups can take up to a minute to reflect for
+other visitors.
 
 > When you deploy to production (Vercel, etc.), add the same
 > `GOOGLE_SHEETS_WEBHOOK_URL` environment variable in the hosting dashboard.

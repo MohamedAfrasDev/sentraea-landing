@@ -16,6 +16,31 @@ type WaitlistPayload = {
 const asTrimmedString = (value: unknown) =>
   typeof value === "string" ? value.trim() : "";
 
+export async function GET() {
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    return NextResponse.json({ count: null }, { status: 200 });
+  }
+
+  try {
+    const res = await fetch(webhookUrl, { next: { revalidate: 60 } });
+
+    if (!res.ok) {
+      console.error("Google Sheets count fetch failed:", res.status);
+      return NextResponse.json({ count: null }, { status: 200 });
+    }
+
+    const data = await res.json();
+    const count = typeof data.count === "number" ? data.count : null;
+
+    return NextResponse.json({ count }, { status: 200 });
+  } catch (err) {
+    console.error("Error fetching waitlist count:", err);
+    return NextResponse.json({ count: null }, { status: 200 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   let body: WaitlistPayload;
   try {
