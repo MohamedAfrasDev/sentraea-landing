@@ -23,6 +23,7 @@ import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 
 import NavigationProgress from "@/components/navigation-process";
+import ClarityProvider from "@/components/ClarityProvider";
 const arizonaFlare = localFont({
   src: [
     {
@@ -327,9 +328,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const projectId = "xnx58sbgky";
-
-  Clarity.init(projectId);
   return (
     <html
       lang="en"
@@ -338,6 +336,7 @@ export default function RootLayout({
     >
       <body className="">
         <ThemeProvider>
+          <ClarityProvider />
           <Analytics />
           <TooltipProvider>{children}</TooltipProvider>
           <Toaster />
