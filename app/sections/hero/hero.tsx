@@ -114,8 +114,8 @@ export function Hero() {
                 {...enter(0.16)}
                 className="mt-6 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
               >
-                Each week, Sentraea helps founder-led SaaS teams see where
-                growth is stuck and what to do next
+                One high-leverage action for this week — chosen based on what’s
+                actually moving (or stuck) in your metrics right now.
               </motion.p>
 
               <motion.div

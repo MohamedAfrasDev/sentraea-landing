@@ -14,7 +14,7 @@ const STEPS = [
     icon: Cable,
     step: "01",
     title: "Share your current setup",
-    body: "Tell us which tools you use and how you track growth today. We use that to understand your business context.",
+    body: "Share your current setup and growth stage. We use this to understand what ‘good’ looks like for your business.",
     chips: ["MRR", "Customers", "Demo rate", "Stripe", "HubSpot", "Segment"],
     footnote: "Manual input supported.",
   },

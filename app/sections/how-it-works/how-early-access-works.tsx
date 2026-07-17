@@ -44,8 +44,9 @@ export function HowEarlyAccessWorks() {
                 Join the first Sentraea cohort{" "}
               </h2>
               <p className="text-white">
-                We’re inviting a small group of founder-led SaaS teams to shape
-                the product before public launch.
+                We’re opening early access to a small group of founder-led B2B
+                SaaS teams. You’ll get weekly guidance + direct input on the
+                product before public launch.
               </p>
             </div>
           </Reveal>

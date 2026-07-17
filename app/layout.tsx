@@ -11,6 +11,7 @@ import {
   Instrument_Serif,
   Plus_Jakarta_Sans,
 } from "next/font/google";
+import twImage from "@/public/bg-cta-orange.jpg";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -310,6 +311,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@sentraea",
+    images: twImage.src,
     title:
       "Sentraea — Know the One Highest-Leverage Move for Your SaaS Every Week",
     description:
