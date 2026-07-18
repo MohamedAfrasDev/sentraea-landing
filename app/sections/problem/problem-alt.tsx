@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import JoinWaitlistDialog from "@/app/components/join-waitlist-dialog";
+import { ProblemChaosMockup } from "@/app/components/mockups/problem-chaos-mockup";
 
 const PAIN_POINTS = [
   {
@@ -49,8 +50,9 @@ export function ProblemAlt() {
               </div>
               <Reveal delay={0.1} className="mx-auto mt-5 md:mt-0 text-start">
                 <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                  You ship features, run campaigns, jump on demos, fix bugs,
-                  tweak onboarding. But when the week ends, you still wonder:
+                  You ship features, run campaigns, jump on demos, fix bugs, and
+                  tweak onboarding. But at the end of the week, you still ask
+                  yourself:
                 </p>
               </Reveal>
             </div>
@@ -61,11 +63,14 @@ export function ProblemAlt() {
                 <span className="text-primary md:text-7xl">&rdquo;</span>
               </p>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-2xl">
-                Most teams try to fix this with more tasks, more tools, more
-                dashboards. The real problem is priority — not effort.
+                Most founders try to solve this with more tasks, more tools, and
+                more dashboards. The real issue isn’t effort — it’s priority.
               </p>
             </Reveal>
           </div>
+          <Reveal delay={0.15} className="mt-14">
+            <ProblemChaosMockup />
+          </Reveal>
           <div className="mt-10">
             {/* <h3 className="text-3xl">The quiet failure mode</h3> */}
             {/* <Card className="p-0 bg-card/10">
@@ -104,7 +109,7 @@ export function ProblemAlt() {
                     "items-center justify-center text-xl px-4 py-5 shadow-none bg-black text-white"
                   }
                 >
-                  Join the waitlist
+                  Reserve My Spot
                 </Button>
               </div>
             </Card>

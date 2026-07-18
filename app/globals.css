@@ -13,7 +13,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sfpro), sans-serif;
   --font-heading: var(--font-satoshi), sans-serif;
-    --font-heading-high: var(--font-instrument-serif), serif;
+  --font-heading-high: var(--font-instrument-serif), serif;
 
   --font-arizona: var(--font-arizona-flare), sans-serif;
   --font-body: var(--font-sfpro), sans-serif;
@@ -185,20 +185,41 @@
 
 /* Hero float — GPU-composited (transform only), replaces JS-driven Framer Motion loop */
 @keyframes hero-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Companion chip floats slightly more and out of phase */
 @keyframes hero-float-chip {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
 /* Opacity-only pulse for StatusDot — avoids scale/layout recalc from animate-ping */
 @keyframes status-pulse {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 0.1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.1;
+  }
 }
 
 

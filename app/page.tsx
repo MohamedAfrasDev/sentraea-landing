@@ -13,6 +13,8 @@ import { Header } from "@/components/Header";
 import Image from "next/image";
 import BGOrange from "@/public/bg-cta-orange.jpg";
 import { ProblemAlt } from "./sections/problem/problem-alt";
+import { Reveal } from "./sections/shared/reveal";
+import { ContinuityMemoryMiniCard } from "./components/mockups/continuity-memory-mini-card";
 
 export default function Home() {
   return (
@@ -29,22 +31,19 @@ export default function Home() {
             <HowSentraeaDecides />
 
             <WhoItsFor />
-            <div className="relative">
-              <Image
-                src={BGOrange}
-                alt="works"
-                width={1000}
-                height={1000}
-                className="absolute w-full h-full shadow-xl"
-              />
-              <div
-                className="absolute inset-0 opacity-[0.4] mix-blend-overlay pointer-events-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                }}
-              />
-              <HowEarlyAccessWorks />
-              {/* <Waitlist /> */}
+            <div className="flex flex-col md:flex-row">
+              <div className="flex-1">
+                <HowEarlyAccessWorks />
+              </div>
+              <div className="flex-1">
+                <Reveal delay={0.05} className="mt-10">
+                  <ContinuityMemoryMiniCard />
+                  <p className="mt-3 text-center text-xs text-muted-foreground">
+                    Unlike a chat window, Sentraea carries your startup context
+                    from week to week.
+                  </p>
+                </Reveal>
+              </div>
             </div>
             <Faq />
           </main>

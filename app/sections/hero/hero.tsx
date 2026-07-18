@@ -87,9 +87,9 @@ export function Hero() {
         <HeroBackground />
 
         <Container className="relative">
-          <div className=" items- gap-7 flex flex-col md:flex-row">
+          <div className="items-start gap-12 flex flex-col md:flex-row">
             {/* Copy */}
-            <div className="flex flex-col items-start flex-4">
+            <div className="flex flex-col items-start flex-1 md:flex-4">
               <motion.p
                 {...enter(0)}
                 className="inline-flex items-center gap-2 bg-card/50 px-5 py-2 rounded-md border border-white/5 backdrop-blur-sm"
@@ -103,12 +103,14 @@ export function Hero() {
 
               <motion.h1
                 {...enter(0.08)}
-                className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[4.9rem]"
+                className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[5rem]"
               >
-                Stop guessing <br />
+                Know the One{" "}
                 <span className="bg-linear-to-r pr-1 from-black via-blue-800 to-blue-900 bg-clip-text text-transparent">
-                  what matters this week{" "}
+                  Highest-Leverage
                 </span>{" "}
+                <br />
+                Move for Your SaaS Every Week
               </motion.h1>
 
               <motion.p
@@ -127,7 +129,7 @@ export function Hero() {
                   onClick={() => setDialogOpen(true)}
                   className={"text-md px-4 py-5 text-lg shadow-primary/10"}
                 >
-                  Join the waitlist
+                  Reserve My Spot
                   <ArrowRight
                     className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
                     aria-hidden
@@ -136,16 +138,14 @@ export function Hero() {
               </motion.div>
 
               <motion.div {...enter(0.32)}>
-                <WaitlistCounter className="mt-5" />
                 <p className="mt-3 text-sm text-muted-foreground hidden md:block">
-                  Join the first early-access cohort and get direct founder
-                  support as we shape the product together.
+                  47 founders have already joined the waitlist
                 </p>
               </motion.div>
             </div>
 
             {/* Product mockup */}
-            <div className=" flex-3">
+            <div className="flex-1 md:flex-3 w-full flex justify-center md:justify-end">
               <HeroDashboard />
             </div>
           </div>

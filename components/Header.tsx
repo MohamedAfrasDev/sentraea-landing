@@ -115,7 +115,7 @@ export const Header = () => {
                   "items-center justify-center text-lg px-3 py-5 shadow-none bg-black text-white"
                 }
               >
-                Join the waitlist
+                Reserve My Spot
               </Button>
             </nav>
 
@@ -169,7 +169,7 @@ export const Header = () => {
                   "items-center justify-center text-lg px-3 py-5 shadow-none bg-black text-white"
                 }
               >
-                Join the waitlist
+                Reserve My Spot
               </Button>
             </nav>
           </div>

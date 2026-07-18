@@ -5,6 +5,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Container, Section, SectionHeading } from "../shared/section";
 import { Reveal } from "../shared/reveal";
+import { ContinuityMemoryMiniCard } from "@/app/components/mockups/continuity-memory-mini-card";
 
 const FAQS = [
   {
@@ -107,7 +108,8 @@ export function Faq() {
             Questions, answered
           </h2>
         </div>
-        <div className="mt-12 flex flex-col gap-3">
+
+        <div className="mt-10 flex flex-col gap-3">
           {FAQS.map(({ question, answer }, i) => (
             <Reveal key={question} delay={0.05 * i}>
               <FaqItem

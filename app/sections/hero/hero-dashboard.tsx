@@ -1,260 +1,390 @@
+/**
+ * Sentraea landing page hero mockup component.
+ * This component is designed to be displayed on the right side of the landing-page hero section.
+ * It functions as a visual explainer of Sentraea's core value proposition:
+ * "Know the one highest-leverage move for your SaaS every week."
+ *
+ * Visual Style:
+ * - Clean white card, thin neutral borders, soft shadows, rounded corners.
+ * - Warm/yellow bottleneck alert accent, blue move accent line.
+ * - Custom inline SVG representations for integration signal chips.
+ * - Tiny inline CSS/SVG sparkline decorative trend strip.
+ */
+
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { motion, useReducedMotion } from "framer-motion";
-import { Minus, Sparkles, TrendingDown } from "lucide-react";
+import React from "react";
 
-/** Demo-to-close weekly series behind the sparkline (percent). */
-const TREND = [28, 27, 25, 22, 19, 16, 14];
-
-function Sparkline() {
-  const width = 132;
-  const height = 40;
-  const max = Math.max(...TREND);
-  const min = Math.min(...TREND);
-  const points = TREND.map((value, i) => {
-    const x = (i / (TREND.length - 1)) * width;
-    const y = height - ((value - min) / (max - min)) * (height - 6) - 3;
-    return `${x},${y}`;
-  });
-
-  return (
-    <svg
-      viewBox={`0 0 ${width} ${height}`}
-      className="h-10 w-full"
-      role="img"
-      aria-label="Demo-to-close rate declining from 28% to 14% over seven weeks"
-    >
-      <defs>
-        <linearGradient id="spark-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <polygon
-        points={`0,${height} ${points.join(" ")} ${width},${height}`}
-        fill="url(#spark-fill)"
-      />
-      <polyline
-        points={points.join(" ")}
-        fill="none"
-        stroke="#2563EB"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle
-        cx={points[points.length - 1].split(",")[0]}
-        cy={points[points.length - 1].split(",")[1]}
-        r="3"
-        fill="#2563EB"
-      />
-    </svg>
-  );
-}
-
-function StatusDot({ tone }: { tone: "green" | "red" | "blue" }) {
-  const color =
-    tone === "green"
-      ? "bg-emerald-500"
-      : tone === "red"
-        ? "bg-rose-500"
-        : "bg-primary";
-  return (
-    <span className="relative inline-flex size-1.5">
-      {/* opacity-only pulse — avoids layout/paint, runs on GPU */}
-      <span
-        className={`absolute inline-flex size-full rounded-full opacity-50 ${color}`}
-        style={{
-          animation: "status-pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
-        }}
-      />
-      <span className={`relative inline-flex size-1.5 rounded-full ${color}`} />
-    </span>
-  );
-}
-
-/** Floating "Weekly Founder Brief" product mockup shown beside the hero copy. */
 export function HeroDashboard() {
-  const reducedMotion = useReducedMotion();
-
   return (
-    <motion.div
-      className="relative mx-auto w-full  lg:max-w-none"
-      initial={{ opacity: 0, y: reducedMotion ? 0 : 32 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.9,
-        delay: 0.25,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-    >
-      {/* CSS float — GPU-composited transform, zero JS per frame */}
-      <div
-        style={{
-          animation: reducedMotion
-            ? undefined
-            : "hero-float 7s ease-in-out infinite",
-          willChange: "transform",
-        }}
-      >
-        {/* Main brief card */}
-        <Card className="relative bg-card/80 p-6 shadow-[0_32px_80px_-24px_rgba(30,58,138,0.25),0_8px_24px_-12px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-7">
+    <div className="w-full max-w-[490px] mx-auto transition-all duration-300">
+      {/* Main card */}
+      <div className="bg-white/80 border rounded-lg p-5 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.03),0_1px_3px_rgba(0,0,0,0.02)] select-none">
+        {/* A) Top Bar */}
+        <div className="flex flex-col gap-2 pb-4 border-b border-neutral-100">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="font-heading text-base font-semibold tracking-tight text-foreground">
-                Weekly Founder Brief
-              </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">
-                Monday · Week 32
-              </p>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center w-5 h-5 rounded-md bg-blue-50 text-blue-600">
+                <svg
+                  className="w-3 h-3"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <span className="text-xs font-semibold text-neutral-800 tracking-tight">
+                Monday Founder Brief
+              </span>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-sm border border-emerald-200/20 shadow-sm shadow-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
-              <StatusDot tone="green" />
-              Analyzed
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-neutral-100 text-neutral-600 border border-neutral-200/30">
+              Updated 8:00 AM
             </span>
           </div>
+          <div className="flex items-center gap-1.5 text-[11px] text-neutral-400 pl-7">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="font-medium">Live signals connected</span>
+          </div>
+        </div>
 
-          {/* Bottleneck */}
-          <Card className="mt-5 flex flex-row items-center justify-between  bg-amber-50/70 px-4 py-3">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-wider text-amber-700/70">
-                Current Bottleneck
-              </p>
-              <p className="mt-0.5 font-heading text-lg font-semibold tracking-tight text-amber-900">
-                Conversion
-              </p>
+        {/* B) Main Recommendation Area */}
+        <div className="py-4 space-y-4">
+          {/* Bottleneck Section */}
+          <div>
+            <div className="flex items-center mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200/30">
+                This week’s bottleneck
+              </span>
             </div>
-            <TrendingDown className="size-5 text-amber-600" aria-hidden />
-          </Card>
-
-          {/* Recommended move */}
-          <Card className="mt-4 bg-linear-to-br from-primary/5 to-white/1 px-4 py-4">
-            <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-primary">
-              <Sparkles className="size-3" aria-hidden />
-              Recommended Move
-            </div>
-            <p className="mt-1.5 font-heading text-[15px] font-semibold leading-snug tracking-tight text-foreground">
-              Rewrite demo flow for ICP X
-            </p>
-            <div className="mt-3">
-              <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                <span>Confidence</span>
-                <span className="font-number font-medium text-foreground">
-                  87%
-                </span>
+            <div className="group relative flex items-center justify-between p-3.5 bg-amber-50/30 border border-amber-200/20 rounded-md hover:border-amber-200/40 transition-colors duration-200">
+              <div className="space-y-1">
+                <h4 className="text-[15px] font-semibold text-neutral-900 leading-tight">
+                  Conversion
+                </h4>
+                <p className="text-xs text-neutral-600">
+                  Demo-to-close dropped over the last 3 weeks
+                </p>
               </div>
-              <div
-                className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-primary/10"
-                role="progressbar"
-                aria-label="Recommendation confidence"
-                aria-valuenow={87}
-                aria-valuemin={0}
-                aria-valuemax={100}
-              >
-                <motion.div
-                  className="h-full rounded-full bg-linear-to-r from-primary to-indigo-500"
-                  initial={{ width: reducedMotion ? "87%" : "8%" }}
-                  whileInView={{ width: "87%" }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 1.2,
-                    delay: 0.6,
-                    ease: [0.21, 0.47, 0.32, 0.98],
-                  }}
-                />
-              </div>
-            </div>
-          </Card>
-
-          {/* Ignore this week */}
-          <div className="mt-4">
-            <p className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
-              Ignore This Week
-            </p>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {["Blog series", "Side integration"].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-1 rounded-sm border border-black/6 bg-black/3 px-2.5 py-1 text-xs text-muted-foreground line-through decoration-black/20"
+              <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-amber-100/50 text-amber-700">
+                <svg
+                  className="w-3.5 h-3.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <Minus className="size-3" aria-hidden />
-                  {item}
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <polyline points="9 18 18 18 18 9" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-neutral-100" />
+
+          {/* Leverage Move Section */}
+          <div>
+            <div className="mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600/90 bg-blue-50/60 px-2 py-0.5 rounded border border-blue-100">
+                One highest-leverage move
+              </span>
+            </div>
+            <div className="border-l-2 border-blue-500 pl-4 py-1 space-y-1">
+              <h3 className="text-[15px] font-semibold text-neutral-900 tracking-tight leading-tight">
+                Rewrite demo flow for ICP X
+              </h3>
+              <p className="text-xs text-neutral-600">
+                Test it on the next 5 sales calls
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* C) Why Now Section */}
+        <div className="py-4 border-t border-neutral-100">
+          <h4 className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 mb-3">
+            Why this matters now
+          </h4>
+          <ul className="space-y-2">
+            {[
+              { text: "Pipeline volume is stable", type: "neutral" },
+              { text: "Drop is happening after the demo", type: "warning" },
+              { text: "Activation looks unchanged", type: "neutral" },
+            ].map((item, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-2.5 text-xs text-neutral-600"
+              >
+                <span className="mt-0.5 shrink-0">
+                  {item.type === "warning" ? (
+                    <svg
+                      className="w-3.5 h-3.5 text-amber-500"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-3.5 h-3.5 text-emerald-500"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  )}
                 </span>
-              ))}
+                <span className="text-neutral-700 leading-normal">
+                  {item.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* D) Ignore This Week Section */}
+        <div className="py-4 border-t border-neutral-100">
+          <h4 className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 mb-2.5">
+            Ignore this week
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {["New blog series", "Side integration launch"].map((item, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center px-2.5 py-1 rounded-md border border-neutral-200/40 bg-neutral-50 text-[11px] font-medium text-neutral-400 line-through decoration-neutral-300"
+              >
+                <svg
+                  className="w-3 h-3 mr-1.5 text-neutral-300 shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* E) Signal Sources Row */}
+        <div className="py-4 border-t border-neutral-100">
+          <h4 className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 mb-2.5">
+            Signals used
+          </h4>
+          <div className="flex flex-wrap gap-1.5">
+            {[
+              {
+                name: "Stripe",
+                color: "bg-indigo-50/50 text-indigo-700 border-indigo-200/30",
+                icon: (
+                  <svg
+                    className="w-2.5 h-2.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M13.93 10.09c0-1.22.95-1.62 2.37-1.62 1.66 0 3.32.55 4.54 1.25V5.1c-1.39-.5-3.08-.75-4.73-.75-4.22 0-7.07 2.12-7.07 5.92 0 5.86 7.6 4.9 7.6 7.55 0 1.48-1.21 1.9-2.79 1.9-1.92 0-3.83-.75-5.11-1.46v4.75c1.61.69 3.52 1.01 5.37 1.01 4.39 0 7.42-2.12 7.42-6.19 0-6.19-7.6-5.06-7.6-7.38z" />
+                  </svg>
+                ),
+              },
+              {
+                name: "HubSpot",
+                color: "bg-orange-50/50 text-orange-700 border-orange-200/30",
+                icon: (
+                  <svg
+                    className="w-2.5 h-2.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M18.89 10.74a3.37 3.37 0 0 0-2.38.98L13.6 9.68a3.39 3.39 0 0 0-2.39-3.26V4.76A3.37 3.37 0 1 0 9.8 4.76v1.66a3.39 3.39 0 0 0-2.39 3.26v4.63a3.39 3.39 0 0 0 2.39 3.26v1.66a3.37 3.37 0 1 0 1.41 0v-1.66a3.39 3.39 0 0 0 2.39-3.26l2.91-2.04a3.37 3.37 0 1 0 2.38-1.47zm-9-1.68a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 4a2 2 0 1 1 2-2 2 2 0 0 1-2 2z" />
+                  </svg>
+                ),
+              },
+              {
+                name: "PostHog",
+                color: "bg-zinc-50 text-zinc-700 border-zinc-200",
+                icon: (
+                  <svg
+                    className="w-2.5 h-2.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                  </svg>
+                ),
+              },
+              {
+                name: "Founder Notes",
+                color: "bg-neutral-50 text-neutral-700 border-neutral-200/60",
+                icon: (
+                  <svg
+                    className="w-2.5 h-2.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                ),
+              },
+            ].map((chip, idx) => (
+              <span
+                key={idx}
+                className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded border text-[10px] font-semibold tracking-tight ${chip.color}`}
+              >
+                {chip.icon}
+                {chip.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* F) Mini Trend Area at Bottom */}
+        <div className="pt-4 border-t border-neutral-100 bg-neutral-50/30 -mx-5 px-5 -mb-5 rounded-b-xl space-y-3.5">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+              This week’s metrics
+            </span>
+            <div className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-blue-500"></span>
+              <span className="text-[9px] text-neutral-400 font-medium uppercase tracking-wider">
+                Live Metrics
+              </span>
             </div>
           </div>
 
-          {/* Metrics */}
-          <div className="mt-5 grid grid-cols-3 gap-2.5">
-            <Card className="gap-0  bg-white/70 px-3 py-2.5">
-              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Pipeline
+          <div className="grid grid-cols-3 gap-2">
+            {/* Trials */}
+            <div className="p-2 bg-white border border-neutral-200/40 rounded-lg hover:shadow-[0_2px_8px_rgba(0,0,0,0.01)] transition-shadow duration-150">
+              <p className="text-[9px] font-medium text-neutral-400">Trials</p>
+              <div className="flex items-center gap-0.5 mt-0.5">
+                <span className="text-xs font-bold text-neutral-800">+12%</span>
+                <svg
+                  className="w-2.5 h-2.5 text-emerald-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Demo→Close */}
+            <div className="p-2 bg-white border border-neutral-200/40 rounded-lg hover:shadow-[0_2px_8px_rgba(0,0,0,0.01)] transition-shadow duration-150">
+              <p className="text-[9px] font-medium text-neutral-400">
+                Demo→Close
               </p>
-              <p className="mt-1 flex items-center gap-1.5 text-[13px] font-medium text-foreground">
-                <StatusDot tone="green" />
-                Healthy
+              <div className="flex items-center gap-0.5 mt-0.5">
+                <span className="text-xs font-bold text-neutral-800">-18%</span>
+                <svg
+                  className="w-2.5 h-2.5 text-rose-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Churn Risk */}
+            <div className="p-2 bg-white border border-neutral-200/40 rounded-lg hover:shadow-[0_2px_8px_rgba(0,0,0,0.01)] transition-shadow duration-150">
+              <p className="text-[9px] font-medium text-neutral-400">
+                Churn Risk
               </p>
-            </Card>
-            <Card className="gap-0  bg-white/70 px-3 py-2.5">
-              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Demo close
-              </p>
-              <p className="mt-1 flex items-center gap-1 font-number text-[13px] font-medium text-rose-600">
-                14%
-                <TrendingDown className="size-3.5" aria-hidden />
-              </p>
-            </Card>
-            <Card className="gap-0  bg-white/70 px-3 py-2.5">
-              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Retention
-              </p>
-              <p className="mt-1 flex items-center gap-1.5 text-[13px] font-medium text-foreground">
-                <StatusDot tone="blue" />
-                Stable
-              </p>
-            </Card>
+              <div className="flex items-center gap-1 mt-0.5">
+                <span className="text-xs font-bold text-neutral-800">
+                  Stable
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+              </div>
+            </div>
           </div>
 
-          {/* Trend sparkline */}
-          <Card className="gap-0  bg-white/70 px-3 py-2.5">
-            <div className="flex items-center justify-between">
-              <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Demo-to-close · 7 weeks
-              </p>
-              <p className="font-number text-[11px] font-medium text-rose-600">
-                28% → 14%
-              </p>
+          {/* Sparkline row */}
+          <div className="flex items-center gap-3 p-2 bg-white border border-neutral-200/40 rounded-lg">
+            <span className="text-[10px] font-semibold text-neutral-500 whitespace-nowrap pl-0.5">
+              Demo→Close Trend
+            </span>
+            <div className="flex-1 h-5 relative flex items-center">
+              <svg
+                className="w-full h-full text-rose-500 overflow-visible"
+                viewBox="0 0 200 20"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="trend-gradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop offset="0%" stopColor="#EF4444" stopOpacity="0.08" />
+                    <stop offset="100%" stopColor="#EF4444" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0,2 C30,3 60,1 90,8 C120,15 150,18 200,19"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M0,2 C30,3 60,1 90,8 C120,15 150,18 200,19 L200,20 L0,20 Z"
+                  fill="url(#trend-gradient)"
+                />
+                <circle cx="200" cy="19" r="2" fill="#EF4444" />
+              </svg>
             </div>
-            <div className="mt-1.5">
-              <Sparkline />
-            </div>
-          </Card>
-        </Card>
+            <span className="text-[9px] font-bold text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded shrink-0">
+              3wk Drop
+            </span>
+          </div>
+        </div>
       </div>
-
-      {/* Companion chip floating behind the card */}
-      <div
-        className="absolute -right-3 -top-6 hidden rounded-lg border border-white/60 bg-white/80 px-4 py-3 shadow-[0_16px_40px_-16px_rgba(30,58,138,0.25)] backdrop-blur-xl md:block"
-        style={{
-          animation: reducedMotion
-            ? undefined
-            : "hero-float-chip 9s ease-in-out 1s infinite",
-          willChange: "transform",
-        }}
-      >
-        <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-          Next brief
-        </p>
-        <p className="mt-0.5 font-heading text-sm font-semibold tracking-tight text-foreground">
-          Monday, 8:00 AM
-        </p>
-      </div>
-      <div className="block md:hidden">
-        <motion.p className="mt-6 text-sm text-muted-foreground  ">
-          For B2B SaaS founders between first customers and repeatable growth.
-        </motion.p>
-      </div>
-    </motion.div>
+    </div>
   );
 }
+
+export default HeroDashboard;

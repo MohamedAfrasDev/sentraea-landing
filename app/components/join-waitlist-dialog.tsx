@@ -72,11 +72,11 @@ const JoinWaitlistDialog = ({
                 Join the first Sentraea cohort
               </h2>
               <p className="mt-2 text-muted-foreground">
-                Get early access to weekly growth-focus guidance for founder-led
-                B2B SaaS teams.
+                Get one clear highest-leverage growth move every week based on
+                your real data.
               </p>
 
-              <div className="mt-5 px-5">
+              <div className="mt-5 px-5 text-start">
                 <p className="mt-3 text-lg">Early members get:</p>
                 <div className="text-start mt-2 text-muted-foreground flex flex-wrap gap-x-10 gap-y-1">
                   <li className="">Priority access when we launch</li>
@@ -124,7 +124,7 @@ const JoinWaitlistDialog = ({
             </div> */}
           </div>
         )}
-        {submitted && <WaitlistJoined />}
+        <p>Join 47 other founders already on the waitlist</p>
       </DialogContent>
     </Dialog>
   );
