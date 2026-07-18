@@ -120,9 +120,9 @@ export function WaitlistCounter({
             light ? "text-white" : "text-foreground",
           )}
         >
-          {display}
+          <span className="font-normal">Join</span> {display}
         </span>{" "}
-        {count === 1 ? "founder" : "founders"} already on the waitlist
+        {count === 1 ? "other founder" : "other founders"} on the waitlist
       </p>
     </div>
   );

@@ -4,7 +4,10 @@ import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { Check, Loader2 } from "lucide-react";
 import React, { FormEvent, useState } from "react";
 import { toast } from "sonner";
-import { WAITLIST_JOINED_EVENT } from "@/app/components/waitlist-counter";
+import {
+  WAITLIST_JOINED_EVENT,
+  WaitlistCounter,
+} from "@/app/components/waitlist-counter";
 
 const JoinWaitlistDialog = ({
   open,
@@ -66,13 +69,24 @@ const JoinWaitlistDialog = ({
           <div>
             <div>
               <h2 className="bg-clip-text text-transparent leading-[35px] bg-linear-to-r from-black/80 via-blue-800/70 to-blue-800/80 text-4xl font-medium tracking-[-1px]">
-                Get on the early access waitlist
+                Get early access + shape Sentraea
               </h2>
               <p className="mt-2 text-muted-foreground">
-                We&apos;re inviting a small cohort of early-stage B2B SaaS
-                founders to help shape Sentraea. If you want clearer weekly
-                focus, not more noise, leave your email below.
+                We’re opening a small early cohort for B2B SaaS founders who
+                want one clear highest-leverage growth move every week — instead
+                of guessing what to focus on.
               </p>
+
+              <div className="mt-5 px-5">
+                <p className="mt-3 text-lg">
+                  Join the waitlist and you’ll get:
+                </p>
+                <div className="text-start mt-2 text-muted-foreground flex flex-wrap gap-x-10 gap-y-1">
+                  <li className="">Priority access when we launch</li>
+                  <li>Direct input on the product</li>
+                  <li>Personal onboarding support from the founder</li>
+                </div>
+              </div>
             </div>
 
             <form
@@ -92,7 +106,7 @@ const JoinWaitlistDialog = ({
                 <InputGroupInput
                   value={startupLink}
                   onChange={(e) => setStartupLink(e.target.value)}
-                  placeholder="Startup Link (optional)"
+                  placeholder="Your SaaS Link (optional)"
                 />
               </InputGroup>
 
@@ -104,10 +118,13 @@ const JoinWaitlistDialog = ({
                 {submitting ? (
                   <Loader2 className="animate-spin" />
                 ) : (
-                  "Join Waitlist"
+                  "Join Early Waitlist"
                 )}
               </Button>
             </form>
+            <div className="items-center flex justify-center mt-4">
+              <WaitlistCounter className="mt-2 items-center" />
+            </div>
           </div>
         )}
         {submitted && <WaitlistJoined />}
