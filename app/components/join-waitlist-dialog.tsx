@@ -69,18 +69,15 @@ const JoinWaitlistDialog = ({
           <div>
             <div>
               <h2 className="bg-clip-text text-transparent leading-[35px] bg-linear-to-r from-black/80 via-blue-800/70 to-blue-800/80 text-4xl font-medium tracking-[-1px]">
-                Get early access + shape Sentraea
+                Join the first Sentraea cohort
               </h2>
               <p className="mt-2 text-muted-foreground">
-                We’re opening a small early cohort for B2B SaaS founders who
-                want one clear highest-leverage growth move every week — instead
-                of guessing what to focus on.
+                Get early access to weekly growth-focus guidance for founder-led
+                B2B SaaS teams.
               </p>
 
               <div className="mt-5 px-5">
-                <p className="mt-3 text-lg">
-                  Join the waitlist and you’ll get:
-                </p>
+                <p className="mt-3 text-lg">Early members get:</p>
                 <div className="text-start mt-2 text-muted-foreground flex flex-wrap gap-x-10 gap-y-1">
                   <li className="">Priority access when we launch</li>
                   <li>Direct input on the product</li>
@@ -102,13 +99,13 @@ const JoinWaitlistDialog = ({
                   required
                 />
               </InputGroup>
-              <InputGroup className="bg-card/5 shadow-none">
+              {/* <InputGroup className="bg-card/5 shadow-none">
                 <InputGroupInput
                   value={startupLink}
                   onChange={(e) => setStartupLink(e.target.value)}
                   placeholder="Your SaaS Link (optional)"
                 />
-              </InputGroup>
+              </InputGroup> */}
 
               <Button
                 type="submit"
@@ -118,13 +115,13 @@ const JoinWaitlistDialog = ({
                 {submitting ? (
                   <Loader2 className="animate-spin" />
                 ) : (
-                  "Join Early Waitlist"
+                  "Reserve my spot"
                 )}
               </Button>
             </form>
-            <div className="items-center flex justify-center mt-4">
+            {/* <div className="items-center flex justify-center mt-4">
               <WaitlistCounter className="mt-2 items-center" />
-            </div>
+            </div> */}
           </div>
         )}
         {submitted && <WaitlistJoined />}
