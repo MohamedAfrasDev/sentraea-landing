@@ -239,7 +239,7 @@ export function HowSentraeaDecides() {
                       </span>
                     ))}
                   </div> */}
-                    <div className="mt-5">{widget}</div>
+                    {/* <div className="mt-5">{widget}</div> */}
                     <p className="mt-auto pt-5 text-xs font-medium text-primary">
                       {footnote}
                     </p>
