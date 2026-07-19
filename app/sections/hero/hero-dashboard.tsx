@@ -35,7 +35,7 @@ import { Button } from "@/components/ui/button";
 export function HeroDashboard() {
   return (
     <div className="relative w-full h-full">
-      <Card className="py-4 bg-card/60 z-0 top-[-100px] scale-70  right-[-50px] max-w-[240px] absolute gap-0 backdrop-blur-md w-fit px-5">
+      <Card className="py-4 bg-card/60 z-1 top-[-100px] scale-70  right-[-50px] max-w-[240px] absolute gap-0 backdrop-blur-md w-fit px-5">
         <Image
           src={Hubspot}
           alt="Hubspot"
@@ -61,46 +61,7 @@ export function HeroDashboard() {
         </span>
       </Card>
 
-      <Card className="z-2 absolute bottom-[-200px] scale-70 left-[-90px] px-4 bg-card/70 backdrop-blur-lg py-4">
-        <div className="flex justify-between">
-          <Image
-            src={Intercom}
-            alt="Intercom"
-            className=" px-3"
-            width={130}
-            height={100}
-          />
-
-          <span className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-green-500" />
-            <p className="text-muted-foreground text-xs">Synced 9 min ago</p>
-          </span>
-        </div>
-
-        <div>
-          <p className="uppercase text-muted-foreground font-number">
-            Execution boundaries
-          </p>
-          <Card className="bg-muted-foreground/5 mt-2 flex gap-2 flex-row px-2 py-2 rounded-sm">
-            <Check className="text-green-500" />
-            <p className="text-muted-foreground">
-              Reads conversations for objection themes
-            </p>
-          </Card>
-          <Card className="bg-muted-foreground/5 mt-2 flex gap-2 flex-row px-2 py-2 rounded-sm">
-            <X className="text-red-500" />
-            <p className="text-muted-foreground">Never replies to a customer</p>
-          </Card>
-        </div>
-        <div>
-          <p className="font-number uppercase text-muted-foreground">
-            What it reads
-          </p>
-          <p>Support threads, auto-tags, call notes, CSAT trend</p>
-        </div>
-      </Card>
-
-      <Card className="gap-0 bg-card/80 backdrop-blur-lg px-5 py-5">
+      <Card className="gap-0 bg-card/80 backdrop-blur-lg px-5 py-5 mt-20">
         <p className="font-number text-muted-foreground uppercase text-xs">
           Active Bottleneck ● Detected Mon 07:12
         </p>
