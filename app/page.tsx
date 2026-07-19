@@ -15,6 +15,8 @@ import BGOrange from "@/public/bg-cta-orange.jpg";
 import { ProblemAlt } from "./sections/problem/problem-alt";
 import { Reveal } from "./sections/shared/reveal";
 import { ContinuityMemoryMiniCard } from "./components/mockups/continuity-memory-mini-card";
+import IntegrationLayer from "./sections/integration-layer/integration-layer";
+import { Hero2 } from "./sections/hero/hero2";
 
 export default function Home() {
   return (
@@ -25,8 +27,9 @@ export default function Home() {
           <Header />
           <main className="flex flex-col gap-10">
             <Hero />
+            {/* <Hero2/> */}
+            <IntegrationLayer />
             <ProblemAlt />
-            {/* <Problem /> */}
             <Solution />
             <HowSentraeaDecides />
 

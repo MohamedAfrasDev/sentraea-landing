@@ -68,9 +68,9 @@ export function ProblemAlt() {
               </p>
             </Reveal>
           </div>
-          <Reveal delay={0.15} className="mt-14">
+          {/* <Reveal delay={0.15} className="mt-14">
             <ProblemChaosMockup />
-          </Reveal>
+          </Reveal> */}
           <div className="mt-10">
             {/* <h3 className="text-3xl">The quiet failure mode</h3> */}
             {/* <Card className="p-0 bg-card/10">

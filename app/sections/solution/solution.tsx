@@ -59,28 +59,21 @@ function TrendIcon({ trend }: { trend: "up" | "down" | "flat" }) {
 const FEATURES = [
   {
     icon: CalendarCheck,
-    title: "Weekly Growth Summary",
-    body: "A clear readout of what changed and what deserves attention.",
+    title: "Weekly Leverage Brief",
+    body: "Get one clear move for the week — based on what changed across your business, not generic advice.",
     widget: (
-      <MiniScreen label="Weekly summary">
-        <ul className="space-y-2">
-          {SUMMARY_ROWS.map(({ label, value, trend }) => (
-            <li key={label} className="flex items-center justify-between gap-2">
-              <span className="text-xs text-neutral-500">{label}</span>
-              <span className="flex items-center gap-1 text-xs font-bold text-neutral-800">
-                {value}
-                <TrendIcon trend={trend} />
-              </span>
-            </li>
-          ))}
-        </ul>
-      </MiniScreen>
+      <Card>
+        <div className="flex">
+          <p>Monday Founder Brief</p>
+          <p>Week 12</p>
+        </div>
+      </Card>
     ),
   },
   {
     icon: ScanSearch,
-    title: "What’s Slowing Growth",
-    body: " Identifies the real constraint holding you back right now.",
+    title: "Cross-Tool Signals",
+    body: "Connect your stack and let Sentraea track what changed across analytics, CRM, billing, support, and your landing page.",
     widget: (
       <MiniScreen label="Current bottleneck">
         <ul className="space-y-1.5">
@@ -111,8 +104,8 @@ const FEATURES = [
   },
   {
     icon: Sparkles,
-    title: "One Recommended Move",
-    body: "One clear, high-leverage action based on your data.",
+    title: "Bottleneck Diagnosis",
+    body: "See where growth is actually stuck across demand, activation, conversion, and retention.",
     widget: (
       <MiniScreen label="This week's move">
         <div className="space-y-1 border-l-2 border-blue-500 py-0.5 pl-3">
@@ -128,8 +121,27 @@ const FEATURES = [
   },
   {
     icon: ShieldCheck,
-    title: "What to Ignore for Now",
-    body: "Helps you cut low-impact distractions.",
+    title: "Reasoning + Source Trail",
+    body: "Every recommendation comes with the exact why and the exact source behind it.",
+    widget: (
+      <MiniScreen label="Deprioritized">
+        <ul className="space-y-1.5">
+          {DEPRIORITIZED.map((item) => (
+            <li
+              key={item}
+              className="rounded-md border border-neutral-200/40 bg-neutral-50 px-2 py-1 text-[11px] font-medium text-neutral-400 line-through decoration-neutral-300"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </MiniScreen>
+    ),
+  },
+  {
+    icon: ShieldCheck,
+    title: "Execution-Ready Actions",
+    body: "Turn the diagnosis into action with a draft, a suggested change, or a controlled next step.",
     widget: (
       <MiniScreen label="Deprioritized">
         <ul className="space-y-1.5">
@@ -173,11 +185,11 @@ export function Solution() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-      <Container className="relative flex px-5 h-full justify-center flex-col items-center">
-        <div className="text-center items-center px-5 flex-2">
+      <Container className="relative flex px-5 h-full justify-start flex-col items-center">
+        <div className="text-start w-full items-center px-5 flex-2">
           <p className="uppercase font-number text-primary">The Solution</p>
 
-          <h2 className=" text-4xl md:text-[4rem] tracking-[-2px]  md:tracking-[-4px] md:leading-[70px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-800 font-heading">
+          <h2 className=" text-4xl text-start md:text-[4rem] tracking-[-2px]  md:tracking-[-4px] md:leading-[70px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground via-blue-800/70  to-blue-800 font-heading">
             Sentraea helps you decide what matters most this week.{" "}
           </h2>
           <p className="mt-5 md:mt-5 text-xl">
