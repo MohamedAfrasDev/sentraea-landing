@@ -115,7 +115,7 @@ export function HeroDashboard() {
           the landing page still answers question nobody is asking.
         </p>
 
-        <Card className="mt-3 px-3 py-3 bg-card/20 shadow-md grid grid-cols-2 gap-1">
+        <Card className="mt-3 px-3 py-3 bg-card/20 shadow-md grid grid-cols-1 md:grid-cols-2 gap-1">
           <div>
             <p>Confidence</p>
             <span className="flex items-center gap-1 mt-1">
@@ -123,12 +123,12 @@ export function HeroDashboard() {
               <p className="font-medium">High | 214 signals | 7 tools</p>
             </span>
           </div>
-          <div>
+          <div className="mt-5 md:mt-0">
             <p>Target metric</p>
             <span className="font-medium text-lg">Demo-to-close rate</span>
           </div>
 
-          <div className="col-span-2 mt-2">
+          <div className="col-span-1 md:col-span-2 mt-2">
             <p>Contributing sources</p>
             <div className="flex flex-wrap gap-1 mt-1">
               <Badge className="bg-card/50 px-3 py-3 text-black">
