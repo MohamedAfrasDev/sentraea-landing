@@ -33,7 +33,7 @@ export default function Home() {
             <Solution />
             <HowSentraeaDecides />
 
-            <WhoItsFor />
+            {/* <WhoItsFor />
             <div className="flex flex-col md:flex-row">
               <div className="flex-1">
                 <HowEarlyAccessWorks />
@@ -47,7 +47,7 @@ export default function Home() {
                   </p>
                 </Reveal>
               </div>
-            </div>
+            </div> */}
             <Faq />
           </main>
           <Footer />
