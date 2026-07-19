@@ -146,7 +146,7 @@ export function Hero() {
             </div>
 
             {/* Product mockup */}
-            <div className="flex-1 md:flex-3 w-full flex justify-center md:justify-end">
+            <div className="flex-1 md:flex-3 mt-10 md:mt-0 w-full flex justify-center md:justify-end">
               <HeroDashboard />
             </div>
           </div>
