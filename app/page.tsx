@@ -29,8 +29,7 @@ export default function Home() {
             <Hero />
             {/* <Hero2/> */}
             <IntegrationLayer />
-            <ProblemAlt />
-            <Solution />
+            {/* <Solution /> */}
             <HowSentraeaDecides />
 
             {/* <WhoItsFor />

@@ -4,6 +4,7 @@ import {
   ScanSearch,
   Sparkles,
   ShieldCheck,
+  ArrowRight,
 } from "lucide-react";
 import { Container, Section, SectionHeading } from "../shared/section";
 import { Reveal } from "../shared/reveal";
@@ -12,10 +13,12 @@ import {
   MiniScreen,
   SolutionMiniScreens,
 } from "@/app/components/mockups/solution-mini-screens";
-
+import BGUI from "@/public/sol-cta.svg";
 import DARKBG from "@/public/dark-blue-bg.jpg";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const SUMMARY_ROWS = [
   { label: "Trials", value: "+12%", trend: "up" },
@@ -59,54 +62,60 @@ function TrendIcon({ trend }: { trend: "up" | "down" | "flat" }) {
 const FEATURES = [
   {
     icon: CalendarCheck,
-    title: "Weekly Growth Summary",
-    body: "A clear readout of what changed and what deserves attention.",
+    title: "Weekly Leverage Brief",
+    body: "Get one clear move for the week — based on what changed across your business, not generic advice.",
     widget: (
-      <MiniScreen label="Weekly summary">
-        <ul className="space-y-2">
-          {SUMMARY_ROWS.map(({ label, value, trend }) => (
-            <li key={label} className="flex items-center justify-between gap-2">
-              <span className="text-xs text-neutral-500">{label}</span>
-              <span className="flex items-center gap-1 text-xs font-bold text-neutral-800">
-                {value}
-                <TrendIcon trend={trend} />
-              </span>
-            </li>
-          ))}
-        </ul>
-      </MiniScreen>
+      <Card className="px-5 py-5 text-start w-full">
+        <div className="flex justify-between">
+          <p>Monday Founder Brief</p>
+          <p className="font-number">Week 12</p>
+        </div>
+
+        <div>
+          <p className="font-medium">This week's bottleneck</p>
+          <div className="flex justify-between items-center">
+            <p className="font-medium text-xl">Conversion</p>
+            <Badge className="rounded-sm">Attention</Badge>
+          </div>
+        </div>
+        <div>
+          <p className="font-medium">One Highest-Leverage Move</p>
+          <span className="font-medium text-xl flex gap-1 items-center">
+            <ArrowRight /> <p>Rewrite demo flow for ICP X</p>
+          </span>
+        </div>
+        <div>
+          <p className="font-medium"> Why This Matters:</p>
+          <div className="flex justify-between items-center">
+            <p className=" text-lg">
+              Demo-to-close rate dropped from 28% → 14%{" "}
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Button>Open this week's brief</Button>
+          <Button variant={"outline"}>View signals</Button>
+        </div>
+      </Card>
     ),
   },
   {
     icon: ScanSearch,
-    title: "What’s Slowing Growth",
-    body: " Identifies the real constraint holding you back right now.",
+    title: " Cross-Tool Signals",
+    body: "Connect your stack and let Sentraea track what changed across analytics, CRM, billing, support, and your landing page",
     widget: (
-      <MiniScreen label="Current bottleneck">
-        <ul className="space-y-1.5">
-          {FUNNEL_CHECKS.map(({ label, healthy }) => (
-            <li
-              key={label}
-              className={
-                healthy
-                  ? "flex items-center justify-between rounded-md px-2 py-1 text-xs text-neutral-500"
-                  : "flex items-center justify-between rounded-md border border-amber-200/50 bg-amber-50/60 px-2 py-1 text-xs font-semibold text-amber-800"
-              }
-            >
-              {label}
-              <span
-                className={
-                  healthy
-                    ? "text-[9px] font-semibold text-emerald-600"
-                    : "text-[9px] font-bold uppercase tracking-wide text-amber-700"
-                }
-              >
-                {healthy ? "Healthy" : "Bottleneck"}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </MiniScreen>
+      <Card className="px-5 py-5 text-start w-full">
+        <div className="flex justify-between">
+          <p>Live Signals</p>
+          <p className="font-number">Last sync: 4m ago</p>
+        </div>
+
+        <div></div>
+        <div className="flex gap-2">
+          <Button>Open this week's brief</Button>
+          <Button variant={"outline"}>View signals</Button>
+        </div>
+      </Card>
     ),
   },
   {
@@ -149,11 +158,7 @@ const FEATURES = [
 
 export function Solution() {
   return (
-    <Section
-      id="solution"
-      className="min-h-screen bg-linear-to-b relative from-transparent via-primary/2.5 to-transparent "
-    >
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+    <Section id="solution" className="min-h-screen max-w-fit relative  ">
       {/* <Image
         src={DARKBG}
         alt="BG"
@@ -187,27 +192,36 @@ export function Solution() {
             right now.
           </p>
         </div>
-        <div className="grid rounded-none w-full   grid-cols-1 md:grid-cols-1     p-0 gap-0">
+        <div className="grid rounded-none w-full px-15 mt-10  grid-cols-1 md:grid-cols-1      gap-0">
           {FEATURES.map((feature, index) => {
             return (
               <div
                 key={index}
                 className={cn(
-                  "p-10 text-center flex flex-col md:flex-row items-start gap-10",
+                  "p-10 text-center items-center flex h-[calc(100vh-15rem)] flex-col md:flex-row gap-30",
                 )}
               >
-                <div className="w-fit flex-2">
-                  <div className="bg-primary/10 p-2 mb-4 rounded-xl w-fit">
+                <div
+                  className={cn("w-full flex-1", index % 2 == 0 && "hidden")}
+                >
+                  {feature.widget}
+                </div>
+                <div className="w-fit flex-1">
+                  {/* <div className="bg-primary/10 p-2 mb-4 rounded-xl w-fit">
                     <feature.icon className="text-primary text-xl " />
-                  </div>
-                  <h3 className="text-3xl text-start font-heading font-medium tracking-[-1px]">
+                  </div> */}
+                  <h3 className="text-4xl text-start font-heading font-medium tracking-[-1px]">
                     {feature.title}
                   </h3>
-                  <p className="text-lg text-start text-muted-foreground">
+                  <p className="text-lg mt-2 text-start text-muted-foreground">
                     {feature.body}
                   </p>
                 </div>
-                <div className="w-full flex-1">{feature.widget}</div>
+                <div
+                  className={cn("w-full flex-1", index % 2 != 0 && "hidden")}
+                >
+                  {feature.widget}
+                </div>
               </div>
             );
           })}

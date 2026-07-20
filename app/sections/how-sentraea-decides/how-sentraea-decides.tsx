@@ -253,7 +253,7 @@ export function HowSentraeaDecides() {
             <HowItWorksFlowMockup />
           </Reveal> */}
 
-          <Reveal
+          {/* <Reveal
             delay={0.2}
             className="mt-10 w-full mx-auto items-center justify-center flex"
           >
@@ -266,7 +266,7 @@ export function HowSentraeaDecides() {
             >
               Reserve My Spot
             </Button>
-          </Reveal>
+          </Reveal> */}
         </Container>
       </Section>
     </>
