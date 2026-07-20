@@ -143,7 +143,7 @@ export function Hero2() {
                 "text-md px-4 py-5 justify-center text-lg shadow-primary/10"
               }
             >
-              Reserve My Spot
+              Join the Founder Waitlist
               <ArrowRight
                 className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
                 aria-hidden

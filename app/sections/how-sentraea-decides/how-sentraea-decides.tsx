@@ -264,7 +264,7 @@ export function HowSentraeaDecides() {
                 "items-center w-fit justify-center text-xl px-4 py-5 shadow-none bg-black text-white"
               }
             >
-              Reserve My Spot
+              Join the Founder Waitlist
             </Button>
           </Reveal> */}
         </Container>

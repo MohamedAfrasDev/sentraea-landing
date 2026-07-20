@@ -14,7 +14,7 @@ const JoinListComponent = () => {
           Join <span className="font-semibold">34</span> others on the waitlist
         </h2>
         <Button className={"text-xl px-5 py-5"} onClick={() => setOpen(true)}>
-          Reserve My Spot <ArrowRightIcon />
+          Join the Founder Waitlist <ArrowRightIcon />
         </Button>
       </div>
     </>

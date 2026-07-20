@@ -115,7 +115,7 @@ const JoinWaitlistDialog = ({
                 {submitting ? (
                   <Loader2 className="animate-spin" />
                 ) : (
-                  "Reserve my spot"
+                  "Join the Founder Waitlist"
                 )}
               </Button>
             </form>

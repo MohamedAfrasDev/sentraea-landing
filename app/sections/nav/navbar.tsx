@@ -98,7 +98,7 @@ export function Navbar() {
               onClick={() => scrollTo("waitlist")}
               className="group hidden cursor-pointer items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white shadow-[0_4px_16px_-4px_rgba(37,99,235,0.5)] transition-all duration-300 hover:shadow-[0_6px_24px_-4px_rgba(37,99,235,0.65)] md:inline-flex"
             >
-              Reserve My Spot
+              Join the Founder Waitlist
               <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </button>
 
@@ -135,7 +135,7 @@ export function Navbar() {
               onClick={() => scrollTo("waitlist")}
               className="mt-2 cursor-pointer rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-medium text-white"
             >
-              Reserve My Spot
+              Join the Founder Waitlist
             </button>
           </nav>
         )}

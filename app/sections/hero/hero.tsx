@@ -87,7 +87,7 @@ export function Hero() {
         <HeroBackground />
 
         <Container className="relative">
-          <div className="items-start gap-12 flex flex-col md:flex-row">
+          <div className="items-start gap-12 flex flex-col md:flex-row ">
             {/* Copy */}
             <div className="flex flex-col items-start flex-1 md:flex-4">
               <motion.p
@@ -117,9 +117,10 @@ export function Hero() {
                 {...enter(0.16)}
                 className="mt-3 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
               >
-                Stop guessing what to focus on. Get one clear, data-backed
-                priority every week based on what’s actually moving in your
-                startup.
+                Connect your growth data once. Every Monday, Sentraea identifies
+                your biggest bottleneck, explains why it's happening, and
+                recommends the single action most likely to move your business
+                forward.
               </motion.p>
 
               <motion.div
@@ -130,7 +131,7 @@ export function Hero() {
                   onClick={() => setDialogOpen(true)}
                   className={"text-md px-4 py-5 text-lg shadow-primary/10"}
                 >
-                  Reserve My Spot
+                  Reserve My Spot{" "}
                   <ArrowRight
                     className="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
                     aria-hidden
@@ -146,7 +147,7 @@ export function Hero() {
             </div>
 
             {/* Product mockup */}
-            <div className="flex-1 hidden md:block md:flex-3 mt-10  md:mt-0 w-full justify-center md:justify-end">
+            <div className="flex-1 hidden xl:block md:flex-3 mt-10 items-start  md:mt-0 w-full justify-center md:justify-start">
               <HeroDashboard />
             </div>
           </div>

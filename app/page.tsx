@@ -33,6 +33,7 @@ export default function Home() {
             {/* <JoinListComponent /> */}
             <IntegrationLayer />
             <FeautureSection />
+            <ProblemAlt />
             {/* <Solution /> */}
             <HowSentraeaDecides />
 

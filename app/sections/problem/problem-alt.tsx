@@ -127,7 +127,7 @@ export function ProblemAlt() {
                   "items-center justify-start text-xl px-4 py-5 shadow-none bg-black text-white"
                 }
               >
-                Reserve My Spot
+                Join the Founder Waitlist
               </Button>
             </div>
           </Card>

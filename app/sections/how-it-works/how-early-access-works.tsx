@@ -13,7 +13,7 @@ const STEPS = [
   {
     icon: Send,
     step: "Step 1",
-    title: "Reserve My Spot",
+    title: "Join the Founder Waitlist",
     body: "Tell us a bit about your SaaS and current growth stage.",
   },
   {
@@ -144,7 +144,7 @@ export function HowEarlyAccessWorks() {
                 "items-center justify-center mt-5 text-xl px-4 py-5 shadow-none bg-black text-white"
               }
             >
-              Reserve My Spot
+              Join the Founder Waitlist
             </Button>
             <p className="mt-2">
               Early-access spots are limited. 47 founders have already joined

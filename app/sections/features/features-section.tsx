@@ -28,7 +28,7 @@ const FeautureSection = () => {
     },
     {
       label: "Cross-Tool Signals",
-      title: "Read your whole stack in one place.",
+      title: "Every signal. One recommendation.",
       desc: "Sentraea watches the tools you already use and pulls the signals that actually affect growth.",
       img: Feat3,
       widget: <Feature2 />,
@@ -42,7 +42,7 @@ const FeautureSection = () => {
     },
     {
       label: "Reasoning + Source Trail",
-      title: "See exactly why it made the call.",
+      title: "Every recommendation comes with evidence.",
       desc: "Every weekly move includes the reasoning behind it and the data sources that support it.",
       img: Feat4,
       widget: <Feature4 />,
