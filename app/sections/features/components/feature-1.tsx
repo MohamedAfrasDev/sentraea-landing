@@ -11,14 +11,14 @@ const Feature1 = () => {
   return (
     <div className="relative">
       <Image
-        src={Feat1}
+        src={Feat4}
         alt="F"
         width={1000}
         height={1000}
-        className="absolute rounded-md h-85"
+        className="absolute rounded-md h-full shadow-xl"
       />
-      <div className="pl-2 pt-2">
-        <Card className="px-4 py-3  relative md:min-w-88.75 max-w-77.5 md:max-w-fit rounded-tr-none rounded-br-none bg-card/70 w-full">
+      <div className="pl-2 pr-1 pt-2 pb-1">
+        <Card className="px-4 py-3  relative md:min-w-88.75  md:max-w-fit bg-card/70 w-full">
           <div className="flex justify-between items-center">
             <h3 className="tracking-tight">Monday Founder Brief</h3>
             <p className="font-number text-muted-foreground">Week 12</p>

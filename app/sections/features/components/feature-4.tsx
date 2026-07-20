@@ -37,10 +37,10 @@ const Feature4 = () => {
         alt="F"
         width={1000}
         height={1000}
-        className="absolute rounded-md h-85 md:h-70  shadow-xl"
+        className="absolute rounded-md  h-full  shadow-xl"
       />
-      <div className="relative pt-4 pr-1 pl-3">
-        <Card className="px-4 py-3 relative max-w-77.5 md:max-w-fit md:min-w-87.5 bg-card/70 w-full">
+      <div className="relative pt-2 pr-1 pl-2 pb-1">
+        <Card className="px-4 py-3 relative  md:max-w-fit md:min-w-87.5 bg-card/70 w-full">
           <div className="flex justify-between items-center">
             <h3 className="tracking-tight font-medium text-xl">
               Why This Move?

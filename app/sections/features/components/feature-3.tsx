@@ -40,17 +40,30 @@ const Feature3 = () => {
       label: " MRR 104% ",
     },
   ];
+
+  const getTextColor = (stage: string) => {
+    switch (stage) {
+      case "Healthy":
+        return "text-green-500";
+      case "Stable":
+        return "text-blue-500";
+      case "Attention":
+        return "text-yellow-500";
+      case "Quit":
+        return "text-red-500";
+    }
+  };
   return (
     <div className="relative">
       <Image
-        src={Feat2}
+        src={Feat1}
         alt="F"
         width={1000}
         height={1000}
-        className="absolute rounded-md h-90 "
+        className="absolute rounded-md  h-full shadow-xl"
       />
-      <div className="relative pr-3 pt-1 pl-1">
-        <Card className="px-4 py-4 relative md:min-w-92.5 max-w-77.5 md:max-w-fit bg-card/70 w-full">
+      <div className="relative pr-3 pt-1 pl-1 pb-3">
+        <Card className="px-4 py-4 relative w-full md:min-w-92.5  md:max-w-fit bg-card/70">
           <div className="flex justify-between items-center">
             <h3 className="tracking-tight text-xl font-medium">
               Growth Stage Health
@@ -64,14 +77,18 @@ const Feature3 = () => {
                   className="flex justify-between items-center w-full"
                 >
                   <p className="w-full font-medium">{data.title}</p>
-                  <p className="w-full text-start">{data.stage}</p>
+                  <p
+                    className={`w-full text-start font-number uppercase ${getTextColor(data.stage)}`}
+                  >
+                    {data.stage}
+                  </p>
                   <p className="w-full text-end text-muted-foreground">
                     {data.label}
                   </p>
                 </div>
               );
             })}
-            <Card className="px-2 py-2 gap-0 bg-card/30">
+            <Card className="px-2 py-2 gap-0 bg-card/30 mt-4">
               <p className="text-transparent text-lg font-medium bg-linear-to-r bg-clip-text from-foreground via-blue-500 to-blue-800">
                 Active Bottleneck: Conversion
               </p>

@@ -61,7 +61,7 @@ export function HeroDashboard() {
         </span>
       </Card>
 
-      <Card className="gap-0 bg-card/80 backdrop-blur-lg px-5 py-5 mt-20">
+      <Card className="gap-0 bg-card/50 backdrop-blur-lg px-5 py-5 mt-20">
         <p className="font-number text-muted-foreground uppercase text-xs">
           Active Bottleneck ● Detected Mon 07:12
         </p>
