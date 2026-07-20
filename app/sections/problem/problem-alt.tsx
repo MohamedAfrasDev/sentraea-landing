@@ -46,7 +46,7 @@ export function ProblemAlt() {
                     The Problem
                   </p>
 
-                  <h2 className=" text-4xl md:text-[3.4rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px] leading-[45px] md:leading-[80px]">
+                  <h2 className=" text-4xl md:text-[3.4rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px] leading-11.25 md:leading-20">
                     Your week is full.
                     {/* <br /> */} Your growth isn’t.{" "}
                   </h2>
@@ -60,7 +60,7 @@ export function ProblemAlt() {
                 </Reveal>
               </div>
               <Reveal className="flex-2 text-start ">
-                <p className="mt-10 text-4xl md:mt-5 bg-clip-text leading-[40px] font-heading text-transparent bg-linear-to-r from-black via-blue-900/80 to-blue-800/80 font-medium tracking-tight md:tracking-[-4px] md:text-5xl">
+                <p className="mt-10 text-4xl md:mt-5 bg-clip-text leading-10 font-heading text-transparent bg-linear-to-r from-black via-blue-900/80 to-blue-800/80 font-medium tracking-tight md:tracking-[-4px] md:text-5xl">
                   <span className="text-primary md:text-6xl">&ldquo;</span>Did
                   we work on the thing that actually mattered most?
                   <span className="text-primary md:text-6xl">&rdquo;</span>
@@ -104,7 +104,7 @@ export function ProblemAlt() {
             <Image
               src={ProblemSection}
               alt="Problem"
-              className="relative max-w-[400px] scale-120"
+              className="relative max-w-100 scale-120"
               width={1000}
               height={1000}
             />
@@ -113,10 +113,10 @@ export function ProblemAlt() {
         <div className="px-10">
           <Card className="p-0 bg-card/10 mt-5 h-fit">
             <div className="px-5 py-5 bg-linear-to-r flex flex-col gap-5 md:flex-row justify-between items-start md:items-center  from white via-blue-100/50 to-blue-200/40 backdrop-blur-lg">
-              <p className="text-xl md:text-4xl text-start tracking-tighter leading-[20px] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-900/80  to-blue-600 font-heading md:tracking-[-2px] md:leading-[40px]">
+              <p className="text-xl md:text-4xl text-start tracking-tighter leading-5 font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-900/80  to-blue-600 font-heading md:tracking-[-2px] md:leading-10">
                 {" "}
                 You want a clear answer to:{" "}
-                <span className="text-2xl md:text-4xl leading-[30px] md:leading-[45px]">
+                <span className="text-2xl md:text-4xl leading-7.5 md:leading-11.25">
                   “Where should we focus right now?”
                 </span>
               </p>

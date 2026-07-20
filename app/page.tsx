@@ -18,6 +18,7 @@ import { ContinuityMemoryMiniCard } from "./components/mockups/continuity-memory
 import IntegrationLayer from "./sections/integration-layer/integration-layer";
 import { Hero2 } from "./sections/hero/hero2";
 import FeautureSection from "./sections/features/features-section";
+import JoinListComponent from "./sections/joinlist-section/join-list-component";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
           <main className="flex flex-col gap-10">
             <Hero />
             {/* <Hero2/> */}
+            {/* <JoinListComponent /> */}
             <IntegrationLayer />
             <FeautureSection />
             {/* <Solution /> */}

@@ -103,7 +103,7 @@ export function Hero() {
 
               <motion.h1
                 {...enter(0.08)}
-                className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] md:leading-[80px] tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[5rem]"
+                className="mt-6 font-heading text-[2.8rem] font-medium leading-[1.06] md:leading-20 tracking-[-3px] md:tracking-[-4px] text-foreground md:text-6xl lg:text-[5rem]"
               >
                 Know the One <br />
                 <span className="bg-linear-to-r pr-1 from-black via-blue-800 to-blue-900 bg-clip-text text-transparent">
@@ -139,7 +139,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div {...enter(0.32)}>
-                <p className="mt-3 text-xl text-muted-foreground hidden md:block">
+                <p className="mt-3 text-xl font-medium hidden md:block">
                   47 founders have already joined the waitlist
                 </p>
               </motion.div>

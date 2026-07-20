@@ -35,11 +35,11 @@ import { Button } from "@/components/ui/button";
 export function HeroDashboard() {
   return (
     <div className="relative w-full h-full">
-      <Card className="py-4 bg-card/60 z-1 top-[-100px] scale-70  right-[-50px] max-w-[240px] absolute gap-0 backdrop-blur-md w-fit px-5">
+      <Card className="py-4 bg-card/60 z-1 -top-25 scale-70  -right-12.5 max-w-60 absolute gap-0 backdrop-blur-md w-fit px-5">
         <Image
           src={Hubspot}
           alt="Hubspot"
-          className="w-[50px] h-[40px]  mt-2"
+          className="w-12.5 h-10  mt-2"
           width={100}
           height={100}
         />
