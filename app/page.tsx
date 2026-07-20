@@ -17,6 +17,7 @@ import { Reveal } from "./sections/shared/reveal";
 import { ContinuityMemoryMiniCard } from "./components/mockups/continuity-memory-mini-card";
 import IntegrationLayer from "./sections/integration-layer/integration-layer";
 import { Hero2 } from "./sections/hero/hero2";
+import FeautureSection from "./sections/features/features-section";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
             <Hero />
             {/* <Hero2/> */}
             <IntegrationLayer />
+            <FeautureSection />
             {/* <Solution /> */}
             <HowSentraeaDecides />
 
