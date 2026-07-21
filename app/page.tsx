@@ -19,6 +19,7 @@ import IntegrationLayer from "./sections/integration-layer/integration-layer";
 import { Hero2 } from "./sections/hero/hero2";
 import FeautureSection from "./sections/features/features-section";
 import JoinListComponent from "./sections/joinlist-section/join-list-component";
+import GrowthConstraint from "./sections/growth/growth-constraint";
 
 export default function Home() {
   return (
@@ -31,9 +32,11 @@ export default function Home() {
             <Hero />
             {/* <Hero2/> */}
             {/* <JoinListComponent /> */}
+            {/* <ProblemAlt /> */}
             <IntegrationLayer />
+
             <FeautureSection />
-            <ProblemAlt />
+            {/* <GrowthConstraint /> */}
             {/* <Solution /> */}
             <HowSentraeaDecides />
 

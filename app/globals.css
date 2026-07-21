@@ -222,6 +222,12 @@
   }
 }
 
+@keyframes connectorFlow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
 
 
 @layer utilities {

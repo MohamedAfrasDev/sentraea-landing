@@ -26,8 +26,11 @@ export const Header = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setIsShrunk(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const shouldShrink = window.scrollY > 20;
+      setIsShrunk((prev) => (prev === shouldShrink ? prev : shouldShrink));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const { theme, setTheme } = useTheme();
@@ -67,7 +70,7 @@ export const Header = () => {
           {/* Inner navbar */}
           <div
             className={cn(
-              " backdrop-blur-lg dark:backdrop-blur-5xl bg-white dark:bg-black  rounded-lg   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
+              " backdrop-blur-sm bg-white dark:bg-black  rounded-lg   w-full flex items-center justify-between px-10 py-5 md:px-10 md:py-5  transition-all duration-500",
               isShrunk &&
                 "bg-white/70 dark:bg-black/70 border-muted-foreground/5  shadow-none shadow-gray-200/90 dark:shadow-gray-950/60 ",
             )}

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
-import { useCallback, useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
 import { Container } from "../shared/section";
 import { HeroDashboard } from "./hero-dashboard";
 import HeroBG from "@/public/bg-hero.jpg";
@@ -11,54 +11,47 @@ import { Button } from "@/components/ui/button";
 import JoinWaitlistDialog from "@/app/components/join-waitlist-dialog";
 import { WaitlistCounter } from "@/app/components/waitlist-counter";
 
-/** Tiny SVG noise tile, inlined so the hero needs no asset request. */
-const NOISE_TEXTURE = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E")`;
+/**
+ * Lightweight static noise grain — a tiny 150×150 SVG tile with a simple
+ * rect-based noise pattern. Unlike feTurbulence (which the browser must
+ * re-rasterize on every composite), this is decoded once and tiled as a
+ * GPU texture, costing essentially zero per-frame.
+ */
+const NOISE_GRAIN = `url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")`;
 
 function HeroBackground() {
-  const reducedMotion = useReducedMotion();
-  const enter = (delay: number) => ({
-    initial: { opacity: 0, y: reducedMotion ? 0 : 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: {
-      duration: 0.8,
-      delay,
-      ease: [0.21, 0.47, 0.32, 0.98] as const,
-    },
-  });
-
   return (
     <div
-      className="pointer-events-none absolute  inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
+      style={{ contain: "strict" }}
     >
-      {/* Soft radial wash anchoring the headline */}
+      {/* Lightweight grain overlay — uses a tiny tiled SVG decoded once */}
       <div
-        className="absolute inset-0 opacity-[0.4] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 opacity-[0.35] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundImage: NOISE_GRAIN,
+          backgroundRepeat: "repeat",
+          backgroundSize: "150px 150px",
         }}
       />
 
-      <motion.p className="rounded-md " {...enter(0.2)}>
-        <Image
-          src={HeroBG}
-          alt="hero-bg"
-          width={1000}
-          height={1000}
-          className="w-full h-full px-5 py-4"
-          style={{
-            borderRadius: 25,
-          }}
-        />
-      </motion.p>
-      {/* Slow-drifting gradient orbs */}
-
-      {/* Subtle grid, faded toward the edges */}
-
-      {/* Grain */}
+      {/* Hero background image */}
+      <Image
+        src={HeroBG}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover px-5 py-4"
+        style={{ borderRadius: 25 }}
+      />
     </div>
   );
 }
+
+/** Shared easing curve for hero entrance animations. */
+const HERO_EASE = [0.21, 0.47, 0.32, 0.98] as const;
 
 export function Hero() {
   const reducedMotion = useReducedMotion();
@@ -67,15 +60,15 @@ export function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  const enter = (delay: number) => ({
-    initial: { opacity: 0, y: reducedMotion ? 0 : 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: {
-      duration: 0.8,
-      delay,
-      ease: [0.21, 0.47, 0.32, 0.98] as const,
-    },
-  });
+  /** Memoised entrance animation factory — avoids new object allocation per render. */
+  const enter = useMemo(
+    () => (delay: number) => ({
+      initial: { opacity: 0, y: reducedMotion ? 0 : 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.8, delay, ease: HERO_EASE },
+    }),
+    [reducedMotion],
+  );
   const [dialogOpen, setDialogOpen] = useState(false);
   return (
     <>
@@ -117,7 +110,7 @@ export function Hero() {
                 {...enter(0.16)}
                 className="mt-3 max-w-xl text-base leading-relaxed bg-linear-to-tl from-black/70 via-black/60 to-muted-foreground/70 bg-clip-text text-transparent md:text-lg"
               >
-                Connect your growth data once. Every Monday, Sentraea identifies
+                Connect your growth data once. Every Week, Sentraea identifies
                 your biggest bottleneck, explains why it's happening, and
                 recommends the single action most likely to move your business
                 forward.
@@ -140,13 +133,10 @@ export function Hero() {
               </motion.div>
 
               <motion.div {...enter(0.32)}>
-                <p className="text-xl mt-2">
+                {/* <p className="text-xl mt-2">
                   Spend your week executing the right priority—not debating what
                   it should be.
-                </p>
-                <p className="mt-3 text-xl font-medium hidden md:block">
-                  47 founders have already joined the waitlist
-                </p>
+                </p> */}
               </motion.div>
             </div>
 
