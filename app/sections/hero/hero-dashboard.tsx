@@ -18,6 +18,7 @@ import {
   ArrowRight,
   Check,
   Signal,
+  Sparkles,
   TrendingDown,
   TrendingUp,
   X,
@@ -270,6 +271,12 @@ export function HeroDashboard() {
               View live signals
             </Button>
           </div>
+        </Card>
+      </div>
+
+      <div data-conn="ai" className="absolute bottom-[-100px] right-10 z-1">
+        <Card className="px-5 py-5 bg-card/60 backdrop-blur-xl">
+          <Sparkles />
         </Card>
       </div>
 

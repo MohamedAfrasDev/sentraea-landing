@@ -140,6 +140,10 @@ export function Hero() {
               </motion.div>
 
               <motion.div {...enter(0.32)}>
+                <p className="text-xl mt-2">
+                  Spend your week executing the right priority—not debating what
+                  it should be.
+                </p>
                 <p className="mt-3 text-xl font-medium hidden md:block">
                   47 founders have already joined the waitlist
                 </p>
@@ -147,9 +151,12 @@ export function Hero() {
             </div>
 
             {/* Product mockup */}
-            <div className="flex-1 hidden xl:block md:flex-3 mt-10 items-start  md:mt-0 w-full justify-center md:justify-start">
+            <motion.div
+              {...enter(0.3)}
+              className="flex-1 hidden xl:block md:flex-3 mt-10 items-start  md:mt-0 w-full justify-center md:justify-start"
+            >
               <HeroDashboard />
-            </div>
+            </motion.div>
           </div>
         </Container>
       </section>
