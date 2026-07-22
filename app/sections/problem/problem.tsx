@@ -41,18 +41,18 @@ export function Problem() {
           <h2 className="text-4xl sm:text-5xl tracking-tighter md:text-5xl font-heading font-medium text-foreground leading-[1.08]">
             Your week is full. Your growth isn't.
           </h2>
-          <p className="text-xl text-muted-foreground mt-2">
+          <p className="md:text-xl text-muted-foreground mt-3">
             Every week you choose between fixing onboarding, rewriting pricing,
             launching campaigns, building features, or talking to customers.
           </p>
 
-          <p className="text-4xl tracking-tight  mt-5">
+          <p className="text-4xl tracking-tight  mt-10">
             The problem isn't execution.
             <br /> It's choosing the one decision that compounds.
           </p>
         </div>
 
-        <div className="flex-1 h-fit rounded-none p-2 bg-div/30 backdrop-blur-2xl relative">
+        <div className="flex-1 h-fit rounded-none  bg-div/30 backdrop-blur-2xl relative">
           <Card className="relative bg-card/20 mt-1 ml-1 p-4">
             <p className="font-number text-2xl uppercase">This Week</p>
             <div className="grid grid-cols-1 gap-2">

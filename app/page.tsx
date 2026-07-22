@@ -34,13 +34,13 @@ export default function Home() {
 
             <ProblemMain />
             <GrowthConstraint />
+            <HowSentraeaDecides />
 
             {/* <ProblemAlt /> */}
             <IntegrationLayer />
 
             <FeautureSection />
 
-            <HowSentraeaDecides />
             {/* <Hero2/> */}
             {/* <JoinListComponent /> */}
             {/* <Problem /> */}

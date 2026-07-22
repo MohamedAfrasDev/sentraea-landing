@@ -91,14 +91,14 @@ export default function GrowthConstraint() {
   const reducedMotion = useReducedMotion();
 
   return (
-    <Section id="growth-constraint" className="relative  overflow-hidden">
+    <Section id="growth-constraint" className="relative px-0 overflow-hidden">
       {/* Ambient background lighting */}
 
       <Container className="relative z-10">
         {/* Header Section */}
         <div className="text-center  mx-auto flex flex-col items-center">
           <Reveal delay={0.08}>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-medium tracking-tight text-foreground leading-[1.08]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-heading font-medium tracking-tight text-foreground leading-[1.08]">
               Every growing SaaS has one bottleneck at a time.
             </h2>
           </Reveal>
