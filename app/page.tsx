@@ -32,14 +32,14 @@ export default function Home() {
           <main className="flex flex-col gap-10">
             <Hero />
 
-            <ProblemMain />
-            <GrowthConstraint />
-            <HowSentraeaDecides />
+            {/* <ProblemMain />
+            <GrowthConstraint /> */}
 
             {/* <ProblemAlt /> */}
             <IntegrationLayer />
 
             <FeautureSection />
+            <HowSentraeaDecides />
 
             {/* <Hero2/> */}
             {/* <JoinListComponent /> */}
