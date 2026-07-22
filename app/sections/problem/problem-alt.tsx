@@ -39,7 +39,7 @@ export function ProblemAlt() {
       <Section id="problem" className="min-h-screen   gap-30">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-        <div className="px-10 relative flex flex-col text-center items-center justify-center gap-5">
+        <div className="px-10 relative flex flex-col text-start items-start justify-start gap-5">
           <div className="flex-2">
             <h2 className="text-6xl font-medium tracking-tight">
               {" "}
@@ -50,16 +50,25 @@ export function ProblemAlt() {
               sure if they worked on what actually moved the needle.
             </p>
 
-            <div className="mt-10">
-              <ProblemVisual />
+            <div className="flex flex-col md:flex-row gap-10 mt-10">
+              <div className="">
+                <ProblemVisual />
+              </div>
+              <div>
+                <p className="text-xl  mt-5 text-muted-foreground">
+                  At the end of the week you will ask:
+                </p>
+                <p className="text-5xl tracking-tight  font- text-foreground bg-linear-120 bg-clip-text from-foreground via-blue-400 to-blue-500">
+                  Did we work on the thing that mattered most?
+                </p>
+                <p className="text-2xl  mt-10 text-muted-foreground">
+                  You want one clear answer every week:
+                </p>
+                <p className="text-6xl font- tracking-tighter text-transparent bg-linear-to-r bg-clip-text from-foreground via-blue-900 to-blue-800">
+                  Where should I focus this week?
+                </p>
+              </div>
             </div>
-
-            <p className="text-2xl  mt-5 text-muted-foreground">
-              You want one clear answer every Week:
-            </p>
-            <p className="text-5xl font-medium tracking-tight text-transparent bg-linear-to-r bg-clip-text from-foreground via-blue-700 to-blue-400">
-              &quot;Where should I focus this week?&quot;
-            </p>
           </div>
         </div>
       </Section>
