@@ -20,26 +20,31 @@ import { Hero2 } from "./sections/hero/hero2";
 import FeautureSection from "./sections/features/features-section";
 import JoinListComponent from "./sections/joinlist-section/join-list-component";
 import GrowthConstraint from "./sections/growth/growth-constraint";
+import ProblemMain from "./sections/problem/problem-main";
 
 export default function Home() {
   return (
     <>
       <SmoothScroll>
         <div className="min-h-full bg-linear-to-b from-white via-[#fafbfe] to-white">
-          {/* <Navbar /> */}
+          <Navbar />
           <Header />
           <main className="flex flex-col gap-10">
             <Hero />
-            {/* <Hero2/> */}
-            {/* <JoinListComponent /> */}
+
+            <ProblemMain />
+            <GrowthConstraint />
+
             {/* <ProblemAlt /> */}
             <IntegrationLayer />
 
             <FeautureSection />
-            {/* <GrowthConstraint /> */}
-            {/* <Solution /> */}
-            <HowSentraeaDecides />
 
+            <HowSentraeaDecides />
+            {/* <Hero2/> */}
+            {/* <JoinListComponent /> */}
+            {/* <Problem /> */}
+            {/* <Solution /> */}
             {/* <WhoItsFor />
             <div className="flex flex-col md:flex-row">
               <div className="flex-1">

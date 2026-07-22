@@ -51,9 +51,9 @@ const Feature4 = () => {
               return (
                 <div key={index}>
                   <div>
-                    <p>{fd.title}</p>
+                    <p className="text-muted-foreground text-xs">{fd.title}</p>
                     <div className="flex items-center gap-5">
-                      <Image src={fd.icon} alt={fd.title} width={50} />
+                      <Image src={fd.icon} alt={fd.title} width={60} />
                       <p className="text-xs md:text-sm">{fd.value}</p>
                       {index == 0 && <Sparkles size={15} />}
                     </div>

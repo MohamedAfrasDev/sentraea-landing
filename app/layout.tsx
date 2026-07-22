@@ -13,7 +13,7 @@ import {
 } from "next/font/google";
 import Clarity from "@microsoft/clarity";
 
-import twImage from "@/public/bg-cta-orange.jpg";
+import twImage from "@/public/illustrations/twitt.png";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
 import { TooltipProvider } from "@/components/ui/tooltip";

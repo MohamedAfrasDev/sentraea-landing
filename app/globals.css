@@ -14,7 +14,8 @@
   --font-sans: var(--font-sfpro), sans-serif;
   --font-heading: var(--font-satoshi), sans-serif;
   --font-heading-high: var(--font-instrument-serif), serif;
-
+  --shadow-br: 10px 10px 15px rgba(0, 0, 0, 1);
+  --shadow-tl: -10px -10px 15px rgba(0, 0, 0, 1);
   --font-arizona: var(--font-arizona-flare), sans-serif;
   --font-body: var(--font-sfpro), sans-serif;
   --font-number: var(--font-number), monospace;

@@ -12,6 +12,7 @@ import ProblemSection from "@/public/prob.png";
 import Image from "next/image";
 import feat1 from "@/public/features/feat2.jpg";
 import ProblemVisual from "./problem-visual";
+import ProblemVisualCp from "./problem-visualCp";
 const PAIN_POINTS = [
   {
     icon: CircleHelp,
@@ -39,9 +40,9 @@ export function ProblemAlt() {
       <Section id="problem" className="min-h-screen   gap-30">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-        <div className="px-10 relative flex flex-col text-start items-start justify-start gap-5">
+        <div className="px-10 relative flex flex-col text-center items-center justify-center gap-5">
           <div className="flex-2">
-            <h2 className="text-6xl font-medium tracking-tight">
+            <h2 className="text-5xl font- tracking-tight">
               {" "}
               Your week is full. Your growth isn’t.
             </h2>
@@ -50,21 +51,24 @@ export function ProblemAlt() {
               sure if they worked on what actually moved the needle.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-10 mt-10">
-              <div className="">
-                <ProblemVisual />
+            <div className=" gap-20 mt-10">
+              <div className="w-full ">
+                <ProblemVisualCp />
               </div>
-              <div>
-                <p className="text-xl  mt-5 text-muted-foreground">
+              <div className="w-full text-center flex-1 mt-10">
+                <p className="text-xl  mt-2 text-muted-foreground">
                   At the end of the week you will ask:
                 </p>
-                <p className="text-5xl tracking-tight  font- text-foreground bg-linear-120 bg-clip-text from-foreground via-blue-400 to-blue-500">
+                <p className="mt-2 text-5xl font-normal md:leading-13 text-transparent tracking-tighter  font- bg-linear-450 bg-clip-text from-foreground via-blue-900 to-blue-950">
                   Did we work on the thing that mattered most?
+                </p>
+                <p className="text-lg md:text-2xl mt-1 text-gray-600 font-normal leading-relaxed">
+                  You’re not short on effort. You’re short on clarity.
                 </p>
                 <p className="text-2xl  mt-10 text-muted-foreground">
                   You want one clear answer every week:
                 </p>
-                <p className="text-6xl font- tracking-tighter text-transparent bg-linear-to-r bg-clip-text from-foreground via-blue-900 to-blue-800">
+                <p className="text-6xl  tracking-tight text-transparent bg-linear-to-r bg-clip-text from-foreground via-blue-900 to-blue-800">
                   Where should I focus this week?
                 </p>
               </div>

@@ -2,7 +2,8 @@ import { CircleHelp, Layers, ListPlus, Target } from "lucide-react";
 import { Container, Section, SectionHeading } from "../shared/section";
 import { Reveal } from "../shared/reveal";
 import { Card } from "@/components/ui/card";
-
+import Image from "next/image";
+import Img from "@/public/illustrations/problem-1.jpg";
 const PAIN_POINTS = [
   {
     icon: CircleHelp,
@@ -22,65 +23,51 @@ const PAIN_POINTS = [
 ] as const;
 
 export function Problem() {
+  const problems = [
+    "Fix bugs",
+    "Improve pricing",
+    "Launch ads",
+    "Build Feature X",
+    "Talk to customers",
+    "New ICP",
+  ];
   return (
-    <Section id="problem" className="min-h-screen">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(#cacccf_1px,transparent_1px)] bg-size-[20px_20px] dark:bg-[radial-gradient(#4f5052_1px,transparent_1px)] opacity-70 mask-[radial-gradient(ellipse_80%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
-      <Container className="relative z-1">
-        <div className=" gap-10">
-          <div className="flex-3 gap-0">
-            <div className="items-center text-center">
-              <p className="uppercase font-number text-primary">The Problem</p>
+    <Section id="problem" className="">
+      <Container className="relative z-1 flex flex-col md:flex-row gap-15">
+        <div className="flex-2">
+          <p className="font-number text-primary text-lg font-medium">
+            The Founder Reality
+          </p>
+          <h2 className="text-4xl sm:text-5xl tracking-tighter md:text-5xl font-heading font-medium text-foreground leading-[1.08]">
+            Your week is full. Your growth isn't.
+          </h2>
+          <p className="text-xl text-muted-foreground mt-2">
+            Every week you choose between fixing onboarding, rewriting pricing,
+            launching campaigns, building features, or talking to customers.
+          </p>
 
-              <h2 className=" text-4xl md:text-[3.4rem] font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-black  to-black font-heading tracking-[-2px] md:tracking-[-3px] leading-[80px]">
-                Your week is full.
-                {/* <br /> */} Your growth isn’t.{" "}
-              </h2>
-            </div>
-            <Reveal delay={0.1} className="mx-auto mt-0 text-center">
-              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                You ship features, run campaigns, jump on demos, fix bugs, tweak
-                onboarding. But when the week ends, you still wonder:
-              </p>
-            </Reveal>
-          </div>
-          <Reveal className="flex-2 text-center">
-            <p className="mt-6 bg-clip-text font-heading text-transparent bg-linear-to-r from-black via-blue-900/80 to-blue-800/80 text-xl font-medium tracking-tight md:tracking-[-4px] md:text-7xl">
-              <span className="text-primary text-5xl">&ldquo;</span>Did we work
-              on the thing that actually mattered most?
-              <span className="text-primary text-5xl">&rdquo;</span>
-            </p>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-2xl">
-              Most teams try to fix this with more tasks, more tools, more
-              dashboards. The real problem is priority — not effort.
-            </p>
-          </Reveal>
+          <p className="text-4xl tracking-tight  mt-5">
+            The problem isn't execution.
+            <br /> It's choosing the one decision that compounds.
+          </p>
         </div>
-        <div className="mt-10">
-          <div className="mt-2 flex-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PAIN_POINTS.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={0.08 * i}>
-                <Card className="group relative h-full flex flex-col items-center text-center bg-card/40 backdrop-blur-lg gap-2 px-6 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_20px_48px_-20px_rgba(30,58,138,0.22)]">
-                  <div className="inline-flex size-10 min-w-10 items-center justify-center rounded-sm bg-primary/6 text-primary transition-colors duration-300 group-hover:bg-primary/10">
-                    <Icon className="size-5" aria-hidden />
+
+        <div className="flex-1 h-fit rounded-none p-2 bg-div/30 backdrop-blur-2xl relative">
+          <Card className="relative bg-card/20 mt-1 ml-1 p-4">
+            <p className="font-number text-2xl uppercase">This Week</p>
+            <div className="grid grid-cols-1 gap-2">
+              {problems.map((prob, index) => {
+                return (
+                  <div key={index} className="flex gap-2 items-center">
+                    <div className="w-2 h-2 bg-primary" />
+                    <p className="text-xl text-muted-foreground">{prob}</p>
                   </div>
-                  {/* <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-foreground">
-                    {title}
-                  </h3> */}
-                  <p className="mt-2 text-xl leading-relaxed ">{body}</p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-          <Card className="p-0 bg-card/10 mt-5">
-            <div className="px-5 py-3 bg-linear-to-r from white via-blue-100/50 to-blue-200/40 backdrop-blur-lg">
-              <p className="text-4xl text-center font-medium bg-linear-to-r bg-clip-text text-transparent from-foreground/80 via-blue-900/80  to-blue-600 font-heading tracking-[-2px] md:tracking-[-2px] leading-[70px]">
-                {" "}
-                You want a clear answer to:{" "}
-                <span className="text-5xl">
-                  “Where should we focus right now?”
-                </span>
-              </p>
+                );
+              })}
             </div>
+            <p className="text-2xl tracking-tight mt-3 px-2">
+              Which one actually moves growth?
+            </p>
           </Card>
         </div>
       </Container>
